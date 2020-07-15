@@ -17,5 +17,29 @@ public class Client {
         Person josh= new ClassMate("Josh");
         System.out.println(josh);
 
+        Room room=new Room();
+        System.out.println(room);
+
+        Room java=new RoomJava();
+        System.out.println(java);
+
+        Room javascript=new RoomJS();
+        System.out.println(javascript);
+
+        Room algorithm= new RoomAlgorithm();
+        System.out.println(algorithm);
+
+        Room python= new RoomPython();
+        System.out.println(python);
+
+        Room linux= new RoomLinux();
+        System.out.println(linux);
+
+        Room capstone= new RoomCapstone();
+        System.out.println(capstone);
+
+        Room breakout=new RoomBreakout();
+        System.out.println(breakout);
+
     }
 }
