@@ -1,10 +1,10 @@
 package com.game;
 
-public class TlgStaff extends Person{
+public class Staff extends Person{
     //CONSTRUCTOR
-    public TlgStaff(String name){
+    public Staff(String name){
         super(name);
-        setTitle(Title.TLGSTAFF);
+        setTitle(Title.STAFF);
     }
 
 

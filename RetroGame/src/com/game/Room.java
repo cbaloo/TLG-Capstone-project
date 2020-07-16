@@ -1,23 +1,38 @@
 package com.game;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Room {
     //INSTANCE VARIABLE
     private Name name;
     private Instructor instructor;
+    public Map<Name, Boolean> action= new HashMap<>(){
+        {
+            put(Name.JAVASCRIPT,false);
+            put(Name.PYTHON,false);
+            put(Name.LINUX,false);
+            put(Name.ALGORITHM,false);
+            put(Name.CAPSTONE,false);
+            put(Name.LOBBY,true);
+            put(Name.BREAKOUT,false);
+        }
+    };
 
 
     //NESTED STATIC CLASS
-    public static enum Name{JAVA, JAVASCRIPT, ALGORITHM, LINUX, PYTHON, CAPSTONE, BREAKOUT}
+    public static enum Name{JAVA, JAVASCRIPT, ALGORITHM, LINUX, PYTHON, CAPSTONE, BREAKOUT,LOBBY}
 
     //CONSTRUCTORS
 
     //ACCESSOR METHODS
+
+
     public Name getName() {
         return name;
     }
 
     public void setName(Name name) {
-        //TODO VALIDATION
         this.name = name;
     }
 
@@ -26,7 +41,6 @@ public class Room {
     }
 
     public void setInstructor(Instructor instructor) {
-        //TODO VALIDATION
         this.instructor = instructor;
     }
 

@@ -9,16 +9,16 @@ public class Person {
 
     //CONSTRUCTORS
     public Person(String name, Title title) {
-        this.name = name;
-        this.title = title;
+        setName(name);
+        setTitle(title);
     }
     public Person(String name) {
-        this.name = name;
+        setName(name);
     }
     public Person(){};
 
     //STATIC NESTED CLASSES
-    public static enum Title{INSTRUCTOR, CLASSMATE, TLGSTAFF, PLAYER}
+    public static enum Title{INSTRUCTOR, CLASSMATE, STAFF, PLAYER}
 
 
     //ACCESSOR METHODS
@@ -26,8 +26,10 @@ public class Person {
         return name;
     }
 
-    public void setName(String name) {
-        //TODO VALIDATION
+    public void setName(String name) throws IllegalArgumentException {
+        if(name.isEmpty()){
+            throw new IllegalArgumentException("Enter Valid Name");
+        }
         this.name = name;
     }
 
