@@ -3,6 +3,7 @@ package com.game.room;
 import com.game.person.Instructor;
 
 public class RoomJava extends Room {
+     private String message = "";
 
     //CONSTRUCTOR
     public RoomJava() {
@@ -11,6 +12,9 @@ public class RoomJava extends Room {
         setInstructor(new Instructor("Jay") );
     }
 
+    public String getMessage() {
+        return message;
+    }
 
     @Override
     public String toString() {

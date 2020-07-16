@@ -38,7 +38,9 @@ public class GameEngine {
         }
     }
 
-
+    public void enterRoom(){
+        return;
+    }
 
 
 }
