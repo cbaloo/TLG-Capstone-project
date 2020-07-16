@@ -14,10 +14,15 @@ public class GameEngine {
         //System.out.println(player);
         //TODO Display Welcome message(with name) and Game Intro, displayIntro() maybe, actions displayed eg, [ENTER]
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
         //TODO Display the map of floor of TLG displayMap() Chandana
         displayWelcomeMsg(player.getName());
 >>>>>>> 28a7e281508491379edfbc8c77f25b962d873bc8
+=======
+        displayWelcomeMsg(player.getName());
+        //TODO Display the map of floor of TLG displayMap() Chandana
+>>>>>>> 9f3e4de090f3c6841c08ccd930b41b2b86382374
 
         //TODO Game loop starts once the player opts to ENTER
         while(true){
