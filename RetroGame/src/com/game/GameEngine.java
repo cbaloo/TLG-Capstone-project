@@ -12,8 +12,8 @@ public class GameEngine {
     public void start(){
         Player player= getPlayer();
         //TODO Display Welcome message(with name) and Game Intro, displayIntro() maybe, actions displayed eg, [ENTER]
-        //TODO Display the map of floor of TLG displayMap() Chandana
         displayWelcomeMsg(player.getName());
+        //TODO Display the map of floor of TLG displayMap() Chandana
 
         //TODO Game loop starts once the player opts to ENTER
         if("ENTER".equals(console.readLine("Type action:").toUpperCase())){
