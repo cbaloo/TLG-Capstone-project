@@ -10,20 +10,26 @@ public class GameEngine {
 
     //Method to start the game
     public void start(){
-        Player player= getPlayer();
+        Player player=getPlayer();
+        //System.out.println(player);
         //TODO Display Welcome message(with name) and Game Intro, displayIntro() maybe, actions displayed eg, [ENTER]
+<<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        //TODO Display the map of floor of TLG displayMap() Chandana
         displayWelcomeMsg(player.getName());
+>>>>>>> 28a7e281508491379edfbc8c77f25b962d873bc8
+=======
+        displayWelcomeMsg(player.getName());
+        //TODO Display the map of floor of TLG displayMap() Chandana
+>>>>>>> 9f3e4de090f3c6841c08ccd930b41b2b86382374
 
         //TODO Game loop starts once the player opts to ENTER
-        if("ENTER".equals(console.readLine("Type action:").toUpperCase())){
-            System.out.println("In the Lobby!");
-            while(true){
-                //TODO once in the lobby message,actions and status displayed, only java and breakout is open for entry, all others are closed with a  smart-ass comment
-                //TODO once inside java, Jay greets you the jay way, Maybe icebreaker in the beginning and then on to quiz, maybe make the presence of classmates and Jeanette known somehow
-                //TODO pass/stuck-in-java after quiz, if pass python opens and the same pattern follows, go to lobby and then to python
-            }
+        while(true){
+            //TODO once in the lobby message,actions and status displayed, only java and breakout is open for entry, all others are closed with a  smart-ass comment
+            //TODO once inside java, Jay greets you the jay way, Maybe icebreaker in the beginning and then on to quiz, maybe make the presence of classmates and Jeanette known somehow
+            //TODO pass/stuck-in-java after quiz, if pass python opens and the same pattern follows, go to lobby and then to python
         }
-
     }
 
     //Get player name from the console and then return a Player
@@ -42,15 +48,11 @@ public class GameEngine {
         }
     }
 
-    //Display Welcome message and give a rundown of how to play the game
-    public void displayWelcomeMsg(String name){
-        System.out.println("\n\nHEY "+name.toUpperCase()+"! \n\nWELCOME TO THE TLG LEARNING FACILITY IN BELLEVUE, WA!\nCONGRATULATIONS!!! YOU ARE A BRAND SPANKING NEW SDE APPRENTICE. BE READY FOR AN EXCITING RIDE TO AMAZON. \n\nWARNING!!! BEFORE ENTERING BUCKLE UP WITH LOADS OF ENTHUSIASM. TO GET TO OJT YOU HAVE TO GO THROUGH THE GATEKEEPERS: TLG INSTRUCTORS AND STAFF.\n\nGOOD LUCK AND GODSPEED.\n\nACTIONS:[ENTER,]");
+    public void enterRoom(){
+        return;
     }
-
-    //Display available actions to the player
-    public void displayActions(){
-
-    }
+<<<<<<< HEAD
+=======
     //Display player status
     public void displayStatus(){
 
@@ -60,6 +62,11 @@ public class GameEngine {
 
     }
 
+    //Display map function
+    public void displayMap(){
+
+    }
+>>>>>>> 28a7e281508491379edfbc8c77f25b962d873bc8
 
 
 }
