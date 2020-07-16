@@ -7,6 +7,7 @@ import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.logging.LoggingPermission;
 
 public class GameEngine {
     public Player player;
@@ -16,8 +17,8 @@ public class GameEngine {
             new Lobby(),
             new RoomJava(),
             new RoomJS(),
-            new RoomLinux(),
             new RoomAlgorithm(),
+            new RoomLinux(),
             new RoomPython(),
             new RoomCapstone()
     ));
@@ -25,22 +26,28 @@ public class GameEngine {
     //Method to start the game
     public void start(){
         Player player= getPlayer();
-        //TODO Display Welcome message(with name) and Game Intro, displayIntro() maybe, actions displayed eg, [ENTER]
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
 
         //TODO Game loop starts once the player opts to ENTER
         if("ENTER".equals(console.readLine("Type action:").toUpperCase())){
-            System.out.println("In the Lobby!");
-//            curRoom= new Lobby();
-//            curRoom.action.put(curRoom.getName().value(),true);
-//            System.out.println(curRoom.getStaff());
+            for(Room curRoom:roomList){
+                curRoom.action.put(curRoom.getName().value(),true);
+                player.getStatus().put("Location",curRoom.getName().value());
+                System.out.println(player.getStatus());
+                if(curRoom.getName().value().equals("Lobby")){
+                    Lobby lobby=(Lobby) curRoom;
+                    System.out.println(lobby.getStaff().getName()+": Gooooood Morning! How are you " + player.getName()+" ?");
+                }
+                else{
+                    System.out.println(curRoom.getInstructor().getName()+": How are you "+player.getName()+ " ?");
 
-            while(true){
+                }
+            }
                 //TODO once in the lobby message,actions and status displayed, only java and breakout is open for entry, all others are closed with a  smart-ass comment
                 //TODO once inside java, Jay greets you the jay way, Maybe icebreaker in the beginning and then on to quiz, maybe make the presence of classmates and Jeanette known somehow
                 //TODO pass/stuck-in-java after quiz, if pass python opens and the same pattern follows, go to lobby and then to python
-            }
+
         }
 
     }
