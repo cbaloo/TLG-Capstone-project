@@ -1,10 +1,12 @@
 package com.game.person;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Person {
     //INSTANCE VARIABLE
     private String name;
     private Title title;
-
 
 
     //CONSTRUCTORS

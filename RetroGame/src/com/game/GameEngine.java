@@ -16,8 +16,9 @@ public class GameEngine {
 
         //TODO Game loop starts once the player opts to ENTER
         while(true){
-
-
+            //TODO once in the lobby message,actions and status displayed, only java and breakout is open for entry, all others are closed with a  smart-ass comment
+            //TODO once inside java, Jay greets you the jay way, Maybe icebreaker in the beginning and then on to quiz, maybe make the presence of classmates and Jeanette known somehow
+            //TODO pass/stuck-in-java after quiz, if pass python opens and the same pattern follows, go to lobby and then to python
         }
     }
 
