@@ -1,6 +1,7 @@
 package com.game.client;
 
-import com.game.*;
+import com.game.person.*;
+import com.game.room.*;
 
 public class Client {
     public static void main(String[] args) {

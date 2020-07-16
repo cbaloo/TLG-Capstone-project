@@ -1,5 +1,7 @@
 package com.game;
 
+import com.game.person.Player;
+
 import java.io.Console;
 
 public class GameEngine {
