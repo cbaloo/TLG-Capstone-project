@@ -23,7 +23,22 @@ public class Room {
 
 
     //NESTED STATIC CLASS
-    public static enum Name{JAVA, JAVASCRIPT, ALGORITHM, LINUX, PYTHON, CAPSTONE, BREAKOUT,LOBBY}
+    public static enum Name{
+        JAVA("Java"),
+        JAVASCRIPT("JavaScript"),
+        ALGORITHM("Algorithm"),
+        LINUX("Linux"),
+        PYTHON("Python"),
+        CAPSTONE("Capstone"),
+        BREAKOUT("Breakout"),
+        LOBBY("Lobby");
+
+        private String value;
+        Name(String value){
+            this.value=value;
+        }
+        public String value(){return value;}
+    }
 
     //CONSTRUCTORS
 
