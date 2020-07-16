@@ -1,6 +1,7 @@
 package com.game.client;
 
-import com.game.*;
+import com.game.person.*;
+import com.game.room.*;
 
 public class Client {
     public static void main(String[] args) {
@@ -8,10 +9,10 @@ public class Client {
         Person instructor1=new Instructor("Jay");
         System.out.println(instructor1.toString());
 
-        Person player1=new Player("KG");
+        Player player1=new Player("KG");
         System.out.println(player1);
 
-        Person tlgStaff1= new TlgStaff("Nancy");
+        Person tlgStaff1= new Staff("Nancy");
         System.out.println(tlgStaff1);
 
         Person josh= new ClassMate("Josh");
@@ -40,6 +41,10 @@ public class Client {
 
         Room breakout=new RoomBreakout();
         System.out.println(breakout);
+
+        Room lobby= new Lobby();
+        System.out.println(lobby);
+        System.out.println(lobby.action);
 
     }
 }
