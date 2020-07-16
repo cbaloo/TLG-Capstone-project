@@ -9,15 +9,15 @@ public class Room {
     //INSTANCE VARIABLE
     private Name name;
     private Instructor instructor;
-    public Map<Name, Boolean> action= new HashMap<>(){
+    public Map<String, Boolean> action= new HashMap<>(){
         {
-            put(Name.JAVASCRIPT,false);
-            put(Name.PYTHON,false);
-            put(Name.LINUX,false);
-            put(Name.ALGORITHM,false);
-            put(Name.CAPSTONE,false);
-            put(Name.LOBBY,false);
-            put(Name.BREAKOUT,false);
+            put(Name.JAVASCRIPT.value(),false);
+            put(Name.PYTHON.value(),false);
+            put(Name.LINUX.value(),false);
+            put(Name.ALGORITHM.value(),false);
+            put(Name.CAPSTONE.value(),false);
+            put(Name.LOBBY.value(),false);
+            put(Name.BREAKOUT.value(),false);
         }
     };
 
