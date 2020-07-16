@@ -4,7 +4,7 @@ import com.game.person.Instructor;
 
 public class RoomJava extends Room {
     //INSTANCE VARIABLES
-    private String message="";
+    private String javaMessage="You are now in the Java Classroom!";
 
     //CONSTRUCTOR
     public RoomJava() {
@@ -14,11 +14,9 @@ public class RoomJava extends Room {
     }
 
     //ACCESSOR METHODS
-
-    public String getMessage() {
-        return message;
+    public String getJavaMessage() {
+        return javaMessage;
     }
-
 
     @Override
     public String toString() {

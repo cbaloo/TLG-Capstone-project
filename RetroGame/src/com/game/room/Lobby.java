@@ -5,6 +5,7 @@ import com.game.person.Staff;
 public class Lobby extends Room {
     //INSTANT VARIABLE
     private Staff staff;
+    public String lobbyMessage = "You are now in the TLG Lobby";
 
     //CONSTRUCTOR
     public Lobby(){
@@ -22,10 +23,14 @@ public class Lobby extends Room {
         this.staff = staff;
     }
 
+    public String getLobbyMessage() {
+        return lobbyMessage;
+    }
+
     @Override
     public String toString() {
         return "Lobby{" +
                 "name=" + getName() +", "+
-                getStaff()+"} ";
+                getStaff()+ "\n" + getLobbyMessage() +" } ";
     }
 }
