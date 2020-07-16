@@ -13,6 +13,11 @@ public class GameEngine {
         Player player=getPlayer();
         //System.out.println(player);
         //TODO Display Welcome message(with name) and Game Intro, displayIntro() maybe, actions displayed eg, [ENTER]
+<<<<<<< HEAD
+=======
+        //TODO Display the map of floor of TLG displayMap() Chandana
+        displayWelcomeMsg(player.getName());
+>>>>>>> 28a7e281508491379edfbc8c77f25b962d873bc8
 
         //TODO Game loop starts once the player opts to ENTER
         while(true){
@@ -41,6 +46,22 @@ public class GameEngine {
     public void enterRoom(){
         return;
     }
+<<<<<<< HEAD
+=======
+    //Display player status
+    public void displayStatus(){
+
+    }
+    //Display room message
+    public void displayRoomMessage(){
+
+    }
+
+    //Display map function
+    public void displayMap(){
+
+    }
+>>>>>>> 28a7e281508491379edfbc8c77f25b962d873bc8
 
 
 }
