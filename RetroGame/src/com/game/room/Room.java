@@ -16,7 +16,7 @@ public class Room {
             put(Name.LINUX,false);
             put(Name.ALGORITHM,false);
             put(Name.CAPSTONE,false);
-            put(Name.LOBBY,true);
+            put(Name.LOBBY,false);
             put(Name.BREAKOUT,false);
         }
     };

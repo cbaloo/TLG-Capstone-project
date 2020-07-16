@@ -12,6 +12,7 @@ public class Player extends Person {
             put("Score","0");
         }
     };
+
     //CONSTRUCTORS
     public Player(String name) {
         super(name);
