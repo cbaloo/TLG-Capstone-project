@@ -1,14 +1,17 @@
 package com.game.room;
 
 import com.game.person.Instructor;
+import com.game.person.Staff;
+
 import java.util.HashMap;
 import java.util.Map;
 
-public class Room {
+public abstract class Room {
     //INSTANCE VARIABLE
+    private Staff staff;
     private Name name;
     private Instructor instructor;
-    public Map<String, Boolean> roomChecks = new HashMap<>(){
+    private Map<String, Boolean> roomChecks = new HashMap<>(){
         {
             put(Name.JAVASCRIPT.value(),false);
             put(Name.PYTHON.value(),false);
@@ -39,7 +42,10 @@ public class Room {
         public String value(){return value;}
     }
 
-    //CONSTRUCTORS
+    //ABSTRACT METHOD
+    public abstract String getMessage();
+    public abstract Map<String, String> getQuiz();
+    public abstract Map<String, String> getWildcard();
 
     //ACCESSOR METHODS
     public Name getName() {
@@ -58,6 +64,17 @@ public class Room {
         this.instructor = instructor;
     }
 
+    public Map<String, Boolean> getRoomChecks() {
+        return roomChecks;
+    }
+
+    public Staff getStaff() {
+        return staff;
+    }
+
+    public void setStaff(Staff staff) {
+        this.staff = staff;
+    }
 
     @Override
     public String toString() {

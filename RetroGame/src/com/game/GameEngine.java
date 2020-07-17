@@ -66,7 +66,24 @@ public class GameEngine {
                     displayRoomMessage(roomJava);
                     System.out.println("\nSTATUS: "+player.getStatus());
                     System.out.println("ACTIONS: "+roomJava.getActions());
-                    console.readLine("\nType action:");
+                    while(true) {
+                        action=console.readLine("\nType action:");
+                        if(action.toUpperCase().equals("TAKE JAVA QUIZ")){
+                            for(String question:roomJava.getRoomQuiz().keySet()){
+                                String answer=console.readLine(question+": ");
+                                if(answer.equals(roomJava.getRoomQuiz().get(question))){
+                                    System.out.println("Correct!!!");
+                                }
+                                else{
+                                    System.out.println("Nope!!!");
+                                }
+                            }
+                        }
+                        else{
+                            System.out.println("Should have picked java quiz");
+                        }
+                        break;
+                    }
                     break;
                 }
                 else if(action.isEmpty()){

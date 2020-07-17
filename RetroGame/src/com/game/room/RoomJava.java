@@ -7,13 +7,13 @@ import java.util.*;
 public class RoomJava extends Room {
 
     //INSTANCE VARIABLES
-    public String roomMessage = "Welcome to the Java Classroom. " +
+    private String message = "Welcome to the Java Classroom. " +
             "I hope you brought your air guitar with you!";
-
     private List<String> actions=new ArrayList(Arrays.asList(
             "Introduce yourself",
             "Wave",
-            "Take quiz"
+            "Take java quiz",
+            "Take wild card quiz"
     ));
 
     private Map<String,String> roomQuiz=new HashMap<>(){
@@ -44,12 +44,20 @@ public class RoomJava extends Room {
     }
 
     //ACCESSOR METHODS
-    public String getRoomMessage() {
-        return roomMessage;
+    public String getMessage() {
+        return message;
     }
 
     public List<String> getActions() {
         return actions;
+    }
+
+    public Map<String, String> getQuiz() {
+        return roomQuiz;
+    }
+
+    public Map<String, String> getWildcard() {
+        return wildCardQuiz;
     }
 
     @Override
@@ -57,6 +65,6 @@ public class RoomJava extends Room {
         return "RoomJava{" +
                 "name=" + getName() + ", " +
                 getInstructor() + "\n" +
-                getRoomMessage() + " } ";
+                getMessage() +" } ";
     }
 }

@@ -18,9 +18,6 @@ public class Client {
         Person josh= new ClassMate("Josh");
         System.out.println(josh);
 
-        Room room=new Room();
-        System.out.println(room);
-
         Room java=new RoomJava();
         System.out.println(java);
 

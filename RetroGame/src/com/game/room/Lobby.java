@@ -5,11 +5,11 @@ import com.game.person.Staff;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class Lobby extends Room {
     //INSTANT VARIABLE
-    private Staff staff;
-    private String roomMessage="\n\nYOU ARE IN THE LOBBY AND SEE MANY CLASSROOMS.";
+    private String message="\n\nYOU ARE IN THE LOBBY AND SEE MANY CLASSROOMS.";
     private List<String> actions=new ArrayList(Arrays.asList(
        "ENTER JAVA",
        "ENTER JAVASCRIPT",
@@ -28,25 +28,23 @@ public class Lobby extends Room {
     }
 
     //ACCESSOR METHODS
-    public Staff getStaff() {
-        return staff;
+    public String getMessage() {
+        return message;
     }
 
-    private void setStaff(Staff staff) {
-        this.staff = staff;
+    @Override
+    public Map<String, String> getQuiz() {
+        return null;
     }
 
-    public String getRoomMessage() {
-        return roomMessage;
-    }
-    public void setRoomMessage(String roomMessage){
-        this.roomMessage=roomMessage;
+    @Override
+    public Map<String, String> getWildcard() {
+        return null;
     }
 
     public List<String> getActions() {
         return actions;
     }
-
 
     @Override
     public String toString() {
