@@ -11,14 +11,11 @@ public class RoomLinux extends Room {
 
     private Map<String,String> roomQuiz=new HashMap<>(){
         {
-            put("","");
-            put("","");
-            put("","");
-            put("","");
-            put("","");
-            put("","");
-
-
+            put("What is the Linux command to change directories?", "cd");
+            put("What is the Linux command to list the contents of a directory?", "ls");
+            put("What is the Linux command to make a directory?", "mkdir");
+            put("", "");
+            put("", "");
         }
     };
 

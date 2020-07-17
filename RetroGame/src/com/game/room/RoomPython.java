@@ -17,7 +17,7 @@ public class RoomPython extends Room {
             put("What is the correct file extension for Python files? '.pyt' or '.py'",".py");
             put("What method is used to return a string in upper case letters? upper() or uppercase()?","upper()");
             put("","");
-            put("","");
+
         }
     };
     //CONSTRUCTOR
