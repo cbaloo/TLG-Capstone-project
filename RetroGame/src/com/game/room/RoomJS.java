@@ -12,11 +12,11 @@ public class RoomJS extends Room {
     private Map<String,String> roomQuiz=new HashMap<>(){
         {
             put("Which company developed JavaScript, Netgear or Netscape?", "netscape");
-            put("","");
-            put("","");
-            put("","");
-            put("","");
-            put("","");
+            put("JavaScript can be used with CSS and '----' to create interactive web pages.", "html");
+            put("JavaScript was first known as LiveScript or ECMAScript?", "livescript");
+            put("In JavaScript, semi-colons are required", "false");
+            put("JSON stands for JavaScript Object '--------'", "notation");
+            put("", "");
         }
     };
 
