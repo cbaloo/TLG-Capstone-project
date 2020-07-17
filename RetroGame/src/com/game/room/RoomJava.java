@@ -5,30 +5,27 @@ import com.game.person.Instructor;
 public class RoomJava extends Room {
 
     //INSTANCE VARIABLES
-    private String message="";
-
+    private String roomMessage = "Welcome to the Java Classroom. " +
+            "I hope you brought your air guitar with you!";
 
     //CONSTRUCTOR
     public RoomJava() {
         super();
         setName(Name.JAVA);
-        setInstructor(new Instructor("Jay") );
+        setInstructor(new Instructor("Jay"));
     }
-
 
     //ACCESSOR METHODS
-
-    public String getMessage() {
-        return message;
+    public String getRoomMessage() {
+        return roomMessage;
     }
 
->>>>>>> 28a7e281508491379edfbc8c77f25b962d873bc8
 
     @Override
     public String toString() {
         return "RoomJava{" +
-                "name=" + getName()+", "+
-                getInstructor() +
-                '}';
+                "name=" + getName() + ", " +
+                getInstructor() + "\n" +
+                getRoomMessage() + " } ";
     }
 }
