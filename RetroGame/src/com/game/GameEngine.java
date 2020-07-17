@@ -73,7 +73,7 @@ public class GameEngine {
                     System.out.println("Invalid Entry!");
                 }
                 else if (lobby.getActions().contains(action.toUpperCase())){
-                    System.out.println("Tough Luck little Grasshopper, you still have a lot of learning to do be be able to access this door!");
+                    System.out.println("Tough luck little Grasshopper, you are not worthy of entering this room yet!");
                 }
                 else{
                     System.out.println("HINT: JAVA!");
