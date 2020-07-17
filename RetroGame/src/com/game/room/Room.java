@@ -9,7 +9,7 @@ public class Room {
     //INSTANCE VARIABLE
     private Name name;
     private Instructor instructor;
-    public Map<String, Boolean> action= new HashMap<>(){
+    public Map<String, Boolean> roomChecks = new HashMap<>(){
         {
             put(Name.JAVASCRIPT.value(),false);
             put(Name.PYTHON.value(),false);

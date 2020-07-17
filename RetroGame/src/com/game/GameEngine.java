@@ -11,7 +11,6 @@ import java.util.List;
 public class GameEngine {
     public Player player;
     public  Console console=System.console();
-    public Lobby curRoom;
     public List<Room> roomList=new ArrayList(Arrays.asList(
             new Lobby(),
             new RoomJava(),
@@ -24,27 +23,24 @@ public class GameEngine {
 
     //Method to start the game
     public void start(){
-        Player player= getPlayer();
+        player= getPlayer();
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
 
         //TODO Game loop starts once the player opts to ENTER
         if("ENTER".equals(console.readLine("\nType action:").toUpperCase())){
-            for(Room curRoom:roomList){
+            for(Room room:roomList){
                 while(true){
-                    curRoom.action.put(curRoom.getName().value(),true);
-                    player.getStatus().put("Location",curRoom.getName().value());
-                    if(curRoom.getName().value().equals("Lobby")){
-                        Lobby lobby=(Lobby) curRoom;
-                        System.out.println(lobby.getRoomMessage());
-                        System.out.println(lobby.getStaff().getName()+": GOOD MORNING. HOW ARE YOU " + player.getName().toUpperCase()+"?");
-                        System.out.println("\nSTATUS: "+player.getStatus());
-                        System.out.println(curRoom.action);
-                        console.readLine("Type action:");
-                    }
-                    else{
-                        System.out.println(curRoom.getInstructor().getName()+": HOW ARE YOU "+player.getName()+ "?");
-                    }
+                    //Updating the location of the player with the curRoom
+                    player.getStatus().put("Location",room.getName().value());
+                    //Display player status
+                    System.out.println("\nSTATUS: "+player.getStatus());
+                    //Cast the room to specific rooms, eg Lobby, Java, JavaScript, etc....
+
+                    //Displaying a message of the room which will require casting
+
+                    console.readLine("Type action:");
+
                     break;
                 }
 
