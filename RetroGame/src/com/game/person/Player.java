@@ -24,10 +24,6 @@ public class Player extends Person {
         return status;
     }
 
-    public void setStatus(Map<String, String> status) {
-        //TODO MAY NEED VALIDATION
-        this.status = status;
-    }
 
     @Override
     public String toString() {

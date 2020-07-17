@@ -29,28 +29,66 @@ public class GameEngine {
 
         //TODO Game loop starts once the player opts to ENTER
         if("ENTER".equals(console.readLine("\nType action:").toUpperCase())){
-            for(Room room:roomList){
-                while(true){
-                    //Updating the location of the player with the curRoom
-                    player.getStatus().put("Location",room.getName().value());
-                    //Display player status
+//            for(Room room:roomList){
+//                while(true){
+//                    //Updating the location of the player with the curRoom
+//                    player.getStatus().put("Location",room.getName().value());
+//                    //Display player status
+//                    System.out.println("\nSTATUS: "+player.getStatus());
+//                    //Display roomMessage as you enter the room
+//                    displayRoomMessage(room);
+//                    //Display action options
+//
+//                    //Player response after reading the status and action options
+//                    console.readLine("\nType action:");
+//
+//                    break;
+//                }
+//
+//            }
+            Lobby lobby=new Lobby();
+            //Update location of the player with current room
+            player.getStatus().put("Location",lobby.getName().value());
+            //Display roomMessage as you enter the room
+            displayRoomMessage(lobby);
+            //Display player status: location and score
+            System.out.println("\nSTATUS: "+player.getStatus());
+            //Display action options
+            System.out.println("ACTIONS: "+lobby.getActions());
+
+            while(true){
+                //Player response after reading the status and action options
+                String action=console.readLine("\nType action:");
+                //Only entrance to RommJava is allowed at this point, all the other rooms are closed
+                if(action.toUpperCase().equals("enter java".toUpperCase())){
+                    RoomJava roomJava=new RoomJava();
+                    player.getStatus().put("Location",roomJava.getName().value());
+                    displayRoomMessage(roomJava);
                     System.out.println("\nSTATUS: "+player.getStatus());
-                    //Cast the room to specific rooms, eg Lobby, Java, JavaScript, etc....
-
-                    //Displaying a message of the room which will require casting
-
-                    console.readLine("Type action:");
-
+                    System.out.println("ACTIONS: "+roomJava.getActions());
+                    console.readLine("\nType action:");
                     break;
                 }
-
+                else if(action.isEmpty()){
+                    System.out.println("Invalid Entry!");
+                }
+                else if (lobby.getActions().contains(action.toUpperCase())){
+                    System.out.println("Tough Luck little Grasshopper, you still have a lot of learning to do be be able to access this door!");
+                }
+                else{
+                    System.out.println("HINT: JAVA!");
+                }
             }
+
+
                 //TODO once in the lobby message,actions and status displayed, only java and breakout is open for entry, all others are closed with a  smart-ass comment
                 //TODO once inside java, Jay greets you the jay way, Maybe icebreaker in the beginning and then on to quiz, maybe make the presence of classmates and Jeanette known somehow
                 //TODO pass/stuck-in-java after quiz, if pass python opens and the same pattern follows, go to lobby and then to python
 
         }
     }
+
+
 
     //Get player name from the console and then return a Player
     public Player getPlayer(){
@@ -89,7 +127,32 @@ public class GameEngine {
 
     }
     //Display room message
-    public void displayRoomMessage(){
+    public void displayRoomMessage(Room room){
+        switch(room.getName()){
+            case LOBBY:
+                System.out.println("\n"+((Lobby) room).getRoomMessage());
+                break;
+            case JAVA:
+                System.out.println("\n"+((RoomJava) room).getRoomMessage());
+                break;
+            case JAVASCRIPT:
+                System.out.println("\n"+((RoomJS) room).getRoomMessage());
+                break;
+            case ALGORITHM:
+                System.out.println("\n"+((RoomAlgorithm) room).getRoomMessage());
+                break;
+            case PYTHON:
+                System.out.println("\n"+((RoomPython) room).getRoomMessage());
+                break;
+            case LINUX:
+                System.out.println("\n"+((RoomLinux) room).getRoomMessage());
+                break;
+            case CAPSTONE:
+                System.out.println("\n"+((RoomCapstone) room).getRoomMessage());
+                break;
+            case BREAKOUT:
+                System.out.println("\n"+((RoomBreakout) room).getRoomMessage());
+        }
 
     }
 

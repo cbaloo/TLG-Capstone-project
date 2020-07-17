@@ -42,8 +42,6 @@ public class Room {
     //CONSTRUCTORS
 
     //ACCESSOR METHODS
-
-
     public Name getName() {
         return name;
     }

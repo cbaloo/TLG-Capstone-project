@@ -2,16 +2,21 @@ package com.game.room;
 
 import com.game.person.Instructor;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class RoomJava extends Room {
 
     //INSTANCE VARIABLES
-    private String roomMessage = "Welcome to the Java Classroom. " +
+    public String roomMessage = "Welcome to the Java Classroom. " +
             "I hope you brought your air guitar with you!";
     //TODO quiz question repo
     private Map<String,String> roomQuiz=new HashMap<>();
+    private List<String> actions=new ArrayList(Arrays.asList(
+            "Introduce yourself",
+            "Wave",
+            "Take quiz"
+    ));
+
 
     //CONSTRUCTOR
     public RoomJava() {
@@ -25,6 +30,9 @@ public class RoomJava extends Room {
         return roomMessage;
     }
 
+    public List<String> getActions() {
+        return actions;
+    }
 
     @Override
     public String toString() {
