@@ -2,9 +2,12 @@ package com.game.room;
 
 import com.game.person.Instructor;
 
+import java.util.List;
+import java.util.Map;
+
 public class RoomBreakout extends Room {
     //INSTANCE VARIABLE
-    private String roomMessage = "Welcome to the Breakout Room! " +
+    private String message = "Welcome to the Breakout Room! " +
             "You have wasted your own time, " +
             "but here is a red marker for your entertainment! ";
 
@@ -16,8 +19,24 @@ public class RoomBreakout extends Room {
     }
 
     //ACCESSOR METHODS
-    public String getRoomMessage() {
-        return roomMessage;
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    @Override
+    public Map<String, String> getQuiz() {
+        return null;
+    }
+
+    @Override
+    public Map<String, String> getWildcard() {
+        return null;
+    }
+
+    @Override
+    public List<String> getActions() {
+        return null;
     }
 
     @Override
@@ -25,6 +44,6 @@ public class RoomBreakout extends Room {
         return "RoomBreakout{" +
                 "name=" + getName() + ", " +
                 getInstructor() + "\n" +
-                getRoomMessage() + " } ";
+                getMessage() + " } ";
     }
 }

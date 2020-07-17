@@ -3,11 +3,12 @@ package com.game.room;
 import com.game.person.Instructor;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RoomPython extends Room {
     //INSTANCE VARIABLES
-    private String roomMessage = "Welcome to the Python Classroom!";
+    private String message = "Welcome to the Python Classroom!";
 
     private Map<String,String> roomQuiz=new HashMap<>(){
         {
@@ -16,8 +17,6 @@ public class RoomPython extends Room {
             put("How do you comment out one single line of Python code","#");
             put("What is the correct file extension for Python files? '.pyt' or '.py'",".py");
             put("What method is used to return a string in upper case letters? upper() or uppercase()?","upper()");
-            put("","");
-            put("","");
         }
     };
     //CONSTRUCTOR
@@ -28,8 +27,24 @@ public class RoomPython extends Room {
     }
 
     //ACCESSOR METHOD
-    public String getRoomMessage() {
-        return roomMessage;
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    @Override
+    public Map<String, String> getQuiz() {
+        return null;
+    }
+
+    @Override
+    public Map<String, String> getWildcard() {
+        return null;
+    }
+
+    @Override
+    public List<String> getActions() {
+        return null;
     }
 
     @Override
@@ -37,6 +52,6 @@ public class RoomPython extends Room {
         return "RoomPython{" +
                 "name=" + getName()+", "+
                 getInstructor() + "\n" +
-                getRoomMessage() + " } ";
+                getMessage() + " } ";
     }
 }

@@ -3,11 +3,12 @@ package com.game.room;
 import com.game.person.Instructor;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RoomCapstone extends Room {
     //INSTANCE VARIABLE
-    private String roomMessage = "Welcome to the Capstone classroom! You are almost worthy!!";
+    private String message = "Welcome to the Capstone classroom! You are almost worthy!!";
 
     private Map<String, String> roomQuiz = new HashMap<>() {
         {
@@ -16,7 +17,6 @@ public class RoomCapstone extends Room {
             put("A user story is a tool used in '-----' software development", "agile");
             put("When using Agile, sprints typically last between 1 and 4 '-----'.", "weeks");
             put("Working software is the primary measure of '--------'?", "");
-            put("", "");
         }
     };
 
@@ -28,8 +28,24 @@ public class RoomCapstone extends Room {
     }
 
     //ACCESSOR METHODS
-    public String getRoomMessage() {
-        return roomMessage;
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    @Override
+    public Map<String, String> getQuiz() {
+        return roomQuiz;
+    }
+
+    @Override
+    public Map<String, String> getWildcard() {
+        return null;
+    }
+
+    @Override
+    public List<String> getActions() {
+        return null;
     }
 
     @Override
@@ -37,6 +53,6 @@ public class RoomCapstone extends Room {
         return "RoomCapstone{" +
                 "name=" + getName()+", "+
                 getInstructor() + "\n" +
-                getRoomMessage() + " } ";
+                getMessage() + " } ";
     }
 }

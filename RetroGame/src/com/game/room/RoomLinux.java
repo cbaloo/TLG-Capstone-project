@@ -3,11 +3,12 @@ package com.game.room;
 import com.game.person.Instructor;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RoomLinux extends Room {
     //INSTANCE VARIABLES
-    private String roomMessage = "Welcome to the Linux Classroom!";
+    private String message = "Welcome to the Linux Classroom!";
 
     private Map<String,String> roomQuiz=new HashMap<>(){
         {
@@ -31,8 +32,24 @@ public class RoomLinux extends Room {
     }
 
     //ACCESSOR METHODS
-    public String getRoomMessage() {
-        return roomMessage;
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    @Override
+    public Map<String, String> getQuiz() {
+        return roomQuiz;
+    }
+
+    @Override
+    public Map<String, String> getWildcard() {
+        return null;
+    }
+
+    @Override
+    public List<String> getActions() {
+        return null;
     }
 
     @Override
@@ -40,6 +57,6 @@ public class RoomLinux extends Room {
         return "RoomLinux{" +
                 "name=" + getName()+", "+
                 getInstructor() + "\n" +
-                getRoomMessage() + " } ";
+                getMessage() + " } ";
     }
 }

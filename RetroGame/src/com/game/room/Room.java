@@ -4,6 +4,7 @@ import com.game.person.Instructor;
 import com.game.person.Staff;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public abstract class Room {
@@ -46,6 +47,7 @@ public abstract class Room {
     public abstract String getMessage();
     public abstract Map<String, String> getQuiz();
     public abstract Map<String, String> getWildcard();
+    public abstract List<String> getActions();
 
     //ACCESSOR METHODS
     public Name getName() {

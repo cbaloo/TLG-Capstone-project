@@ -3,11 +3,12 @@ package com.game.room;
 import com.game.person.Instructor;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class RoomJS extends Room {
     //INSTANCE VARIABLES
-    private String roomMessage = "Welcome to JavaScript! Are you confused yet??";
+    private String message = "Welcome to JavaScript! Are you confused yet??";
 
     private Map<String,String> roomQuiz=new HashMap<>(){
         {
@@ -28,8 +29,24 @@ public class RoomJS extends Room {
     }
 
     //ACCESSOR METHODS
-    public String getRoomMessage() {
-        return roomMessage;
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    @Override
+    public Map<String, String> getQuiz() {
+        return roomQuiz;
+    }
+
+    @Override
+    public Map<String, String> getWildcard() {
+        return null;
+    }
+
+    @Override
+    public List<String> getActions() {
+        return null;
     }
 
     @Override
@@ -37,6 +54,6 @@ public class RoomJS extends Room {
         return "RoomJavaScript{" +
                 "name=" + getName()+", "+
                 getInstructor() + "\n" +
-                getRoomMessage() + " } ";
+                getMessage() + " } ";
     }
 }
