@@ -28,88 +28,32 @@ public class GameEngine {
         //TODO Display the map of floor of TLG displayMap() Chandana
 
         //TODO Game loop starts once the player opts to ENTER
-        if("ENTER".equals(console.readLine("\nType action:").toUpperCase())){
-            for(Room room:roomList){
-                while(true){
+        while (true) {
+            if ("ENTER".equals(console.readLine("\nType action:").toUpperCase())) {
+                for (Room room : roomList) {
                     //Updating the location of the player with the curRoom
-                    player.getStatus().put("Location",room.getName().value());
+                    player.getStatus().put("Location", room.getName().value());
                     //Display roomMessage as you enter the room
-                    System.out.println(room.getMessage());
+                    System.out.println("\n"+room.getMessage());
                     //Display player status
-                    System.out.println("\nSTATUS: "+player.getStatus());
+                    System.out.println("\nSTATUS: " + player.getStatus());
                     //Display action options
-                    System.out.println("ACTIONS: "+room.getActions());
-                    //Player response after reading the status and action options
-                    console.readLine("\nType action:");
-
-                    break;
+                    System.out.println("ACTIONS: " + room.getActions());
+                    //Direct to the proper room actions interaction
+                    actionInteraction(room);
                 }
-
+                break;
+                //TODO once in the lobby message,actions and status displayed, only java and breakout is open for entry, all others are closed with a  smart-ass comment
+                //TODO pass/stuck-in-java after quiz, if pass python opens and the same pattern follows, go to lobby and then to python
             }
-
-
-            //TODO once in the lobby message,actions and status displayed, only java and breakout is open for entry, all others are closed with a  smart-ass comment
-            //TODO once inside java, Jay greets you the jay way, Maybe icebreaker in the beginning and then on to quiz, maybe make the presence of classmates and Jeanette known somehow
-            //TODO pass/stuck-in-java after quiz, if pass python opens and the same pattern follows, go to lobby and then to python
-//            Lobby lobby=new Lobby();
-//            //Update location of the player with current room
-//            player.getStatus().put("Location",lobby.getName().value());
-//            //Display roomMessage as you enter the room
-//            displayRoomMessage(lobby);
-//            //Display player status: location and score
-//            System.out.println("\nSTATUS: "+player.getStatus());
-//            //Display action options
-//            System.out.println("ACTIONS: "+lobby.getActions());
-
-//            while(true){
-//                //Player response after reading the status and action options
-//                String action=console.readLine("\nType action:");
-//                //Only entrance to RommJava is allowed at this point, all the other rooms are closed
-//                if(action.toUpperCase().equals("enter java".toUpperCase())){
-//                    RoomJava roomJava=new RoomJava();
-//                    player.getStatus().put("Location",roomJava.getName().value());
-//                    displayRoomMessage(roomJava);
-//                    System.out.println("\nSTATUS: "+player.getStatus());
-//                    System.out.println("ACTIONS: "+roomJava.getActions());
-//                    while(true) {
-//                        action=console.readLine("\nType action:");
-//                        if(action.toUpperCase().equals("TAKE JAVA QUIZ")){
-//                            for(String question:roomJava.getQuiz().keySet()){
-//                                String answer=console.readLine(question+": ");
-//                                if(answer.equals(roomJava.getQuiz().get(question))){
-//                                    System.out.println("Correct!!!");
-//                                }
-//                                else{
-//                                    System.out.println("Nope!!!");
-//                                }
-//                            }
-//                        }
-//                        else{
-//                            System.out.println("Should have picked java quiz");
-//                        }
-//                        break;
-//                    }
-//                    break;
-//                }
-//                else if(action.isEmpty()){
-//                    System.out.println("Invalid Entry!");
-//                }
-//                else if (lobby.getActions().contains(action.toUpperCase())){
-//                    System.out.println("Tough luck little Grasshopper, you are not worthy of entering this room yet!");
-//                }
-//                else{
-//                    System.out.println("HINT: JAVA!");
-//                }
-//            }
-
-
+            else{
+                System.out.println("Invalid Entry!");
+            }
         }
     }
 
-
-
     //Get player name from the console and then return a Player
-    public Player getPlayer(){
+    private Player getPlayer(){
         String playerName;
         Player curPlayer;
         while(true){
@@ -124,33 +68,100 @@ public class GameEngine {
         }
     }
 
-
     //Display Welcome message and give a rundown of how to play the game
-    public void displayWelcomeMsg(String name){
+    private void displayWelcomeMsg(String name){
         System.out.println("\n\nHEY "+name.toUpperCase()+"! \n\nWELCOME TO THE TLG LEARNING FACILITY IN BELLEVUE, WA!\nCONGRATULATIONS!!! YOU ARE A BRAND SPANKING NEW SDE APPRENTICE. BE READY FOR AN EXCITING RIDE TO AMAZON. \n\nWARNING!!! BEFORE ENTERING BUCKLE UP WITH LOADS OF ENTHUSIASM. TO GET TO OJT YOU HAVE TO GO THROUGH THE GATEKEEPERS: TLG INSTRUCTORS AND STAFF.\n\nGOOD LUCK AND GODSPEED.\n\nACTIONS:[ENTER,]");
     }
 
-    //Update player status
-    public void updateStatus(){
 
+    //Specific Lobby action cascade
+    private void lobbyAction(Room room){
+        while(true){
+            //Player response after reading the status and action options
+            String action=console.readLine("\nType action:");
+            //Only entrance to RommJava is allowed at this point, all the other rooms are closed
+            if(action.toUpperCase().equals("enter java".toUpperCase())){
+                return;
+            }
+            else if(action.isEmpty()){
+                System.out.println("Invalid Entry!");
+            }
+            else if (room.getActions().contains(action.toUpperCase())){
+                System.out.println("Tough luck little Grasshopper, you are not worthy of entering this room yet!");
+            }
+            else{
+                System.out.println("HINT: JAVA!");
+            }
+        }
     }
 
-    //Display available actions to the player
-    public void displayActions(){
-
+    private void javaAction(Room room){
+        while(true){
+            //Player response after reading the status and action options
+            String action=console.readLine("\nType action:");
+            //Present player with the java quiz once they pick that action
+            if(action.toUpperCase().equals("TAKE JAVA QUIZ")){
+                for(String question:room.getQuiz().keySet()){
+                    String answer=console.readLine(question+": ");
+                    if(answer.equals(room.getQuiz().get(question))){
+                        System.out.println("Correct!!!");
+                    }
+                    else{
+                        System.out.println("Nope!!!");
+                    }
+                }
+                return;
+            }
+            //Present player with wild card quiz if they pick that action
+            else if(action.toUpperCase().equals("TAKE WILD CARD QUIZ")){
+                for(String question:room.getWildcard().keySet()){
+                    String answer=console.readLine(question+": ");
+                    if(answer.equals(room.getWildcard().get(question))){
+                        System.out.println("Correct!!!");
+                    }
+                    else{
+                        System.out.println("Nope!!!");
+                    }
+                }
+                return;
+            }
+            else{
+                System.out.println("Invalid Entry!");
+            }
+        }
     }
 
-    //Display player status
-    public void displayStatus(){
-
+    private void actionInteraction(Room room) {
+        switch (room.getName()) {
+            case LOBBY:
+                lobbyAction(room);
+                break;
+            case JAVA:
+                javaAction(room);
+                break;
+            case JAVASCRIPT:
+                System.out.println("\n" + ((RoomJS) room).getMessage());
+                break;
+            case ALGORITHM:
+                System.out.println("\n" + ((RoomAlgorithm) room).getMessage());
+                break;
+            case PYTHON:
+                System.out.println("\n" + ((RoomPython) room).getMessage());
+                break;
+            case LINUX:
+                System.out.println("\n" + ((RoomLinux) room).getMessage());
+                break;
+            case CAPSTONE:
+                System.out.println("\n" + ((RoomCapstone) room).getMessage());
+                break;
+            case BREAKOUT:
+                System.out.println("\n" + ((RoomBreakout) room).getMessage());
+        }
     }
-    //Display room message
-    public void displayRoomMessage(Room room){
 
-    }
 
     //Display map function
-    public void displayMap(){
+    private void displayMap(){
 
     }
 

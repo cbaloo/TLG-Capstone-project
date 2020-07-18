@@ -41,7 +41,5 @@ public class Client {
 
         Room lobby= new Lobby();
         System.out.println(lobby);
-
-
     }
 }

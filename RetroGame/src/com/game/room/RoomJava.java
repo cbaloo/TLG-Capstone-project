@@ -10,8 +10,6 @@ public class RoomJava extends Room {
     private String message = "Welcome to the Java Classroom. " +
             "I hope you brought your air guitar with you!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Introduce yourself",
-            "Wave",
             "Take java quiz",
             "Take wild card quiz"
     ));

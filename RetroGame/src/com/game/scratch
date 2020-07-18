@@ -1,0 +1,50 @@
+//            Lobby lobby=new Lobby();
+//            //Update location of the player with current room
+//            player.getStatus().put("Location",lobby.getName().value());
+//            //Display roomMessage as you enter the room
+//            displayRoomMessage(lobby);
+//            //Display player status: location and score
+//            System.out.println("\nSTATUS: "+player.getStatus());
+//            //Display action options
+//            System.out.println("ACTIONS: "+lobby.getActions());
+
+//            while(true){
+//                //Player response after reading the status and action options
+//                String action=console.readLine("\nType action:");
+//                //Only entrance to RommJava is allowed at this point, all the other rooms are closed
+//                if(action.toUpperCase().equals("enter java".toUpperCase())){
+//                    RoomJava roomJava=new RoomJava();
+//                    player.getStatus().put("Location",roomJava.getName().value());
+//                    displayRoomMessage(roomJava);
+//                    System.out.println("\nSTATUS: "+player.getStatus());
+//                    System.out.println("ACTIONS: "+roomJava.getActions());
+//                    while(true) {
+//                        action=console.readLine("\nType action:");
+//                        if(action.toUpperCase().equals("TAKE JAVA QUIZ")){
+//                            for(String question:roomJava.getQuiz().keySet()){
+//                                String answer=console.readLine(question+": ");
+//                                if(answer.equals(roomJava.getQuiz().get(question))){
+//                                    System.out.println("Correct!!!");
+//                                }
+//                                else{
+//                                    System.out.println("Nope!!!");
+//                                }
+//                            }
+//                        }
+//                        else{
+//                            System.out.println("Should have picked java quiz");
+//                        }
+//                        break;
+//                    }
+//                    break;
+//                }
+//                else if(action.isEmpty()){
+//                    System.out.println("Invalid Entry!");
+//                }
+//                else if (lobby.getActions().contains(action.toUpperCase())){
+//                    System.out.println("Tough luck little Grasshopper, you are not worthy of entering this room yet!");
+//                }
+//                else{
+//                    System.out.println("HINT: JAVA!");
+//                }
+//            }
