@@ -110,7 +110,12 @@ public class GameEngine {
                         System.out.println("Nope!!!");
                     }
                 }
-                return;
+                room.getActions().remove("Take java quiz");
+                if(room.getActions().size()==0){
+                    room.getActions().add("ENTER JAVASCRIPT");
+                    room.setActions(room.getActions());
+                }
+                System.out.println("\nACTIONS: "+room.getActions());
             }
             //Present player with wild card quiz if they pick that action
             else if(action.toUpperCase().equals("TAKE WILD CARD QUIZ")){
@@ -123,6 +128,14 @@ public class GameEngine {
                         System.out.println("Nope!!!");
                     }
                 }
+                room.getActions().remove("Take wild card quiz");
+                if(room.getActions().size()==0){
+                    room.getActions().add("ENTER JAVASCRIPT");
+                    room.setActions(room.getActions());
+                }
+                System.out.println("\nACTIONS: "+room.getActions());
+            }
+            else if(action.toUpperCase().equals("ENTER JAVASCRIPT")){
                 return;
             }
             else{
@@ -140,22 +153,22 @@ public class GameEngine {
                 javaAction(room);
                 break;
             case JAVASCRIPT:
-                System.out.println("\n" + ((RoomJS) room).getMessage());
+                System.out.println("actionInteraction JS");
                 break;
             case ALGORITHM:
-                System.out.println("\n" + ((RoomAlgorithm) room).getMessage());
+                System.out.println("actionInteraction Algorithm");
                 break;
             case PYTHON:
-                System.out.println("\n" + ((RoomPython) room).getMessage());
+                System.out.println("actionInteraction Python");
                 break;
             case LINUX:
-                System.out.println("\n" + ((RoomLinux) room).getMessage());
+                System.out.println("actionInteraction Linux");
                 break;
             case CAPSTONE:
-                System.out.println("\n" + ((RoomCapstone) room).getMessage());
+                System.out.println("actionInteraction Capstone");
                 break;
             case BREAKOUT:
-                System.out.println("\n" + ((RoomBreakout) room).getMessage());
+                System.out.println("actionInteraction Breakout");
         }
     }
 

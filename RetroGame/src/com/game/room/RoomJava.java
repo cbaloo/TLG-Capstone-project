@@ -14,7 +14,7 @@ public class RoomJava extends Room {
             "Take wild card quiz"
     ));
 
-    private Map<String,String> roomQuiz=new HashMap<>(){
+    private Map<String,String> quiz =new HashMap<>(){
         {
             put("What does OOP stand for?", "object oriented programming");
             put("What does JVM stand for?","java virtual machine");
@@ -50,9 +50,15 @@ public class RoomJava extends Room {
         return actions;
     }
 
-    public Map<String, String> getQuiz() {
-        return roomQuiz;
+    public void setActions(List<String> actions) {
+        //TODO May need validation
+        this.actions = actions;
     }
+
+    public Map<String, String> getQuiz() {
+        return quiz;
+    }
+
 
     public Map<String, String> getWildcard() {
         return wildCardQuiz;

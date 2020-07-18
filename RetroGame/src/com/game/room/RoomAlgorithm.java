@@ -2,19 +2,27 @@ package com.game.room;
 
 import com.game.person.Instructor;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RoomAlgorithm extends Room {
     //INSTANCE VARIABLE
     private String message = "Welcome to the Algorithms Classroom!";
+    private List<String> actions=new ArrayList(Arrays.asList(
+            "Take java quiz",
+            "Take wild card quiz"
+    ));
 
-    private Map<String, String> roomQuiz = new HashMap<>() {
+    private Map<String, String> quiz = new HashMap<>() {
         {
             put("", "");
             put("", "");
             put("", "");
+        }
+    };
+    private Map<String,String> wildCardQuiz=new HashMap<>(){
+        {
+            put("Did Jay win first place in his air guitar competition? (true/false)", "false");
+
         }
     };
 
@@ -45,6 +53,12 @@ public class RoomAlgorithm extends Room {
     public List<String> getActions() {
         return null;
     }
+
+    @Override
+    public void setActions(List<String> actions) {
+        this.actions=actions;
+    }
+
 
     @Override
     public String toString() {

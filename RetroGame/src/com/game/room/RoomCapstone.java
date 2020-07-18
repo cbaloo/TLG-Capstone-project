@@ -2,13 +2,16 @@ package com.game.room;
 
 import com.game.person.Instructor;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RoomCapstone extends Room {
     //INSTANCE VARIABLE
     private String message = "Welcome to the Capstone classroom! You are almost worthy!!";
+    private List<String> actions=new ArrayList(Arrays.asList(
+            "Take java quiz",
+            "Take wild card quiz"
+    ));
+
 
     private Map<String, String> roomQuiz = new HashMap<>() {
         {
@@ -46,6 +49,11 @@ public class RoomCapstone extends Room {
     @Override
     public List<String> getActions() {
         return null;
+    }
+
+    @Override
+    public void setActions(List<String> actions) {
+        this.actions=actions;
     }
 
     @Override

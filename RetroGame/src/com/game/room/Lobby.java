@@ -47,6 +47,11 @@ public class Lobby extends Room {
     }
 
     @Override
+    public void setActions(List<String> actions) {
+
+    }
+
+    @Override
     public String toString() {
         return "Lobby{" +
                 "name=" + getName() +", "+

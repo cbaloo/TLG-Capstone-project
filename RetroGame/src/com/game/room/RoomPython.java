@@ -2,13 +2,15 @@ package com.game.room;
 
 import com.game.person.Instructor;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class RoomPython extends Room {
     //INSTANCE VARIABLES
     private String message = "Welcome to the Python Classroom!";
+    private List<String> actions=new ArrayList(Arrays.asList(
+            "Take java quiz",
+            "Take wild card quiz"
+    ));
 
     private Map<String,String> roomQuiz=new HashMap<>(){
         {
@@ -45,6 +47,11 @@ public class RoomPython extends Room {
     @Override
     public List<String> getActions() {
         return null;
+    }
+
+    @Override
+    public void setActions(List<String> actions) {
+        this.actions=actions;
     }
 
     @Override
