@@ -35,6 +35,8 @@ public class GameEngine {
                     player.getStatus().put("Location", room.getName().value());
                     //Display roomMessage as you enter the room
                     System.out.println("\n"+room.getMessage());
+                    //Display Instructor/Staff present in the room
+                    System.out.println("\n"+room.getInstructor().getName().toUpperCase()+" IS IN CHARGE NOW. SO YOU BETTER PAY ATTENTION");
                     //Display player status
                     System.out.println("\nSTATUS: " + player.getStatus());
                     //Display action options

@@ -1,5 +1,6 @@
 package com.game.room;
 
+import com.game.person.Instructor;
 import com.game.person.Staff;
 
 import java.util.ArrayList;
@@ -9,7 +10,7 @@ import java.util.Map;
 
 public class Lobby extends Room {
     //INSTANT VARIABLE
-    private String message="\n\nYOU ARE IN THE LOBBY AND SEE MANY CLASSROOMS.";
+    private String message="YOU ARE IN THE LOBBY AND SEE MANY CLASSROOMS.";
     private List<String> actions=new ArrayList(Arrays.asList(
        "ENTER JAVA",
        "ENTER JAVASCRIPT",
@@ -24,7 +25,7 @@ public class Lobby extends Room {
     public Lobby(){
         super();
         setName(Name.LOBBY);
-        setStaff(new Staff("Jeannette"));
+        setInstructor(new Instructor("Jeannette"));
     }
 
     //ACCESSOR METHODS
