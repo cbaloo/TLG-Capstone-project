@@ -10,9 +10,9 @@ import java.util.List;
 
 public class GameEngine {
     private final GameHelper gameHelper = new GameHelper(this);
-    public Player player;
-    public  Console console=System.console();
-    public List<Room> roomList=new ArrayList(Arrays.asList(
+    private Player player;
+    private   Console console=System.console();
+    private List<Room> roomList=new ArrayList(Arrays.asList(
             new Lobby(),
             new RoomJava(),
             new RoomJS(),

@@ -12,18 +12,17 @@ public abstract class Room {
     private Staff staff;
     private Name name;
     private Instructor instructor;
-    private Map<String, Boolean> roomChecks = new HashMap<>(){
-        {
-            put(Name.JAVASCRIPT.value(),false);
-            put(Name.PYTHON.value(),false);
-            put(Name.LINUX.value(),false);
-            put(Name.ALGORITHM.value(),false);
-            put(Name.CAPSTONE.value(),false);
-            put(Name.LOBBY.value(),false);
-            put(Name.BREAKOUT.value(),false);
-        }
-    };
-
+//    private Map<String, Boolean> roomChecks = new HashMap<>(){
+//        {
+//            put(Name.JAVASCRIPT.value(),false);
+//            put(Name.PYTHON.value(),false);
+//            put(Name.LINUX.value(),false);
+//            put(Name.ALGORITHM.value(),false);
+//            put(Name.CAPSTONE.value(),false);
+//            put(Name.LOBBY.value(),false);
+//            put(Name.BREAKOUT.value(),false);
+//        }
+//    };
 
     //NESTED STATIC CLASS
     public static enum Name{
@@ -65,18 +64,6 @@ public abstract class Room {
 
     public void setInstructor(Instructor instructor) {
         this.instructor = instructor;
-    }
-
-    public Map<String, Boolean> getRoomChecks() {
-        return roomChecks;
-    }
-
-    public Staff getStaff() {
-        return staff;
-    }
-
-    public void setStaff(Staff staff) {
-        this.staff = staff;
     }
 
     @Override

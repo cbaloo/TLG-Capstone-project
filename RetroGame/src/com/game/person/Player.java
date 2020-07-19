@@ -5,7 +5,6 @@ import java.util.Map;
 
 public class Player extends Person {
     //INSTANCE VARIABLE
-    private Title title;
     private Map<String,String> status=new HashMap<>(){
         {
             put("Location", "Lobby");
@@ -24,12 +23,11 @@ public class Player extends Person {
         return status;
     }
 
-
     @Override
     public String toString() {
         return "Player{" +
                 "name=" + getName() +
-                ", title=" + getTitle() +
+                ", title= " + getTitle() +
                 ", status= "+getStatus()+
                 '}';
     }

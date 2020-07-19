@@ -56,6 +56,6 @@ public class Lobby extends Room {
     public String toString() {
         return "Lobby{" +
                 "name=" + getName() +", "+
-                getStaff()+"} ";
+                getInstructor()+"} ";
     }
 }
