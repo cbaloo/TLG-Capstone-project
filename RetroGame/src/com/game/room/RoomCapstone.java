@@ -8,7 +8,7 @@ public class RoomCapstone extends Room {
     //INSTANCE VARIABLE
     private String message = "Welcome to the Capstone classroom! You are almost worthy!!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take java quiz",
+            "Take quiz",
             "Take wild card quiz"
     ));
 

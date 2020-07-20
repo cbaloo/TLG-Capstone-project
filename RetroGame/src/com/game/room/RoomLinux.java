@@ -8,7 +8,7 @@ public class RoomLinux extends Room {
     //INSTANCE VARIABLES
     private String message = "Welcome to the Linux Classroom!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take linux quiz",
+            "Take quiz",
             "Take wild card quiz"
     ));
 
@@ -23,7 +23,7 @@ public class RoomLinux extends Room {
 
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
-            put("Was photography one of John's other passion?(True/False)", "false");
+            put("Was photography one of John's other passion?(True/False)", "true");
         }
     };
 

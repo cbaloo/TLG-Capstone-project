@@ -77,42 +77,25 @@ public class GameEngine {
     }
 
 
-    //Specific Lobby action cascade
-    private void lobbyAction(Room room){
-        gameHelper.lobbyAction(room);
-    }
-    private void javaAction(Room room){
-        gameHelper.javaAction(room);
-    }
-
+    //Specific Classroom action cascade
     private void actionInteraction(Room room) {
         switch (room.getName()) {
             case LOBBY:
                 gameHelper.lobbyAction(room);
                 break;
             case JAVA:
-                gameHelper.javaAction(room);
-                break;
             case JAVASCRIPT:
-                gameHelper.javascriptAction(room);
-                break;
             case ALGORITHM:
-                gameHelper.algorithmAction(room);
-                break;
-            case PYTHON:
-                System.out.println("actionInteraction Python");
-                break;
             case LINUX:
-                gameHelper.linuxAction(room);
-                break;
+            case PYTHON:
             case CAPSTONE:
-                System.out.println("actionInteraction Capstone");
+                gameHelper.classActions(room);
                 break;
             case BREAKOUT:
                 System.out.println("actionInteraction Breakout");
+                break;
         }
     }
-
 
     //Display map function
     private void displayMap(){

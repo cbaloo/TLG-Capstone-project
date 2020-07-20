@@ -8,7 +8,7 @@ public class RoomAlgorithm extends Room {
     //INSTANCE VARIABLE
     private String message = "Welcome to the Algorithms Classroom!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take algorithm quiz",
+            "Take quiz",
             "Take wild card quiz"
     ));
 

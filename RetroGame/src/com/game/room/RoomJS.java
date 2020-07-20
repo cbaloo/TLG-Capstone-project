@@ -8,7 +8,7 @@ public class RoomJS extends Room {
     //INSTANCE VARIABLES
     private String message = "Welcome to JavaScript! Are you confused yet??";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take javascript quiz",
+            "Take quiz",
             "Take wild card quiz"
     ));
 

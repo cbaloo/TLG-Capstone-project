@@ -8,7 +8,7 @@ public class RoomPython extends Room {
     //INSTANCE VARIABLES
     private String message = "Welcome to the Python Classroom!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take python quiz",
+            "Take quiz",
             "Take wild card quiz"
     ));
 

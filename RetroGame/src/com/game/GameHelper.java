@@ -3,11 +3,23 @@ package com.game;
 import com.game.room.Room;
 
 import java.io.Console;
+import java.util.*;
 
 public class GameHelper {
     //INSTANCE VARIABLE
     private final GameEngine gameEngine;
     private Console console=System.console();
+    private Map<String,String> roomSequence=new HashMap<>() {
+        {
+            put("Lobby","ENTER JAVA");
+            put("Java","ENTER JAVASCRIPT");
+            put("JavaScript","ENTER ALGORITHM");
+            put("Algorithm","ENTER LINUX");
+            put("Linux","ENTER PYTHON");
+            put("Python","ENTER CAPSTONE");
+            put("Capstone","ENTER AMAZON");
+        }
+    };
 
     //CONSTRUCTOR
     public GameHelper(GameEngine gameEngine) {
@@ -32,12 +44,13 @@ public class GameHelper {
         }
     }
 
-    void javaAction(Room room) {
+    void classActions(Room room) {
         while (true) {
             //Player response after reading the status and action options
             String action = console.readLine("\nType action:");
             //Present player with the java quiz once they pick that action
-            if (action.toUpperCase().equals("TAKE JAVA QUIZ")) {
+            String nextClass=getRoomSequence().get(room.getName().value());
+            if (action.toUpperCase().equals("TAKE QUIZ")) {
                 for (String question : room.getQuiz().keySet()) {
                     String answer = console.readLine(question + ": ");
                     if (answer.equals(room.getQuiz().get(question))) {
@@ -46,15 +59,15 @@ public class GameHelper {
                         System.out.println("Nope!!!");
                     }
                 }
-                room.getActions().remove("Take java quiz");
+                room.getActions().remove("Take quiz");
                 if (room.getActions().size() == 0) {
-                    room.getActions().add("ENTER JAVASCRIPT");
+                    room.getActions().add(nextClass);
                     room.setActions(room.getActions());
                 }
                 System.out.println("\nACTIONS: " + room.getActions());
             }
-            //Present player with wild card quiz if they pick that action
-            else if (action.toUpperCase().equals("TAKE WILD CARD QUIZ")) {
+            else if(action.toUpperCase().equals("TAKE WILD CARD QUIZ")) {
+                //Present player with wild card quiz if they pick that action
                 for (String question : room.getWildcard().keySet()) {
                     String answer = console.readLine(question + ": ");
                     if (answer.equals(room.getWildcard().get(question))) {
@@ -65,152 +78,23 @@ public class GameHelper {
                 }
                 room.getActions().remove("Take wild card quiz");
                 if (room.getActions().size() == 0) {
-                    room.getActions().add("ENTER JAVASCRIPT");
+                    room.getActions().add(nextClass);
                     room.setActions(room.getActions());
                 }
                 System.out.println("\nACTIONS: " + room.getActions());
-            } else if (action.toUpperCase().equals("ENTER JAVASCRIPT")) {
+            }
+            else if(action.toUpperCase().equals(nextClass)) {
                 return;
-            } else {
+            }
+            else {
                 System.out.println("Invalid Entry!");
             }
         }
     }
 
-    void javascriptAction(Room room) {
-        while (true) {
-            //Player response after reading the status and action options
-            String action = console.readLine("\nType action:");
-            //Present player with the java quiz once they pick that action
-            if (action.toUpperCase().equals("TAKE JAVASCRIPT QUIZ")) {
-                for (String question : room.getQuiz().keySet()) {
-                    String answer = console.readLine(question + ": ");
-                    if (answer.equals(room.getQuiz().get(question))) {
-                        System.out.println("Correct!!!");
-                    } else {
-                        System.out.println("Nope!!!");
-                    }
-                }
-                room.getActions().remove("Take javascript quiz");
-                if (room.getActions().size() == 0) {
-                    room.getActions().add("ENTER ALGORITHM");
-                    room.setActions(room.getActions());
-                }
-                System.out.println("\nACTIONS: " + room.getActions());
-            }
-            //Present player with wild card quiz if they pick that action
-            else if (action.toUpperCase().equals("TAKE WILD CARD QUIZ")) {
-                for (String question : room.getWildcard().keySet()) {
-                    String answer = console.readLine(question + ": ");
-                    if (answer.equals(room.getWildcard().get(question))) {
-                        System.out.println("Correct!!!");
-                    } else {
-                        System.out.println("Nope!!!");
-                    }
-                }
-                room.getActions().remove("Take wild card quiz");
-                if (room.getActions().size() == 0) {
-                    room.getActions().add("ENTER ALGORITHM");
-                    room.setActions(room.getActions());
-                }
-                System.out.println("\nACTIONS: " + room.getActions());
-            } else if (action.toUpperCase().equals("ENTER ALGORITHM")) {
-                return;
-            } else {
-                System.out.println("Invalid Entry!");
-            }
-        }
+    //ACCESSOR METHODS
+    public Map<String, String> getRoomSequence() {
+        return roomSequence;
     }
-
-    void algorithmAction(Room room) {
-        while (true) {
-            //Player response after reading the status and action options
-            String action = console.readLine("\nType action:");
-            //Present player with the java quiz once they pick that action
-            if (action.toUpperCase().equals("TAKE ALGORITHM QUIZ")) {
-                for (String question : room.getQuiz().keySet()) {
-                    String answer = console.readLine(question + ": ");
-                    if (answer.equals(room.getQuiz().get(question))) {
-                        System.out.println("Correct!!!");
-                    } else {
-                        System.out.println("Nope!!!");
-                    }
-                }
-                room.getActions().remove("Take algorithm quiz");
-                if (room.getActions().size() == 0) {
-                    room.getActions().add("ENTER LINUX");
-                    room.setActions(room.getActions());
-                }
-                System.out.println("\nACTIONS: " + room.getActions());
-            }
-            //Present player with wild card quiz if they pick that action
-            else if (action.toUpperCase().equals("TAKE WILD CARD QUIZ")) {
-                for (String question : room.getWildcard().keySet()) {
-                    String answer = console.readLine(question + ": ");
-                    if (answer.equals(room.getWildcard().get(question))) {
-                        System.out.println("Correct!!!");
-                    } else {
-                        System.out.println("Nope!!!");
-                    }
-                }
-                room.getActions().remove("Take wild card quiz");
-                if (room.getActions().size() == 0) {
-                    room.getActions().add("ENTER LINUX");
-                    room.setActions(room.getActions());
-                }
-                System.out.println("\nACTIONS: " + room.getActions());
-            } else if (action.toUpperCase().equals("ENTER LINUX")) {
-                return;
-            } else {
-                System.out.println("Invalid Entry!");
-            }
-        }
-    }
-
-    void linuxAction(Room room) {
-        while (true) {
-            //Player response after reading the status and action options
-            String action = console.readLine("\nType action:");
-            //Present player with the java quiz once they pick that action
-            if (action.toUpperCase().equals("TAKE LINUX QUIZ")) {
-                for (String question : room.getQuiz().keySet()) {
-                    String answer = console.readLine(question + ": ");
-                    if (answer.equals(room.getQuiz().get(question))) {
-                        System.out.println("Correct!!!");
-                    } else {
-                        System.out.println("Nope!!!");
-                    }
-                }
-                room.getActions().remove("Take linux quiz");
-                if (room.getActions().size() == 0) {
-                    room.getActions().add("ENTER PYTHON");
-                    room.setActions(room.getActions());
-                }
-                System.out.println("\nACTIONS: " + room.getActions());
-            }
-            //Present player with wild card quiz if they pick that action
-            else if (action.toUpperCase().equals("TAKE WILD CARD QUIZ")) {
-                for (String question : room.getWildcard().keySet()) {
-                    String answer = console.readLine(question + ": ");
-                    if (answer.equals(room.getWildcard().get(question))) {
-                        System.out.println("Correct!!!");
-                    } else {
-                        System.out.println("Nope!!!");
-                    }
-                }
-                room.getActions().remove("Take wild card quiz");
-                if (room.getActions().size() == 0) {
-                    room.getActions().add("ENTER PYTHON");
-                    room.setActions(room.getActions());
-                }
-                System.out.println("\nACTIONS: " + room.getActions());
-            } else if (action.toUpperCase().equals("ENTER PYTHON")) {
-                return;
-            } else {
-                System.out.println("Invalid Entry!");
-            }
-        }
-    }
-
 
 }
