@@ -59,7 +59,6 @@ public class RoomJava extends Room {
         return quiz;
     }
 
-
     public Map<String, String> getWildcard() {
         return wildCardQuiz;
     }

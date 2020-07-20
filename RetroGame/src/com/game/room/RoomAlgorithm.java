@@ -20,7 +20,7 @@ public class RoomAlgorithm extends Room {
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
             put("Tom is a man of man of many talents? (true/false)", "True");
-            put("Steve can do no wrong?? (true/false)", "false");
+            put("Steve can do no wrong?? (true/false)", "true");
         }
     };
 
