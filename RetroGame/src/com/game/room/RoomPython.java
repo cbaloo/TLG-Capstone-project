@@ -36,7 +36,7 @@ public class RoomPython extends Room {
     }
 
     @Override
-    public Map<String, String> getRooQuiz() {
+    public Map<String, String> getRoomQuiz() {
         return roomQuiz;
     }
 

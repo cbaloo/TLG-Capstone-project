@@ -23,7 +23,7 @@ public class GameEngine {
     ));
 
     //Method to start the game
-    public void start(){
+    public void start() {
         player= getPlayer();
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
@@ -34,6 +34,7 @@ public class GameEngine {
                 for (Room room : roomList) {
                     //Updating the location of the player with the curRoom
                     player.getStatus().put("Location", room.getName().value());
+                    //TODO clear screen
                     //Display roomMessage as you enter the room
                     System.out.println("\n"+room.getMessage());
                     //Display Instructor/Staff present in the room

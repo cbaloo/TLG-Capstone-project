@@ -44,7 +44,7 @@ public abstract class Room {
 
     //ABSTRACT METHOD
     public abstract String getMessage();
-    public abstract Map<String, String> getRooQuiz();
+    public abstract Map<String, String> getRoomQuiz();
     public abstract Map<String, String> getWildcard();
     public abstract List<String> getActions();
     public abstract void setActions(List<String> actions);

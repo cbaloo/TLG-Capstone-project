@@ -51,9 +51,9 @@ public class GameHelper {
             //Present player with the java quiz once they pick that action
             String nextClass=getRoomSequence().get(room.getName().value());
             if (action.toUpperCase().equals("TAKE QUIZ")) {
-                for (String question : room.getRooQuiz().keySet()) {
+                for (String question : room.getRoomQuiz().keySet()) {
                     String answer = console.readLine(question + ": ");
-                    if (answer.equals(room.getRooQuiz().get(question))) {
+                    if (answer.equals(room.getRoomQuiz().get(question))) {
                         System.out.println("Correct!!!");
                     } else {
                         System.out.println("Nope!!!");

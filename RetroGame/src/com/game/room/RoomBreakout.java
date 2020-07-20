@@ -31,7 +31,7 @@ public class RoomBreakout extends Room {
     }
 
     @Override
-    public Map<String, String> getRooQuiz() {
+    public Map<String, String> getRoomQuiz() {
         return null;
     }
 
