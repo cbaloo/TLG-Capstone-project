@@ -20,12 +20,12 @@ public class RoomCapstone extends Room {
             put("IN AGILE, THE HIGHEST PRIORITY IS TO SATISFY THE '--------'.", "CUSTOMER");
             put("A USER STORY IS A TOOL USED IN '-----' SOFTWARE DEVELOPMENT", "AGILE");
             put("WHEN USING AGILE, SPRINTS TYPICALLY LAST BETWEEN 1 AND 4 '-----'.", "WEEKS");
-            put("WORKING SOFTWARE IS THE PRIMARY MEASURE OF '--------'?", "");
+            put("WORKING SOFTWARE IS THE PRIMARY MEASURE OF '--------'?", "PROGRESS");
         }
     };
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
-            put("Question? (true/false)", "false");
+            put("QUESTION? (TRUE/FALSE)", "FALSE");
 
         }
     };

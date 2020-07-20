@@ -15,9 +15,9 @@ public class RoomLinux extends Room {
 
     private Map<String,String> roomQuiz=new HashMap<>(){
         {
-            put("What is the Linux command to change directories?", "cd");
-            put("What is the Linux command to list the contents of a directory?", "ls");
-            put("What is the Linux command to make a directory?", "mkdir");
+            put("WHAT US THE LINUX COMMAND TO CHANGE THE DIRECTORIES?", "CD");
+            put("WHAT US THE LINUX COMMAND TO LIST THE CONTENTS OF A DIRECTORY?", "LS");
+            put("WHAT US THE LINUX COMMAND TO MAKE A DIRECTORY?", "MKDIR");
 
         }
     };

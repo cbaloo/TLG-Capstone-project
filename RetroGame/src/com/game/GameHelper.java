@@ -53,7 +53,7 @@ public class GameHelper {
             if (action.toUpperCase().equals("TAKE QUIZ")) {
                 for (String question : room.getQuiz().keySet()) {
                     String answer = console.readLine(question + ": ");
-                    if (answer.equals(room.getQuiz().get(question))) {
+                    if (answer.toUpperCase().equals(room.getQuiz().get(question))) {
                         System.out.println("CORRECT!!!");
                     } else {
                         System.out.println("NOPE!!!");
@@ -67,7 +67,7 @@ public class GameHelper {
                 //Present player with wild card quiz if they pick that action
                 for (String question : room.getWildcard().keySet()) {
                     String answer = console.readLine(question + ": ");
-                    if (answer.equals(room.getWildcard().get(question))) {
+                    if (answer.toUpperCase().equals(room.getWildcard().get(question))) {
                         System.out.println("CORRECT!!!");
                     } else {
                         System.out.println("NOPE!!!");
