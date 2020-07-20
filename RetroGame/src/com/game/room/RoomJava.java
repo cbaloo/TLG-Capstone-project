@@ -54,7 +54,7 @@ public class RoomJava extends Room {
         this.actions = actions;
     }
 
-    public Map<String, String> getRooQuiz() {
+    public Map<String, String> getQuiz() {
         return quiz;
     }
 
