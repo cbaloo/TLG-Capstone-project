@@ -3,7 +3,6 @@ package com.game.room;
 import com.game.person.Instructor;
 import com.game.person.Staff;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -25,28 +24,36 @@ public abstract class Room {
 //    };
 
     //NESTED STATIC CLASS
-    public static enum Name{
-        JAVA("Java"),
-        JAVASCRIPT("JavaScript"),
-        ALGORITHM("Algorithm"),
-        LINUX("Linux"),
-        PYTHON("Python"),
-        CAPSTONE("Capstone"),
-        BREAKOUT("Breakout"),
-        LOBBY("Lobby");
+    public static enum Name {
+        JAVA("JAVA"),
+        JAVASCRIPT("JAVASCRIPT"),
+        ALGORITHM("ALGORITHM"),
+        LINUX("LINUX"),
+        PYTHON("PYTHON"),
+        CAPSTONE("CAPSTONE"),
+        BREAKOUT("BREAKOUT"),
+        LOBBY("LOBBY");
 
         private String value;
-        Name(String value){
-            this.value=value;
+
+        Name(String value) {
+            this.value = value;
         }
-        public String value(){return value;}
+
+        public String value() {
+            return value;
+        }
     }
 
     //ABSTRACT METHOD
     public abstract String getMessage();
-    public abstract Map<String, String> getRooQuiz();
+
+    public abstract Map<String, String> getQuiz();
+
     public abstract Map<String, String> getWildcard();
+
     public abstract List<String> getActions();
+
     public abstract void setActions(List<String> actions);
 
     //ACCESSOR METHODS

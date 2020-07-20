@@ -6,25 +6,26 @@ import java.util.*;
 
 public class RoomJS extends Room {
     //INSTANCE VARIABLES
-    private String message = "Welcome to JavaScript! Are you confused yet??";
+    private String message = "WELCOME TO JAVASCRIPT! ARE YOU CONFUSED YET??";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take quiz",
-            "Take wild card quiz"
+            "TAKE QUIZ",
+            "TAKE WILD CARD QUIZ"
     ));
 
     private Map<String,String> roomQuiz=new HashMap<>(){
         {
-            put("Which company developed JavaScript, Netgear or Netscape?", "netscape");
-            put("JavaScript can be used with CSS and '----' to create interactive web pages.", "html");
-            put("JavaScript was first known as LiveScript or ECMAScript?", "livescript");
-            put("In JavaScript, semi-colons are required", "false");
-            put("JSON stands for JavaScript Object '--------'", "notation");
+            put("WHICH COMPANY DEVELOPED JAVASCRIPT, NETGEAR OR NETSCAPE?", "NETSCAPE");
+            put("JAVASCRIPT CAN BE USED WITH CSS AND '----' TO CREATE INTERACTIVE WEB PAGES.", "HTML");
+            put("JAVASCRIPT WAS FIRST KNOWN AS LIVESCRIPT OR ECMASCRIPT?", "LIVESCRIPT");
+            put("IN JAVASCRIPT, SEMI-COLONS ARE REQUIRED", "FALSE");
+            put("JSON STANDS FOR JAVASCRIPT OBJECT '--------'", "NOTATION");
+
         }
     };
 
     private Map<String, String> wildCardQuiz=new HashMap<>(){
         {
-        put("How many instructors did we have for our Javascript course?(1/2)","2");
+        put("HOW MANY INSTRUCTORS DID WE HAVE FOR OUR JAVASCRIPT COURSE?(1/2)","2");
         }
     };
 
@@ -32,7 +33,7 @@ public class RoomJS extends Room {
     public RoomJS(){
         super();
         setName(Name.JAVASCRIPT);
-        setInstructor(new Instructor("Nelly"));
+        setInstructor(new Instructor("NELLY"));
     }
 
     //ACCESSOR METHODS

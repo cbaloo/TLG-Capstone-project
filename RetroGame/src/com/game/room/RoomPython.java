@@ -6,27 +6,27 @@ import java.util.*;
 
 public class RoomPython extends Room {
     //INSTANCE VARIABLES
-    private String message = "Welcome to the Python Classroom!";
+    private String message = "WELCOME TO THE PYTHON CLASSROOM!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take quiz",
-            "Take wild card quiz"
+            "TAKE QUIZ",
+            "TAKE WILD CARD QUIZ"
     ));
 
     private Map<String,String> roomQuiz=new HashMap<>(){
         {
-            put("White spaces are the least of our worries while coding in python? (True/False)", "False");
+            put("WHITE SPACES ARE THE LEAST OF OUR WORRIES WHILE CODING IN PYTHON? (TRUE/FALSE)", "FALSE");
         }
     };
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
-            put("We were is some kind of gang while we were going through the python course?(True/False)", "True");
+            put("WE WERE IS SOME KIND OF GANG WHILE WE WERE GOING THROUGH THE PYTHON COURSE?(TRUE/FALSE)", "TRUE");
         }
     };
     //CONSTRUCTOR
     public RoomPython(){
         super();
         setName(Name.PYTHON);
-        setInstructor(new Instructor("Zach"));
+        setInstructor(new Instructor("ZACH"));
     }
 
     //ACCESSOR METHOD

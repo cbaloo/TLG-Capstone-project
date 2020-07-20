@@ -6,21 +6,21 @@ import java.util.*;
 
 public class RoomAlgorithm extends Room {
     //INSTANCE VARIABLE
-    private String message = "Welcome to the Algorithms Classroom!";
+    private String message = "WELCOME TO THE ALGORITHMS CLASSROOM!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take quiz",
-            "Take wild card quiz"
+            "TAKE QUIZ",
+            "TAKE WILD CARD QUIZ"
     ));
 
-    private Map<String, String> rooQuiz = new HashMap<>() {
+    private Map<String, String> quiz = new HashMap<>() {
         {
-            put("A set can have duplicates?(True/False)", "False");
+            put("A SET CAN HAVE DUPLICATES?(TRUE/FALSE)", "FALSE");
         }
     };
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
-            put("Tom is a man of man of many talents? (true/false)", "True");
-            put("Steve can do no wrong?? (true/false)", "true");
+            put("TOM IS A MAN OF MAN OF MANY TALENTS? (TRUE/FALSE)", "TRUE");
+            put("STEVE CAN DO NO WRONG?? (TRUE/FALSE)", "FALSE");
         }
     };
 
@@ -28,7 +28,7 @@ public class RoomAlgorithm extends Room {
     public RoomAlgorithm() {
         super();
         setName(Name.ALGORITHM);
-        setInstructor(new Instructor("Tom"));
+        setInstructor(new Instructor("TOM"));
     }
 
     //ACCESSOR METHODS
@@ -38,8 +38,8 @@ public class RoomAlgorithm extends Room {
     }
 
     @Override
-    public Map<String, String> getRooQuiz() {
-        return rooQuiz;
+    public Map<String, String> getQuiz() {
+        return quiz;
     }
 
     @Override

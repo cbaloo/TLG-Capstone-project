@@ -6,20 +6,20 @@ import java.util.*;
 
 public class RoomCapstone extends Room {
     //INSTANCE VARIABLE
-    private String message = "Welcome to the Capstone classroom! You are almost worthy!!";
+    private String message = "WELCOME TO THE CAPSTONE CLASSROOM! YOU ARE ALMOST WORTHY!!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take quiz",
-            "Take wild card quiz"
+            "TAKE QUIZ",
+            "TAKE WILD CARD QUIZ"
     ));
 
 
     private Map<String, String> roomQuiz = new HashMap<>() {
         {
-            put("How many principles does Agile have?", "12");
-            put("In Agile, the highest priority is to satisfy the '--------'.", "customer");
-            put("A user story is a tool used in '-----' software development", "agile");
-            put("When using Agile, sprints typically last between 1 and 4 '-----'.", "weeks");
-            put("Working software is the primary measure of '--------'?", "");
+            put("HOW MANY PRINCIPLES DOES AGILE HAVE?", "12");
+            put("IN AGILE, THE HIGHEST PRIORITY IS TO SATISFY THE '--------'.", "CUSTOMER");
+            put("A USER STORY IS A TOOL USED IN '-----' SOFTWARE DEVELOPMENT", "AGILE");
+            put("WHEN USING AGILE, SPRINTS TYPICALLY LAST BETWEEN 1 AND 4 '-----'.", "WEEKS");
+            put("WORKING SOFTWARE IS THE PRIMARY MEASURE OF '--------'?", "");
         }
     };
     private Map<String,String> wildCardQuiz=new HashMap<>(){
@@ -33,7 +33,7 @@ public class RoomCapstone extends Room {
     public RoomCapstone() {
         super();
         setName(Name.CAPSTONE);
-        setInstructor(new Instructor("Rennie"));
+        setInstructor(new Instructor("RENNIE"));
     }
 
     //ACCESSOR METHODS

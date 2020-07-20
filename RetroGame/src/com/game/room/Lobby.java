@@ -26,7 +26,7 @@ public class Lobby extends Room {
     public Lobby(){
         super();
         setName(Name.LOBBY);
-        setInstructor(new Instructor("Jeannette"));
+        setInstructor(new Instructor("JEANNETTE"));
     }
 
     //ACCESSOR METHODS
