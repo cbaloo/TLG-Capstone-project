@@ -8,21 +8,19 @@ public class RoomAlgorithm extends Room {
     //INSTANCE VARIABLE
     private String message = "Welcome to the Algorithms Classroom!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take java quiz",
+            "Take algorithm quiz",
             "Take wild card quiz"
     ));
 
     private Map<String, String> quiz = new HashMap<>() {
         {
-            put("", "");
-            put("", "");
-            put("", "");
+            put("A set can have duplicates?(True/False)", "False");
         }
     };
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
-            put("Did Jay win first place in his air guitar competition? (true/false)", "false");
-
+            put("Tom is a man of man of many talents? (true/false)", "True");
+            put("Steve can do no wrong?? (true/false)", "false");
         }
     };
 
@@ -41,17 +39,17 @@ public class RoomAlgorithm extends Room {
 
     @Override
     public Map<String, String> getQuiz() {
-        return null;
+        return quiz;
     }
 
     @Override
     public Map<String, String> getWildcard() {
-        return null;
+        return wildCardQuiz;
     }
 
     @Override
     public List<String> getActions() {
-        return null;
+        return actions;
     }
 
     @Override

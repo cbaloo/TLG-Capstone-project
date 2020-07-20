@@ -8,7 +8,7 @@ public class RoomLinux extends Room {
     //INSTANCE VARIABLES
     private String message = "Welcome to the Linux Classroom!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take java quiz",
+            "Take linux quiz",
             "Take wild card quiz"
     ));
 
@@ -17,8 +17,13 @@ public class RoomLinux extends Room {
             put("What is the Linux command to change directories?", "cd");
             put("What is the Linux command to list the contents of a directory?", "ls");
             put("What is the Linux command to make a directory?", "mkdir");
-            put("", "");
-            put("", "");
+
+        }
+    };
+
+    private Map<String,String> wildCardQuiz=new HashMap<>(){
+        {
+            put("Was photography one of John's other passion?(True/False)", "false");
         }
     };
 
@@ -43,12 +48,12 @@ public class RoomLinux extends Room {
 
     @Override
     public Map<String, String> getWildcard() {
-        return null;
+        return wildCardQuiz;
     }
 
     @Override
     public List<String> getActions() {
-        return null;
+        return actions;
     }
 
     @Override

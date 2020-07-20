@@ -8,7 +8,7 @@ public class RoomJS extends Room {
     //INSTANCE VARIABLES
     private String message = "Welcome to JavaScript! Are you confused yet??";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take java quiz",
+            "Take javascript quiz",
             "Take wild card quiz"
     ));
 
@@ -19,7 +19,12 @@ public class RoomJS extends Room {
             put("JavaScript was first known as LiveScript or ECMAScript?", "livescript");
             put("In JavaScript, semi-colons are required", "false");
             put("JSON stands for JavaScript Object '--------'", "notation");
-            put("", "");
+        }
+    };
+
+    private Map<String, String> wildCardQuiz=new HashMap<>(){
+        {
+        put("How many instructors did we have for our Javascript course?(1/2)","2");
         }
     };
 
@@ -43,12 +48,12 @@ public class RoomJS extends Room {
 
     @Override
     public Map<String, String> getWildcard() {
-        return null;
+        return wildCardQuiz;
     }
 
     @Override
     public List<String> getActions() {
-        return null;
+        return actions;
     }
 
     @Override

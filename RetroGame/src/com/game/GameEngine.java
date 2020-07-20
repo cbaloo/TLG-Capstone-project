@@ -94,16 +94,16 @@ public class GameEngine {
                 gameHelper.javaAction(room);
                 break;
             case JAVASCRIPT:
-                System.out.println("actionInteraction JS");
+                gameHelper.javascriptAction(room);
                 break;
             case ALGORITHM:
-                System.out.println("actionInteraction Algorithm");
+                gameHelper.algorithmAction(room);
                 break;
             case PYTHON:
                 System.out.println("actionInteraction Python");
                 break;
             case LINUX:
-                System.out.println("actionInteraction Linux");
+                gameHelper.linuxAction(room);
                 break;
             case CAPSTONE:
                 System.out.println("actionInteraction Capstone");

@@ -8,17 +8,18 @@ public class RoomPython extends Room {
     //INSTANCE VARIABLES
     private String message = "Welcome to the Python Classroom!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take java quiz",
+            "Take python quiz",
             "Take wild card quiz"
     ));
 
     private Map<String,String> roomQuiz=new HashMap<>(){
         {
-            put("a dictionary in Python contains a '---' value pair.", "key");
-            put("API stands for Application Programming '---------'","interface");
-            put("How do you comment out one single line of Python code","#");
-            put("What is the correct file extension for Python files? '.pyt' or '.py'",".py");
-            put("What method is used to return a string in upper case letters? upper() or uppercase()?","upper()");
+            put("White spaces are the least of our worries while coding in python? (True/False)", "False");
+        }
+    };
+    private Map<String,String> wildCardQuiz=new HashMap<>(){
+        {
+            put("We were is some kind of gang while we were going through the python course?(True/False)", "True");
         }
     };
     //CONSTRUCTOR
@@ -36,17 +37,17 @@ public class RoomPython extends Room {
 
     @Override
     public Map<String, String> getQuiz() {
-        return null;
+        return roomQuiz;
     }
 
     @Override
     public Map<String, String> getWildcard() {
-        return null;
+        return wildCardQuiz;
     }
 
     @Override
     public List<String> getActions() {
-        return null;
+        return actions;
     }
 
     @Override
