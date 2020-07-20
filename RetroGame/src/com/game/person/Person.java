@@ -30,7 +30,7 @@ public class Person {
 
     public void setName(String name) throws IllegalArgumentException {
         if(name.isEmpty()){
-            throw new IllegalArgumentException("Enter Valid Name");
+            throw new IllegalArgumentException("ENTER VALID NAME!");
         }
         this.name = name;
     }

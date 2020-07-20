@@ -10,7 +10,8 @@ import java.util.Map;
 
 public class Lobby extends Room {
     //INSTANT VARIABLE
-    private String message="YOU ARE IN THE LOBBY AND SEE MANY CLASSROOMS.";
+    private String message="--------------------------------------------"+
+            "\nYOU ARE IN THE LOBBY AND SEE MANY CLASSROOMS.";
     //action options in this particular room
     private List<String> actions=new ArrayList(Arrays.asList(
        "ENTER JAVA",
@@ -26,16 +27,17 @@ public class Lobby extends Room {
     public Lobby(){
         super();
         setName(Name.LOBBY);
-        setInstructor(new Instructor("Jeannette"));
+        setInstructor(new Instructor("JEANNETTE"));
     }
 
     //ACCESSOR METHODS
+    @Override
     public String getMessage() {
         return message;
     }
 
     @Override
-    public Map<String, String> getRoomQuiz() {
+    public Map<String, String> getQuiz() {
         return null;
     }
 
@@ -44,6 +46,7 @@ public class Lobby extends Room {
         return null;
     }
 
+    @Override
     public List<String> getActions() {
         return actions;
     }

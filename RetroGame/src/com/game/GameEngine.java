@@ -11,8 +11,8 @@ import java.util.List;
 public class GameEngine {
     private final GameHelper gameHelper = new GameHelper(this);
     private Player player;
-    private   Console console=System.console();
-    private List<Room> roomList=new ArrayList(Arrays.asList(
+    private Console console = System.console();
+    private List<Room> roomList = new ArrayList(Arrays.asList(
             new Lobby(),
             new RoomJava(),
             new RoomJS(),
@@ -28,52 +28,69 @@ public class GameEngine {
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
 
+        //TODO Game loop starts once the player opts to ENTER
         while (true) {
-            //Game loop starts once the player opts to ENTER
-            if ("ENTER".equals(console.readLine("\nType action:").toUpperCase())) {
+            if ("ENTER".equals(console.readLine("\nTYPE ACTION:").toUpperCase())) {
                 for (Room room : roomList) {
                     //Updating the location of the player with the curRoom
-                    player.getStatus().put("Location", room.getName().value());
-                    //TODO clear screen
+                    player.getStatus().put("LOCATION", room.getName().value());
+                    //TODO clear
+                    clearScreen();
                     //Display roomMessage as you enter the room
-                    System.out.println("\n"+room.getMessage());
+                    System.out.println("\n" + room.getMessage());
                     //Display Instructor/Staff present in the room
-                    System.out.println("\n"+room.getInstructor().getName().toUpperCase()+" IS IN CHARGE. SO YOU BETTER PAY ATTENTION");
+                    System.out.println("\n" + room.getInstructor().getName().toUpperCase() + " IS IN CHARGE NOW, " +
+                            "SO YOU BETTER PAY ATTENTION");
                     //Display player status
                     System.out.println("\nSTATUS: " + player.getStatus());
                     //Display action options
-                    System.out.println("ACTIONS: " + room.getActions());
+                    System.out.println("\nACTIONS: " + room.getActions());
                     //Direct to the proper room actions interaction
                     actionInteraction(room);
                 }
                 System.out.println("CONGRATULATIONS!!! GOOD LUCK WITH OJT.");
                 System.exit(0);
-            }
-            else{
-                System.out.println("Invalid Entry!");
+            } else {
+                System.out.println("INVALID ENTRY!");
             }
         }
     }
 
     //Get player name from the console and then return a Player
-    private Player getPlayer(){
+    private Player getPlayer() {
         String playerName;
         Player curPlayer;
-        while(true){
-            playerName=console.readLine("What do you want your name to be: ");
-            try{
-                curPlayer= new Player(playerName);
+        while (true) {
+            playerName = console.readLine("\nWHAT IS YOUR NAME?: ");
+            try {
+                curPlayer = new Player(playerName);
                 return curPlayer;
-            }
-            catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
     }
 
     //Display Welcome message and give a rundown of how to play the game
-    private void displayWelcomeMsg(String name){
-        System.out.println("\n\nHEY "+name.toUpperCase()+"! \n\nWELCOME TO THE TLG LEARNING FACILITY IN BELLEVUE, WA!\nCONGRATULATIONS!!! YOU ARE A BRAND SPANKING NEW SDE APPRENTICE. BE READY FOR AN EXCITING RIDE TO AMAZON. \n\nWARNING!!! BEFORE ENTERING BUCKLE UP WITH LOADS OF ENTHUSIASM. TO GET TO OJT YOU HAVE TO GO THROUGH THE GATEKEEPERS: TLG INSTRUCTORS AND STAFF.\n\nGOOD LUCK AND GODSPEED.\n\nACTIONS:[ENTER,]");
+    private void displayWelcomeMsg(String name) {
+        System.out.println("--------------------------------------------" +
+                "\n\nHEY " + name.toUpperCase() + "! " +
+                "\n\nWELCOME TO THE TLG LEARNING FACILITY IN BELLEVUE, WA!" +
+                "\nCONGRATULATIONS!!! YOU ARE A BRAND SPANKING NEW SDE APPRENTICE. " +
+                "\nBE READY FOR AN EXCITING RIDE TO AMAZON. " +
+                "\n\nWARNING!!! BEFORE ENTERING BUCKLE UP WITH LOADS OF ENTHUSIASM. " +
+                "\nTO GET TO OJT YOU HAVE TO GO THROUGH THE GATEKEEPERS: TLG INSTRUCTORS AND STAFF." +
+                "\n\nGOOD LUCK AND GODSPEED." +
+                "\n\n--------------------------------------------" +
+                "\n\nACTIONS:[ENTER,]");
+    }
+
+    public static void clearScreen() {
+        try {
+            new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
     }
 
 
@@ -92,13 +109,13 @@ public class GameEngine {
                 gameHelper.classActions(room);
                 break;
             case BREAKOUT:
-                System.out.println("actionInteraction Breakout");
+                System.out.println("ACTION INTERACTION BREAKOUT");
                 break;
         }
     }
 
     //Display map function
-    private void displayMap(){
+    private void displayMap() {
 
     }
 

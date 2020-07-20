@@ -7,32 +7,30 @@ import java.util.*;
 public class RoomJava extends Room {
 
     //INSTANCE VARIABLES
-    private String message = "Welcome to the Java Classroom. " +
-            "I hope you brought your air guitar with you!";
+    private String message = "--------------------------------------------"+
+            "\nWELCOME TO THE JAVA CLASSROOM. " +
+            "I HOPE YOU BROUGHT YOUR AIR GUITAR WITH YOU!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take quiz",
-            "Take wild card quiz"
+            "TAKE QUIZ",
+            "TAKE WILD CARD QUIZ"
     ));
 
     private Map<String,String> quiz =new HashMap<>(){
         {
-            put("What does OOP stand for?", "object oriented programming");
-            put("What does JVM stand for?","java virtual machine");
-            put("Java uses the 'public', 'protected,' and '-------' access keywords.","private");
-            put("If you declare no constructors, a '-------' constructor is automatically assigned.","default");
-            put("What does the '!=' operator stand for?","not equal");
-            put("What IDE did we primarily use during our Java course?","intellij");
+            put("WHAT DOES OOP STAND FOR?", "OBJECT ORIENTED PROGRAMMING");
+            put("WHAT DOES JVM STAND FOR?","JAVA VIRTUAL MACHINE");
+            put("JAVA USES THE 'PUBLIC', 'PROTECTED,' AND '-------' ACCESS KEYWORDS.","PRIVATE");
+            put("IF YOU DECLARE NO CONSTRUCTORS, A '-------' CONSTRUCTOR IS AUTOMATICALLY ASSIGNED.","DEFAULT");
+            put("WHAT DOES THE '!=' OPERATOR STAND FOR?","NOT EQUAL");
+            put("WHAT IDE DID WE PRIMARILY USE DURING OUR JAVA COURSE?","INTELLIJ");
         }
-
     };
 
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
-            put("Did Jay win first place in his air guitar competition? (true/false)", "false");
-
+            put("DID JAY WIN FIRST PLACE IN HIS AIR GUITAR COMPETITION? (TRUE/FALSE)", "FALSE");
         }
     };
-
 
     //CONSTRUCTOR
     public RoomJava() {
@@ -42,26 +40,26 @@ public class RoomJava extends Room {
     }
 
     //ACCESSOR METHODS
+    @Override
     public String getMessage() {
         return message;
     }
-
+    @Override
     public List<String> getActions() {
         return actions;
     }
-
+    @Override
     public void setActions(List<String> actions) {
         this.actions = actions;
     }
-
-    public Map<String, String> getRoomQuiz() {
+    @Override
+    public Map<String, String> getQuiz() {
         return quiz;
     }
-
+    @Override
     public Map<String, String> getWildcard() {
         return wildCardQuiz;
     }
-
     @Override
     public String toString() {
         return "RoomJava{" +

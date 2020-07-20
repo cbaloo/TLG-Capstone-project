@@ -9,7 +9,7 @@ public class GameConsole {
     public static void main(String[] args) throws IOException {
         Console console= System.console();
         if (console == null) {
-            System.out.print("No console available");
+            System.out.print("NO CONSOLE AVAILABLE");
             return;
         }
 

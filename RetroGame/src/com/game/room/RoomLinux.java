@@ -6,10 +6,11 @@ import java.util.*;
 
 public class RoomLinux extends Room {
     //INSTANCE VARIABLES
-    private String message = "Welcome to the Linux Classroom!";
+    private String message = "--------------------------------------------"+
+            "\nWELCOME TO THE LINUX CLASSROOM!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "Take quiz",
-            "Take wild card quiz"
+            "TAKE QUIZ",
+            "TAKE WILD CARD QUIZ"
     ));
 
     private Map<String,String> roomQuiz=new HashMap<>(){
@@ -23,7 +24,7 @@ public class RoomLinux extends Room {
 
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
-            put("Was photography one of John's other passion?(True/False)", "true");
+            put("WAS PHOTOGRAPHY ONE OF JOHN'S OTHER PASSION?(TRUE/FALSE)", "TRUE");
         }
     };
 
@@ -32,7 +33,7 @@ public class RoomLinux extends Room {
     public RoomLinux(){
         super();
         setName(Name.LINUX);
-        setInstructor(new Instructor("John"));
+        setInstructor(new Instructor("JOHN"));
     }
 
     //ACCESSOR METHODS
@@ -42,7 +43,8 @@ public class RoomLinux extends Room {
     }
 
     @Override
-    public Map<String, String> getRoomQuiz() {
+
+    public Map<String, String> getQuiz() {
         return roomQuiz;
     }
 

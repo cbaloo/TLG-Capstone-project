@@ -7,8 +7,8 @@ public class Player extends Person {
     //INSTANCE VARIABLE
     private Map<String,String> status=new HashMap<>(){
         {
-            put("Location", "Lobby");
-            put("Score","0");
+            put("LOCATION", "LOBBY");
+            put("SCORE","0");
         }
     };
 
