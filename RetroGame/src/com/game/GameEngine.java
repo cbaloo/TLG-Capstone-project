@@ -45,8 +45,8 @@ public class GameEngine {
                     //Direct to the proper room actions interaction
                     actionInteraction(room);
                 }
-                //TODO once in the lobby message,actions and status displayed, only java and breakout is open for entry, all others are closed with a  smart-ass comment
-                //TODO pass/stuck-in-java after quiz, if pass python opens and the same pattern follows, go to lobby and then to python
+                System.out.println("CONGRATULATIONS!!! GOOD LUCK WITH OJT.");
+                System.exit(0);
             }
             else{
                 System.out.println("Invalid Entry!");

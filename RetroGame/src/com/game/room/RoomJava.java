@@ -51,7 +51,6 @@ public class RoomJava extends Room {
     }
 
     public void setActions(List<String> actions) {
-        //TODO May need validation
         this.actions = actions;
     }
 

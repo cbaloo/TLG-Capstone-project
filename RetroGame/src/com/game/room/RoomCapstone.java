@@ -22,6 +22,12 @@ public class RoomCapstone extends Room {
             put("Working software is the primary measure of '--------'?", "");
         }
     };
+    private Map<String,String> wildCardQuiz=new HashMap<>(){
+        {
+            put("Question? (true/false)", "false");
+
+        }
+    };
 
     //CONSTRUCTOR
     public RoomCapstone() {
@@ -43,13 +49,14 @@ public class RoomCapstone extends Room {
 
     @Override
     public Map<String, String> getWildcard() {
-        return null;
+        return wildCardQuiz;
     }
 
     @Override
     public List<String> getActions() {
-        return null;
+        return actions;
     }
+
 
     @Override
     public void setActions(List<String> actions) {
