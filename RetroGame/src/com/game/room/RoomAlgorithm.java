@@ -12,7 +12,7 @@ public class RoomAlgorithm extends Room {
             "Take wild card quiz"
     ));
 
-    private Map<String, String> quiz = new HashMap<>() {
+    private Map<String, String> rooQuiz = new HashMap<>() {
         {
             put("A set can have duplicates?(True/False)", "False");
         }
@@ -38,8 +38,8 @@ public class RoomAlgorithm extends Room {
     }
 
     @Override
-    public Map<String, String> getQuiz() {
-        return quiz;
+    public Map<String, String> getRooQuiz() {
+        return rooQuiz;
     }
 
     @Override

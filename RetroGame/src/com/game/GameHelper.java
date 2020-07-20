@@ -26,7 +26,7 @@ public class GameHelper {
         this.gameEngine = gameEngine;
     }
 
-    //Specific Lobby action cascade
+    //Specific lobby action cascade
     void lobbyAction(Room room) {
         while (true) {
             //Player response after reading the status and action options
@@ -51,20 +51,17 @@ public class GameHelper {
             //Present player with the java quiz once they pick that action
             String nextClass=getRoomSequence().get(room.getName().value());
             if (action.toUpperCase().equals("TAKE QUIZ")) {
-                for (String question : room.getQuiz().keySet()) {
+                for (String question : room.getRooQuiz().keySet()) {
                     String answer = console.readLine(question + ": ");
-                    if (answer.equals(room.getQuiz().get(question))) {
+                    if (answer.equals(room.getRooQuiz().get(question))) {
                         System.out.println("Correct!!!");
                     } else {
                         System.out.println("Nope!!!");
                     }
                 }
                 room.getActions().remove("Take quiz");
-                if (room.getActions().size() == 0) {
-                    room.getActions().add(nextClass);
-                    room.setActions(room.getActions());
-                }
-                System.out.println("\nACTIONS: " + room.getActions());
+                //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
+                checkEmptyAction(room, nextClass);
             }
             else if(action.toUpperCase().equals("TAKE WILD CARD QUIZ")) {
                 //Present player with wild card quiz if they pick that action
@@ -77,11 +74,8 @@ public class GameHelper {
                     }
                 }
                 room.getActions().remove("Take wild card quiz");
-                if (room.getActions().size() == 0) {
-                    room.getActions().add(nextClass);
-                    room.setActions(room.getActions());
-                }
-                System.out.println("\nACTIONS: " + room.getActions());
+                //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
+                checkEmptyAction(room, nextClass);
             }
             else if(action.toUpperCase().equals(nextClass)) {
                 return;
@@ -90,6 +84,15 @@ public class GameHelper {
                 System.out.println("Invalid Entry!");
             }
         }
+    }
+
+    //Checks if the room action list is empty, if true the next class entry is added to the action list
+    private void checkEmptyAction(Room room, String nextClass) {
+        if (room.getActions().size() == 0) {
+            room.getActions().add(nextClass);
+            room.setActions(room.getActions());
+        }
+        System.out.println("\nACTIONS: " + room.getActions());
     }
 
     //ACCESSOR METHODS

@@ -11,6 +11,7 @@ import java.util.Map;
 public class Lobby extends Room {
     //INSTANT VARIABLE
     private String message="YOU ARE IN THE LOBBY AND SEE MANY CLASSROOMS.";
+    //action options in this particular room
     private List<String> actions=new ArrayList(Arrays.asList(
        "ENTER JAVA",
        "ENTER JAVASCRIPT",
@@ -34,7 +35,7 @@ public class Lobby extends Room {
     }
 
     @Override
-    public Map<String, String> getQuiz() {
+    public Map<String, String> getRooQuiz() {
         return null;
     }
 

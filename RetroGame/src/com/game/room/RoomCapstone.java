@@ -37,7 +37,7 @@ public class RoomCapstone extends Room {
     }
 
     @Override
-    public Map<String, String> getQuiz() {
+    public Map<String, String> getRooQuiz() {
         return roomQuiz;
     }
 

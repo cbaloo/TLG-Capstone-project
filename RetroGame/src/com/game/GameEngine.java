@@ -28,8 +28,8 @@ public class GameEngine {
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
 
-        //TODO Game loop starts once the player opts to ENTER
         while (true) {
+            //Game loop starts once the player opts to ENTER
             if ("ENTER".equals(console.readLine("\nType action:").toUpperCase())) {
                 for (Room room : roomList) {
                     //Updating the location of the player with the curRoom
@@ -37,7 +37,7 @@ public class GameEngine {
                     //Display roomMessage as you enter the room
                     System.out.println("\n"+room.getMessage());
                     //Display Instructor/Staff present in the room
-                    System.out.println("\n"+room.getInstructor().getName().toUpperCase()+" IS IN CHARGE NOW. SO YOU BETTER PAY ATTENTION");
+                    System.out.println("\n"+room.getInstructor().getName().toUpperCase()+" IS IN CHARGE. SO YOU BETTER PAY ATTENTION");
                     //Display player status
                     System.out.println("\nSTATUS: " + player.getStatus());
                     //Display action options
