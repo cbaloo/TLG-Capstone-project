@@ -6,11 +6,11 @@ import java.util.*;
 
 public class RoomCapstone extends Room {
     //INSTANCE VARIABLE
-    private String message = "--------------------------------------------" +
+    private String message = "--------------------------------------------"+
             "\nWELCOME TO THE CAPSTONE CLASSROOM! YOU ARE ALMOST WORTHY!!";
-    private List<String> actions = new ArrayList(Arrays.asList(
-            "TAKE QUIZ",
-            "TAKE WILD CARD QUIZ"
+    private List<String> actions=new ArrayList(Arrays.asList(
+            "TAKE QUIZ(Q)",
+            "TAKE WILD CARD QUIZ(W)"
     ));
 
 
@@ -23,9 +23,10 @@ public class RoomCapstone extends Room {
             put("WORKING SOFTWARE IS THE PRIMARY MEASURE OF '--------'?", "PROGRESS");
         }
     };
-    private Map<String, String> wildCardQuiz = new HashMap<>() {
+    private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
-            put("QUESTION? (TRUE/FALSE)", "FALSE");
+            put("RENNIE MAKES INFRASTRUCTURE AS SERVICE(IAAS) PIZZA EVERY SUNDAY? (TRUE/FALSE)", "FALSE");
+            put("CLASSMATE WHO HAS THE MOST SCREENS","BRUCE");
 
         }
     };
@@ -62,13 +63,13 @@ public class RoomCapstone extends Room {
 
     @Override
     public void setActions(List<String> actions) {
-        this.actions = actions;
+        this.actions=actions;
     }
 
     @Override
     public String toString() {
         return "RoomCapstone{" +
-                "name=" + getName() + ", " +
+                "name=" + getName()+", "+
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

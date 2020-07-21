@@ -31,12 +31,12 @@ public class RoomBreakout extends Room {
         return message;
     }
 
+    //BREAKOUT DOES NOT HAVE QUIZ FOR NOW
     @Override
-
     public Map<String, String> getQuiz() {
         return null;
     }
-
+    //BREAKOUT DOES NOT HAVE WILD CARD FOR NOW
     @Override
     public Map<String, String> getWildcard() {
         return null;
@@ -44,7 +44,7 @@ public class RoomBreakout extends Room {
 
     @Override
     public List<String> getActions() {
-        return null;
+        return actions;
     }
 
     @Override

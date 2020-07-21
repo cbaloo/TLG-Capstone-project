@@ -35,11 +35,12 @@ public class Lobby extends Room {
         return message;
     }
 
+    //LOBBY DOES NOT HAVE QUIZ FOR NOW
     @Override
     public Map<String, String> getQuiz() {
         return null;
     }
-
+    //LOBBY DOES NOT HAVE WILDCARD QUIZ FOR NOW
     @Override
     public Map<String, String> getWildcard() {
         return null;

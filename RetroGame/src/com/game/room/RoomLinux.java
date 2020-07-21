@@ -6,31 +6,32 @@ import java.util.*;
 
 public class RoomLinux extends Room {
     //INSTANCE VARIABLES
-    private String message = "--------------------------------------------" +
+    private String message = "--------------------------------------------"+
             "\nWELCOME TO THE LINUX CLASSROOM!";
-    private List<String> actions = new ArrayList(Arrays.asList(
-            "TAKE QUIZ",
-            "TAKE WILD CARD QUIZ"
+    private List<String> actions=new ArrayList(Arrays.asList(
+            "TAKE QUIZ(Q)",
+            "TAKE WILD CARD QUIZ(W)"
     ));
 
-    private Map<String, String> roomQuiz = new HashMap<>() {
+    private Map<String,String> roomQuiz=new HashMap<>(){
         {
-            put("WHAT IS THE LINUX COMMAND TO CHANGE DIRECTORIES?", "CD");
-            put("WHAT IS THE LINUX COMMAND TO LIST THE CONTENTS OF A DIRECTORY?", "LS");
-            put("WHAT IS THE LINUX COMMAND TO MAKE A DIRECTORY?", "MKDIR");
-        }
+            put("WHAT US THE LINUX COMMAND TO CHANGE THE DIRECTORIES?", "CD");
+            put("WHAT US THE LINUX COMMAND TO LIST THE CONTENTS OF A DIRECTORY?", "LS");
+            put("WHAT US THE LINUX COMMAND TO MAKE A DIRECTORY?", "MKDIR");
 
+        }
     };
 
-    private Map<String, String> wildCardQuiz = new HashMap<>() {
+    private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
             put("WAS PHOTOGRAPHY ONE OF JOHN'S OTHER PASSION?(TRUE/FALSE)", "TRUE");
+            put("CLASSMATE WHO LOVES GARDENING AND HAS RECENTLY GOTTEN INTO BIRD WATCHING?","MICHAEL");
         }
     };
 
 
     //CONSTRUCTOR
-    public RoomLinux() {
+    public RoomLinux(){
         super();
         setName(Name.LINUX);
         setInstructor(new Instructor("JOHN"));
@@ -60,13 +61,13 @@ public class RoomLinux extends Room {
 
     @Override
     public void setActions(List<String> actions) {
-        this.actions = actions;
+        this.actions=actions;
     }
 
     @Override
     public String toString() {
         return "RoomLinux{" +
-                "name=" + getName() + ", " +
+                "name=" + getName()+", "+
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }
