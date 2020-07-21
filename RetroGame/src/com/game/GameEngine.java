@@ -6,12 +6,14 @@ import com.game.room.*;
 import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
+import java.util.Scanner; //CB
 
 public class GameEngine {
     private final GameHelper gameHelper = new GameHelper(this);
     private Player player;
     private Console console = System.console();
+    public static Scanner in = new Scanner(System.in); // CB
+    public static  String instructions; //CB
     private List<Room> roomList = new ArrayList(Arrays.asList(
             new Lobby(),
             new RoomJava(),
@@ -27,6 +29,38 @@ public class GameEngine {
         player= getPlayer();
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
+// CB STARTING HERE FOR DISPLAYING INSTRUCTIONS
+       instructions = "0";
+
+       while (true) {
+           switch (instructions) //displaying instructions
+           {
+               case "0":
+                   System.out.println("Once you are in the game you can't move backwards.\n" +
+                           "You need to pass each class to reach to your final destination!!\n" +
+                           "Be ready for some guitar lessons from Jay!!\n" +
+                           "Have a laugh with Nelly!!\n" +
+                           "Get ready for fun with Tom and his hijack stories!!\n" +
+                           "Explore Linux/ AWS with JOHN!!\n" +
+                           "Be a part of 'Python Gang' with Zack...I mean Zach!!\n" +
+                           "Be agile with Rennie!! Mind you he is the product owner!!\n" +
+                           "Last but not the least: \"BE YOURSELF!!!\"\n.\n\nType your name to proceed:");
+                   instructions = "1";
+                   break;
+
+               case "1":
+                   in.next();
+                   instructions = "1A";
+                   break;
+
+               case "1A":
+                   System.out.println("\n\n\"Was instructions helpful?\\n[1]Yes\\n[2]No\"");
+                   instructions = "2";
+                   break;
+
+           }
+       }
+       // CB INSTRUCTIONS STOP HERE
 
         //TODO Game loop starts once the player opts to ENTER
         while (true) {
