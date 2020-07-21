@@ -1,8 +1,5 @@
 package com.game.person;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Person {
     //INSTANCE VARIABLE
     private String name;
@@ -46,8 +43,8 @@ public class Person {
     @Override
     public String toString() {
         return "Person{" +
-                "name='" + name + '\'' +
-                ", title=" + title +
+                "name='" + getName() + '\'' +
+                ", title=" + getTitle() +
                 '}';
     }
 }

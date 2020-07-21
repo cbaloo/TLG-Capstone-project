@@ -44,12 +44,14 @@ public class GameHelper {
         }
     }
 
+    //All classroom have similar actions(Quiz, Wildcard quiz) that the player has to go through
     void classActions(Room room) {
         while (true) {
             //Player response after reading the status and action options
             String action = console.readLine("\nTYPE ACTION:");
-            //Present player with the java quiz once they pick that action
+            //Get the next classroom name
             String nextClass=getRoomSequence().get(room.getName().value());
+            //Present player with the java quiz once they pick quiz action
             if (action.toUpperCase().equals("Q")) {
                 for (String question : room.getQuiz().keySet()) {
                     String answer = console.readLine(question + ": ");
@@ -59,8 +61,9 @@ public class GameHelper {
                         System.out.println("NOPE, ANSWER: "+room.getQuiz().get(question)+"\n");
                     }
                 }
+                //Once the quiz is done, remove the quiz from the actions list
                 room.getActions().remove("TAKE QUIZ(Q)");
-                //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
+                //Once the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
                 checkEmptyAction(room, nextClass);
             }
             else if(action.toUpperCase().equals("W")) {
@@ -73,6 +76,7 @@ public class GameHelper {
                         System.out.println("NOPE, ANSWER: "+room.getWildcard().get(question)+"\n");
                     }
                 }
+                //Once the Wildcard quiz is done, remove it from the actions list
                 room.getActions().remove("TAKE WILD CARD QUIZ(W)");
                 //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
                 checkEmptyAction(room, nextClass);

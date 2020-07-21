@@ -12,7 +12,7 @@ public class Player extends Person {
         }
     };
 
-    //CONSTRUCTORS
+    //CONSTRUCTOR: DEFAULTS TO TITLE PLAYER
     public Player(String name) {
         super(name);
         setTitle(Title.PLAYER);

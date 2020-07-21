@@ -27,6 +27,7 @@ public class RoomJS extends Room {
     private Map<String, String> wildCardQuiz=new HashMap<>(){
         {
         put("HOW MANY INSTRUCTORS DID WE HAVE FOR OUR JAVASCRIPT COURSE?(1/2)","2");
+        put("CLASSMATE WHO RELOCATES TO DIFFERENT ROOMS/AREA OF HIS/HER HOME FOR CLASS?","DAEUN");
         }
     };
 

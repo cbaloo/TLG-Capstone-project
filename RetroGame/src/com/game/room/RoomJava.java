@@ -29,6 +29,8 @@ public class RoomJava extends Room {
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
             put("DID JAY WIN FIRST PLACE IN HIS AIR GUITAR COMPETITION? (TRUE/FALSE)", "FALSE");
+            put("CLASSMATE WHO WOWS ALL WITH HIS/HER PROJECT?","DHRUTI");
+            put("CLASSMATE WHO HAVE SPENT THE MOST AMOUNT OF TIME UNDERWATER?","JOSH");
         }
     };
 

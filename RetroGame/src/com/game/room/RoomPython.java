@@ -21,6 +21,7 @@ public class RoomPython extends Room {
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
             put("WE WERE IS SOME KIND OF GANG WHILE WE WERE GOING THROUGH THE PYTHON COURSE?(TRUE/FALSE)", "TRUE");
+            put("CLASSMATE WHO LIVES CLOSEST TO MOUNT RAINIER","BRAD");
         }
     };
     //CONSTRUCTOR
