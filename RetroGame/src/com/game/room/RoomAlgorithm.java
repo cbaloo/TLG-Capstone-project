@@ -16,6 +16,7 @@ public class RoomAlgorithm extends Room {
     private Map<String, String> quiz = new HashMap<>() {
         {
             put("A SET CAN HAVE DUPLICATES?(TRUE/FALSE)", "FALSE");
+            put("LIST/ARRAY ARE ORDERED DATA STRUCTURE(TRUE/FALSE)","FALSE");
         }
     };
     private Map<String,String> wildCardQuiz=new HashMap<>(){
@@ -29,7 +30,7 @@ public class RoomAlgorithm extends Room {
     //CONSTRUCTOR
     public RoomAlgorithm() {
         super();
-        setName(Name.ALGORITHM);
+        setClassName(ClassName.ALGORITHM);
         setInstructor(new Instructor("TOM"));
     }
 
@@ -64,7 +65,7 @@ public class RoomAlgorithm extends Room {
     @Override
     public String toString() {
         return "RoomAlgorithm{" +
-                "name=" + getName()+", "+
+                "name=" + getClassName()+", "+
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

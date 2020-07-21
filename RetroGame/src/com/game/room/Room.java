@@ -7,31 +7,8 @@ import java.util.Map;
 
 public abstract class Room {
     //INSTANCE VARIABLE
-    private Name name;
+    private ClassName className;
     private Instructor instructor;
-
-
-    //NESTED STATIC CLASS
-    public static enum Name {
-        JAVA("JAVA"),
-        JAVASCRIPT("JAVASCRIPT"),
-        ALGORITHM("ALGORITHM"),
-        LINUX("LINUX"),
-        PYTHON("PYTHON"),
-        CAPSTONE("CAPSTONE"),
-        BREAKOUT("BREAKOUT"),
-        LOBBY("LOBBY");
-
-        private String value;
-
-        Name(String value) {
-            this.value = value;
-        }
-
-        public String value() {
-            return value;
-        }
-    }
 
     //ABSTRACT METHODS
     public abstract String getMessage();
@@ -45,12 +22,12 @@ public abstract class Room {
     public abstract void setActions(List<String> actions);
 
     //ACCESSOR METHODS
-    public Name getName() {
-        return name;
+    public ClassName getClassName() {
+        return className;
     }
 
-    public void setName(Name name) {
-        this.name = name;
+    public void setClassName(ClassName className) {
+        this.className = className;
     }
 
     public Instructor getInstructor() {
@@ -64,7 +41,7 @@ public abstract class Room {
     @Override
     public String toString() {
         return "Room{" +
-                "name=" + getName() +
+                "name=" + getClassName() +
                 ", instructor=" + getInstructor() +
                 '}';
     }

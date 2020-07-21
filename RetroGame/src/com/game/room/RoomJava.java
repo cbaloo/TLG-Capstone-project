@@ -13,16 +13,18 @@ public class RoomJava extends Room {
     private List<String> actions=new ArrayList(Arrays.asList(
             "TAKE QUIZ(Q)",
             "TAKE WILD CARD QUIZ(W)"
+//            "DUCK RACE(D)",
+//            "VIEW MAP(M)"
     ));
 
     private Map<String,String> quiz =new HashMap<>(){
         {
-            put("WHAT DOES OOP STAND FOR?", "OBJECT ORIENTED PROGRAMMING");
+//            put("WHAT DOES OOP STAND FOR?", "OBJECT ORIENTED PROGRAMMING");
             put("WHAT DOES JVM STAND FOR?","JAVA VIRTUAL MACHINE");
             put("JAVA USES THE 'PUBLIC', 'PROTECTED,' AND '-------' ACCESS KEYWORDS.","PRIVATE");
             put("IF YOU DECLARE NO CONSTRUCTORS, A '-------' CONSTRUCTOR IS AUTOMATICALLY ASSIGNED.","DEFAULT");
-            put("WHAT DOES THE '!=' OPERATOR STAND FOR?","NOT EQUAL");
-            put("WHAT IDE DID WE PRIMARILY USE DURING OUR JAVA COURSE?","INTELLIJ");
+//            put("WHAT DOES THE '!=' OPERATOR STAND FOR?","NOT EQUAL");
+//            put("WHAT IDE DID WE PRIMARILY USE DURING OUR JAVA COURSE?","INTELLIJ");
         }
     };
 
@@ -37,7 +39,7 @@ public class RoomJava extends Room {
     //CONSTRUCTOR
     public RoomJava() {
         super();
-        setName(Name.JAVA);
+        setClassName(ClassName.JAVA);
         setInstructor(new Instructor("Jay"));
     }
 
@@ -65,7 +67,7 @@ public class RoomJava extends Room {
     @Override
     public String toString() {
         return "RoomJava{" +
-                "name=" + getName() + ", " +
+                "name=" + getClassName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() +" } ";
     }

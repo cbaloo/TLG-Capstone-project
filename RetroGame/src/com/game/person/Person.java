@@ -16,10 +16,6 @@ public class Person {
     }
     public Person(){};
 
-    //STATIC NESTED CLASSES
-    public static enum Title{INSTRUCTOR, CLASSMATE, STAFF, PLAYER}
-
-
     //ACCESSOR METHODS
     public String getName() {
         return name;

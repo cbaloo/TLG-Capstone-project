@@ -21,7 +21,7 @@ public class RoomBreakout extends Room {
     //CONSTRUCTOR
     public RoomBreakout() {
         super();
-        setName(Name.BREAKOUT);
+        setClassName(ClassName.BREAKOUT);
         setInstructor(new Instructor("CHAOS"));
     }
 
@@ -55,7 +55,7 @@ public class RoomBreakout extends Room {
     @Override
     public String toString() {
         return "RoomBreakout{" +
-                "name=" + getName() + ", " +
+                "name=" + getClassName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

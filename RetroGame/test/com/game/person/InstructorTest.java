@@ -10,7 +10,7 @@ public class InstructorTest {
     public void instructorConstructorPositive(){
         Instructor teach=new Instructor("Tom");
         System.out.println(teach);
-        assertEquals(Person.Title.INSTRUCTOR,teach.getTitle());
+        assertEquals(Title.INSTRUCTOR,teach.getTitle());
     }
 
     @Test(expected = IllegalArgumentException.class)

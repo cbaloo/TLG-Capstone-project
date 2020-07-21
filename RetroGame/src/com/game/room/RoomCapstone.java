@@ -34,7 +34,7 @@ public class RoomCapstone extends Room {
     //CONSTRUCTOR
     public RoomCapstone() {
         super();
-        setName(Name.CAPSTONE);
+        setClassName(ClassName.CAPSTONE);
         setInstructor(new Instructor("RENNIE"));
     }
 
@@ -69,7 +69,7 @@ public class RoomCapstone extends Room {
     @Override
     public String toString() {
         return "RoomCapstone{" +
-                "name=" + getName()+", "+
+                "name=" + getClassName()+", "+
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

@@ -1,5 +1,6 @@
 package com.game;
 
+import com.game.person.Player;
 import com.game.room.Room;
 
 import java.io.Console;
@@ -50,13 +51,14 @@ public class GameHelper {
             //Player response after reading the status and action options
             String action = console.readLine("\nTYPE ACTION:");
             //Get the next classroom name
-            String nextClass=getRoomSequence().get(room.getName().value());
+            String nextClass=getRoomSequence().get(room.getClassName().value());
             //Present player with the java quiz once they pick quiz action
             if (action.toUpperCase().equals("Q")) {
                 for (String question : room.getQuiz().keySet()) {
                     String answer = console.readLine(question + ": ");
                     if (answer.toUpperCase().equals(room.getQuiz().get(question))) {
                         System.out.println("CORRECT!!!\n");
+                        //TODO Player score needs to be updated +1 in this case
                     } else {
                         System.out.println("NOPE, ANSWER: "+room.getQuiz().get(question)+"\n");
                     }
@@ -72,7 +74,9 @@ public class GameHelper {
                     String answer = console.readLine(question + ": ");
                     if (answer.toUpperCase().equals(room.getWildcard().get(question))) {
                         System.out.println("CORRECT!!!\n");
+                        //TODO Player score needs to be updated +1 in this case
                     } else {
+                        //TODO give player one more attempt at answer
                         System.out.println("NOPE, ANSWER: "+room.getWildcard().get(question)+"\n");
                     }
                 }
@@ -96,6 +100,16 @@ public class GameHelper {
             room.setActions(room.getActions());
         }
         System.out.println("\nACTIONS: " + room.getActions());
+    }
+
+    //TODO Update score of the student
+    public void updateScore(Player player){
+        //Get current score
+        String curScore=player.getStatus().get("SCORE");
+        //Add 1 to curScore which is String number
+        Integer updatedScore=Integer.parseInt(curScore)+1;
+        String newScore=String.valueOf(updatedScore);
+        player.getStatus().put("SCORE",newScore);
     }
 
     //ACCESSOR METHODS

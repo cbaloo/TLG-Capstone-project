@@ -35,7 +35,7 @@ public class GameEngine {
             if ("ENTER".equals(console.readLine("\nTYPE ACTION:").toUpperCase())) {
                 for (Room room : roomList) {
                     //Updating the location of the player with the curRoom
-                    player.getStatus().put("LOCATION", room.getName().value());
+                    player.getStatus().put("LOCATION", room.getClassName().value());
                     //Clear screen every time the player enters a new room
                     clearScreen();
                     //Display customized roomMessage as you enter the room
@@ -100,7 +100,7 @@ public class GameEngine {
 
     //Specific Classroom action cascade
     private void actionInteraction(Room room) {
-        switch (room.getName()) {
+        switch (room.getClassName()) {
             case LOBBY:
                 gameHelper.lobbyAction(room);
                 break;

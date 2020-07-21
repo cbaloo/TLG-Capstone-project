@@ -33,7 +33,7 @@ public class RoomLinux extends Room {
     //CONSTRUCTOR
     public RoomLinux(){
         super();
-        setName(Name.LINUX);
+        setClassName(ClassName.LINUX);
         setInstructor(new Instructor("JOHN"));
     }
 
@@ -67,7 +67,7 @@ public class RoomLinux extends Room {
     @Override
     public String toString() {
         return "RoomLinux{" +
-                "name=" + getName()+", "+
+                "name=" + getClassName()+", "+
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

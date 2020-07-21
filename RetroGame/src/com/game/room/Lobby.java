@@ -25,7 +25,7 @@ public class Lobby extends Room {
     //CONSTRUCTOR
     public Lobby(){
         super();
-        setName(Name.LOBBY);
+        setClassName(ClassName.LOBBY);
         setInstructor(new Instructor("JEANNETTE"));
     }
 
@@ -59,7 +59,7 @@ public class Lobby extends Room {
     @Override
     public String toString() {
         return "Lobby{" +
-                "name=" + getName() +", "+
+                "name=" + getClassName() +", "+
                 getInstructor()+"} ";
     }
 }
