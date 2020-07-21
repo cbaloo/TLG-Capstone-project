@@ -24,30 +24,34 @@ public class GameEngine {
 
     //Method to start the game
     public void start() {
+        //Accept player name from the console
         player= getPlayer();
+        //Display text in to set the scene for the player
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
 
-        //TODO Game loop starts once the player opts to ENTER
+        //Game loop starts once the player opts to ENTER
         while (true) {
             if ("ENTER".equals(console.readLine("\nTYPE ACTION:").toUpperCase())) {
                 for (Room room : roomList) {
                     //Updating the location of the player with the curRoom
                     player.getStatus().put("LOCATION", room.getName().value());
-                    //TODO clear
+                    //Clear screen every time the player enters a new room
                     clearScreen();
-                    //Display roomMessage as you enter the room
+                    //Display customized roomMessage as you enter the room
                     System.out.println("\n" + room.getMessage());
-                    //Display Instructor/Staff present in the room
+                    //Display Instructor present in the room
                     System.out.println("\n" + room.getInstructor().getName().toUpperCase() + " IS IN CHARGE NOW, " + "SO YOU BETTER PAY ATTENTION");
-                    //Display player status
+                    //Display player status which includes their location and score
                     System.out.println("\nSTATUS: " + player.getStatus());
-                    //Display action options
+                    //Display action options available to the player
                     System.out.println("ACTIONS: " + room.getActions());
                     //Direct to the proper room actions interaction
                     actionInteraction(room);
                 }
+                //Once the player has gone through all the classrooms, the player enters OJT
                 System.out.println("CONGRATULATIONS!!! GOOD LUCK WITH OJT.");
+                //Game exit
                 System.exit(0);
             } else {
                 System.out.println("INVALID ENTRY!");
@@ -84,6 +88,7 @@ public class GameEngine {
                 "\n\nACTIONS:[ENTER,]");
     }
 
+    //Clears screen in the console
     public static void clearScreen() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();

@@ -1,7 +1,6 @@
 package com.game.room;
 
 import com.game.person.Instructor;
-import com.game.person.Staff;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -36,11 +35,12 @@ public class Lobby extends Room {
         return message;
     }
 
+    //LOBBY DOES NOT HAVE QUIZ FOR NOW
     @Override
     public Map<String, String> getQuiz() {
         return null;
     }
-
+    //LOBBY DOES NOT HAVE WILDCARD QUIZ FOR NOW
     @Override
     public Map<String, String> getWildcard() {
         return null;
