@@ -24,7 +24,7 @@ public class GameEngine {
 
     //Method to start the game
     public void start() {
-        player= getPlayer();
+        player = getPlayer();
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
 
@@ -85,7 +85,7 @@ public class GameEngine {
                 "\n\nACTIONS:[ENTER,]");
     }
 
-    public static void clearScreen() {
+    private static void clearScreen() {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         } catch (Exception e) {

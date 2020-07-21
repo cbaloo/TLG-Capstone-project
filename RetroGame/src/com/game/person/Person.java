@@ -1,8 +1,5 @@
 package com.game.person;
 
-import java.util.HashMap;
-import java.util.Map;
-
 public class Person {
     //INSTANCE VARIABLE
     private String name;
@@ -14,14 +11,13 @@ public class Person {
         setName(name);
         setTitle(title);
     }
+
     public Person(String name) {
         setName(name);
     }
-    public Person(){};
 
-    //STATIC NESTED CLASSES
-    public static enum Title{INSTRUCTOR, CLASSMATE, STAFF, PLAYER}
-
+    public Person() {
+    }
 
     //ACCESSOR METHODS
     public String getName() {
@@ -29,7 +25,7 @@ public class Person {
     }
 
     public void setName(String name) throws IllegalArgumentException {
-        if(name.isEmpty()){
+        if (name.isEmpty()) {
             throw new IllegalArgumentException("ENTER VALID NAME!");
         }
         this.name = name;
@@ -50,4 +46,7 @@ public class Person {
                 ", title=" + title +
                 '}';
     }
+
+    //STATIC NESTED CLASSES
+    public enum Title {INSTRUCTOR, CLASSMATE, STAFF, PLAYER}
 }

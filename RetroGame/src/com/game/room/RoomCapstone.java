@@ -6,9 +6,9 @@ import java.util.*;
 
 public class RoomCapstone extends Room {
     //INSTANCE VARIABLE
-    private String message = "--------------------------------------------"+
+    private String message = "--------------------------------------------" +
             "\nWELCOME TO THE CAPSTONE CLASSROOM! YOU ARE ALMOST WORTHY!!";
-    private List<String> actions=new ArrayList(Arrays.asList(
+    private List<String> actions = new ArrayList(Arrays.asList(
             "TAKE QUIZ",
             "TAKE WILD CARD QUIZ"
     ));
@@ -20,12 +20,12 @@ public class RoomCapstone extends Room {
             put("IN AGILE, THE HIGHEST PRIORITY IS TO SATISFY THE '--------'.", "CUSTOMER");
             put("A USER STORY IS A TOOL USED IN '-----' SOFTWARE DEVELOPMENT", "AGILE");
             put("WHEN USING AGILE, SPRINTS TYPICALLY LAST BETWEEN 1 AND 4 '-----'.", "WEEKS");
-            put("WORKING SOFTWARE IS THE PRIMARY MEASURE OF '--------'?", "");
+            put("WORKING SOFTWARE IS THE PRIMARY MEASURE OF '--------'?", "PROGRESS");
         }
     };
-    private Map<String,String> wildCardQuiz=new HashMap<>(){
+    private Map<String, String> wildCardQuiz = new HashMap<>() {
         {
-            put("Question? (true/false)", "false");
+            put("QUESTION? (TRUE/FALSE)", "FALSE");
 
         }
     };
@@ -62,13 +62,13 @@ public class RoomCapstone extends Room {
 
     @Override
     public void setActions(List<String> actions) {
-        this.actions=actions;
+        this.actions = actions;
     }
 
     @Override
     public String toString() {
         return "RoomCapstone{" +
-                "name=" + getName()+", "+
+                "name=" + getName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

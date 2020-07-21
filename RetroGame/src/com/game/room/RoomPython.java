@@ -6,25 +6,26 @@ import java.util.*;
 
 public class RoomPython extends Room {
     //INSTANCE VARIABLES
-    private String message = "--------------------------------------------"+
+    private String message = "--------------------------------------------" +
             "\nWELCOME TO THE PYTHON CLASSROOM!";
-    private List<String> actions=new ArrayList(Arrays.asList(
+    private List<String> actions = new ArrayList(Arrays.asList(
             "TAKE QUIZ",
             "TAKE WILD CARD QUIZ"
     ));
 
-    private Map<String,String> roomQuiz=new HashMap<>(){
+    private Map<String, String> roomQuiz = new HashMap<>() {
         {
             put("WHITE SPACES ARE THE LEAST OF OUR WORRIES WHILE CODING IN PYTHON? (TRUE/FALSE)", "FALSE");
         }
     };
-    private Map<String,String> wildCardQuiz=new HashMap<>(){
+    private Map<String, String> wildCardQuiz = new HashMap<>() {
         {
             put("WE WERE IS SOME KIND OF GANG WHILE WE WERE GOING THROUGH THE PYTHON COURSE?(TRUE/FALSE)", "TRUE");
         }
     };
+
     //CONSTRUCTOR
-    public RoomPython(){
+    public RoomPython() {
         super();
         setName(Name.PYTHON);
         setInstructor(new Instructor("ZACH"));
@@ -53,13 +54,13 @@ public class RoomPython extends Room {
 
     @Override
     public void setActions(List<String> actions) {
-        this.actions=actions;
+        this.actions = actions;
     }
 
     @Override
     public String toString() {
         return "RoomPython{" +
-                "name=" + getName()+", "+
+                "name=" + getName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

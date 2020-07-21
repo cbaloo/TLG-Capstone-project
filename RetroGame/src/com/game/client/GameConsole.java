@@ -7,13 +7,13 @@ import java.io.IOException;
 
 public class GameConsole {
     public static void main(String[] args) throws IOException {
-        Console console= System.console();
+        Console console = System.console();
         if (console == null) {
             System.out.print("NO CONSOLE AVAILABLE");
             return;
         }
 
-        GameEngine gameEngine= new GameEngine();
+        GameEngine gameEngine = new GameEngine();
         gameEngine.start();
     }
 }

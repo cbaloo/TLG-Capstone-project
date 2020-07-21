@@ -23,28 +23,6 @@ public abstract class Room {
 //        }
 //    };
 
-    //NESTED STATIC CLASS
-    public static enum Name {
-        JAVA("JAVA"),
-        JAVASCRIPT("JAVASCRIPT"),
-        ALGORITHM("ALGORITHM"),
-        LINUX("LINUX"),
-        PYTHON("PYTHON"),
-        CAPSTONE("CAPSTONE"),
-        BREAKOUT("BREAKOUT"),
-        LOBBY("LOBBY");
-
-        private String value;
-
-        Name(String value) {
-            this.value = value;
-        }
-
-        public String value() {
-            return value;
-        }
-    }
-
     //ABSTRACT METHOD
     public abstract String getMessage();
 
@@ -79,5 +57,27 @@ public abstract class Room {
                 "name=" + getName() +
                 ", instructor=" + getInstructor() +
                 '}';
+    }
+
+    //NESTED STATIC CLASS
+    public enum Name {
+        JAVA("JAVA"),
+        JAVASCRIPT("JAVASCRIPT"),
+        ALGORITHM("ALGORITHM"),
+        LINUX("LINUX"),
+        PYTHON("PYTHON"),
+        CAPSTONE("CAPSTONE"),
+        BREAKOUT("BREAKOUT"),
+        LOBBY("LOBBY");
+
+        private String value;
+
+        Name(String value) {
+            this.value = value;
+        }
+
+        public String value() {
+            return value;
+        }
     }
 }

@@ -6,9 +6,9 @@ import java.util.*;
 
 public class RoomAlgorithm extends Room {
     //INSTANCE VARIABLE
-    private String message = "--------------------------------------------"+
+    private String message = "--------------------------------------------" +
             "\nWELCOME TO THE ALGORITHMS CLASSROOM!";
-    private List<String> actions=new ArrayList(Arrays.asList(
+    private List<String> actions = new ArrayList(Arrays.asList(
             "TAKE QUIZ",
             "TAKE WILD CARD QUIZ"
     ));
@@ -18,7 +18,7 @@ public class RoomAlgorithm extends Room {
             put("A SET CAN HAVE DUPLICATES?(TRUE/FALSE)", "FALSE");
         }
     };
-    private Map<String,String> wildCardQuiz=new HashMap<>(){
+    private Map<String, String> wildCardQuiz = new HashMap<>() {
         {
             put("TOM IS A MAN OF MAN OF MANY TALENTS? (TRUE/FALSE)", "TRUE");
             put("STEVE CAN DO NO WRONG?? (TRUE/FALSE)", "FALSE");
@@ -56,14 +56,14 @@ public class RoomAlgorithm extends Room {
 
     @Override
     public void setActions(List<String> actions) {
-        this.actions=actions;
+        this.actions = actions;
     }
 
 
     @Override
     public String toString() {
         return "RoomAlgorithm{" +
-                "name=" + getName()+", "+
+                "name=" + getName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

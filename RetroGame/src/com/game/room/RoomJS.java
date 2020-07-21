@@ -6,14 +6,14 @@ import java.util.*;
 
 public class RoomJS extends Room {
     //INSTANCE VARIABLES
-    private String message = "--------------------------------------------"+
+    private String message = "--------------------------------------------" +
             "\nWELCOME TO JAVASCRIPT! ARE YOU CONFUSED YET??";
-    private List<String> actions=new ArrayList(Arrays.asList(
+    private List<String> actions = new ArrayList(Arrays.asList(
             "TAKE QUIZ",
             "TAKE WILD CARD QUIZ"
     ));
 
-    private Map<String,String> roomQuiz=new HashMap<>(){
+    private Map<String, String> roomQuiz = new HashMap<>() {
         {
             put("WHICH COMPANY DEVELOPED JAVASCRIPT, NETGEAR OR NETSCAPE?", "NETSCAPE");
             put("JAVASCRIPT CAN BE USED WITH CSS AND '----' TO CREATE INTERACTIVE WEB PAGES.", "HTML");
@@ -24,14 +24,14 @@ public class RoomJS extends Room {
         }
     };
 
-    private Map<String, String> wildCardQuiz=new HashMap<>(){
+    private Map<String, String> wildCardQuiz = new HashMap<>() {
         {
-        put("HOW MANY INSTRUCTORS DID WE HAVE FOR OUR JAVASCRIPT COURSE?(1/2)","2");
+            put("HOW MANY INSTRUCTORS DID WE HAVE FOR OUR JAVASCRIPT COURSE?(1/2)", "2");
         }
     };
 
     //CONSTRUCTOR
-    public RoomJS(){
+    public RoomJS() {
         super();
         setName(Name.JAVASCRIPT);
         setInstructor(new Instructor("NELLY"));
@@ -61,13 +61,13 @@ public class RoomJS extends Room {
 
     @Override
     public void setActions(List<String> actions) {
-        this.actions=actions;
+        this.actions = actions;
     }
 
     @Override
     public String toString() {
         return "RoomJavaScript{" +
-                "name=" + getName()+", "+
+                "name=" + getName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }
