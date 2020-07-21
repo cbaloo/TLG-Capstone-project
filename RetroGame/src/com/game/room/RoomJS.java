@@ -9,8 +9,8 @@ public class RoomJS extends Room {
     private String message = "--------------------------------------------"+
             "\nWELCOME TO JAVASCRIPT! ARE YOU CONFUSED YET??";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "TAKE QUIZ",
-            "TAKE WILD CARD QUIZ"
+            "TAKE QUIZ(Q)",
+            "TAKE WILD CARD QUIZ(W)"
     ));
 
     private Map<String,String> roomQuiz=new HashMap<>(){

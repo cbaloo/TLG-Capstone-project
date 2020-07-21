@@ -9,8 +9,8 @@ public class RoomPython extends Room {
     private String message = "--------------------------------------------"+
             "\nWELCOME TO THE PYTHON CLASSROOM!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "TAKE QUIZ",
-            "TAKE WILD CARD QUIZ"
+            "TAKE QUIZ(Q)",
+            "TAKE WILD CARD QUIZ(W)"
     ));
 
     private Map<String,String> roomQuiz=new HashMap<>(){

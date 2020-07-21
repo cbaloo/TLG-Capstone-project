@@ -11,8 +11,8 @@ public class RoomJava extends Room {
             "\nWELCOME TO THE JAVA CLASSROOM. " +
             "I HOPE YOU BROUGHT YOUR AIR GUITAR WITH YOU!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "TAKE QUIZ",
-            "TAKE WILD CARD QUIZ"
+            "TAKE QUIZ(Q)",
+            "TAKE WILD CARD QUIZ(W)"
     ));
 
     private Map<String,String> quiz =new HashMap<>(){

@@ -50,30 +50,30 @@ public class GameHelper {
             String action = console.readLine("\nTYPE ACTION:");
             //Present player with the java quiz once they pick that action
             String nextClass=getRoomSequence().get(room.getName().value());
-            if (action.toUpperCase().equals("TAKE QUIZ")) {
+            if (action.toUpperCase().equals("Q")) {
                 for (String question : room.getQuiz().keySet()) {
                     String answer = console.readLine(question + ": ");
                     if (answer.toUpperCase().equals(room.getQuiz().get(question))) {
-                        System.out.println("CORRECT!!!");
+                        System.out.println("CORRECT!!!\n");
                     } else {
-                        System.out.println("NOPE!!!");
+                        System.out.println("NOPE, ANSWER: "+room.getQuiz().get(question)+"\n");
                     }
                 }
-                room.getActions().remove("TAKE QUIZ");
+                room.getActions().remove("TAKE QUIZ(Q)");
                 //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
                 checkEmptyAction(room, nextClass);
             }
-            else if(action.toUpperCase().equals("TAKE WILD CARD QUIZ")) {
+            else if(action.toUpperCase().equals("W")) {
                 //Present player with wild card quiz if they pick that action
                 for (String question : room.getWildcard().keySet()) {
                     String answer = console.readLine(question + ": ");
                     if (answer.toUpperCase().equals(room.getWildcard().get(question))) {
-                        System.out.println("CORRECT!!!");
+                        System.out.println("CORRECT!!!\n");
                     } else {
-                        System.out.println("NOPE!!!");
+                        System.out.println("NOPE, ANSWER: "+room.getWildcard().get(question)+"\n");
                     }
                 }
-                room.getActions().remove("TAKE WILD CARD QUIZ");
+                room.getActions().remove("TAKE WILD CARD QUIZ(W)");
                 //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
                 checkEmptyAction(room, nextClass);
             }

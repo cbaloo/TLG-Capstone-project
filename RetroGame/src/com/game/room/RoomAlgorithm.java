@@ -9,8 +9,8 @@ public class RoomAlgorithm extends Room {
     private String message = "--------------------------------------------"+
             "\nWELCOME TO THE ALGORITHMS CLASSROOM!";
     private List<String> actions=new ArrayList(Arrays.asList(
-            "TAKE QUIZ",
-            "TAKE WILD CARD QUIZ"
+            "TAKE QUIZ(Q)",
+            "TAKE WILD CARD QUIZ(W)"
     ));
 
     private Map<String, String> quiz = new HashMap<>() {
@@ -21,7 +21,7 @@ public class RoomAlgorithm extends Room {
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
             put("TOM IS A MAN OF MAN OF MANY TALENTS? (TRUE/FALSE)", "TRUE");
-            put("STEVE CAN DO NO WRONG?? (TRUE/FALSE)", "FALSE");
+            put("STEVE CAN DO NO WRONG?? (TRUE/FALSE)", "TRUE");
         }
     };
 
