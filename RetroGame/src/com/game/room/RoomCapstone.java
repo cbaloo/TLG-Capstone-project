@@ -26,6 +26,7 @@ public class RoomCapstone extends Room {
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
             put("RENNIE MAKES INFRASTRUCTURE AS SERVICE(IAAS) PIZZA EVERY SUNDAY? (TRUE/FALSE)", "FALSE");
+            put("CLASSMATE WHO HAS THE MOST SCREENS","BRUCE");
 
         }
     };

@@ -25,6 +25,7 @@ public class RoomLinux extends Room {
     private Map<String,String> wildCardQuiz=new HashMap<>(){
         {
             put("WAS PHOTOGRAPHY ONE OF JOHN'S OTHER PASSION?(TRUE/FALSE)", "TRUE");
+            put("CLASSMATE WHO LOVES GARDENING AND HAS RECENTLY GOTTEN INTO BIRD WATCHING?","MICHAEL");
         }
     };
 

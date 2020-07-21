@@ -22,6 +22,7 @@ public class RoomAlgorithm extends Room {
         {
             put("TOM IS A MAN OF MAN OF MANY TALENTS? (TRUE/FALSE)", "TRUE");
             put("STEVE CAN DO NO WRONG?? (TRUE/FALSE)", "TRUE");
+            put("CLASSMATE WHO LOVES DOING LAUNDRY?","HIRO");
         }
     };
 
