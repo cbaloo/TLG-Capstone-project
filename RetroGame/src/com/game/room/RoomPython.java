@@ -27,7 +27,7 @@ public class RoomPython extends Room {
     //CONSTRUCTOR
     public RoomPython(){
         super();
-        setName(Name.PYTHON);
+        setClassName(ClassName.PYTHON);
         setInstructor(new Instructor("ZACH"));
     }
 
@@ -60,7 +60,7 @@ public class RoomPython extends Room {
     @Override
     public String toString() {
         return "RoomPython{" +
-                "name=" + getName()+", "+
+                "name=" + getClassName()+", "+
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

@@ -6,6 +6,7 @@ import com.game.room.*;
 import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Scanner; //CB
 
 public class GameEngine {
@@ -31,45 +32,13 @@ public class GameEngine {
         //Display text in to set the scene for the player
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
-// CB STARTING HERE FOR DISPLAYING INSTRUCTIONS
-       instructions = "0";
-
-       while (true) {
-           switch (instructions) //displaying instructions
-           {
-               case "0":
-                   System.out.println("Once you are in the game you can't move backwards.\n" +
-                           "You need to pass each class to reach to your final destination!!\n" +
-                           "Be ready for some guitar lessons from Jay!!\n" +
-                           "Have a laugh with Nelly!!\n" +
-                           "Get ready for fun with Tom and his hijack stories!!\n" +
-                           "Explore Linux/ AWS with JOHN!!\n" +
-                           "Be a part of 'Python Gang' with Zack...I mean Zach!!\n" +
-                           "Be agile with Rennie!! Mind you he is the product owner!!\n" +
-                           "Last but not the least: \"BE YOURSELF!!!\"\n.\n\nType your name to proceed:");
-                   instructions = "1";
-                   break;
-
-               case "1":
-                   in.next();
-                   instructions = "1A";
-                   break;
-
-               case "1A":
-                   System.out.println("\n\n\"Was instructions helpful?\\n[1]Yes\\n[2]No\"");
-                   instructions = "2";
-                   break;
-
-           }
-       }
-       // CB INSTRUCTIONS STOP HERE
 
         //Game loop starts once the player opts to ENTER
         while (true) {
             if ("ENTER".equals(console.readLine("\nTYPE ACTION:").toUpperCase())) {
                 for (Room room : roomList) {
                     //Updating the location of the player with the curRoom
-                    player.getStatus().put("LOCATION", room.getName().value());
+                    player.getStatus().put("LOCATION", room.getClassName().value());
                     //Clear screen every time the player enters a new room
                     clearScreen();
                     //Display customized roomMessage as you enter the room
@@ -134,7 +103,7 @@ public class GameEngine {
 
     //Specific Classroom action cascade
     private void actionInteraction(Room room) {
-        switch (room.getName()) {
+        switch (room.getClassName()) {
             case LOBBY:
                 gameHelper.lobbyAction(room);
                 break;

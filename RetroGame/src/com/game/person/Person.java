@@ -11,13 +11,10 @@ public class Person {
         setName(name);
         setTitle(title);
     }
-
     public Person(String name) {
         setName(name);
     }
-
-    public Person() {
-    }
+    public Person(){};
 
     //ACCESSOR METHODS
     public String getName() {
@@ -25,7 +22,7 @@ public class Person {
     }
 
     public void setName(String name) throws IllegalArgumentException {
-        if (name.isEmpty()) {
+        if(name.isEmpty()){
             throw new IllegalArgumentException("ENTER VALID NAME!");
         }
         this.name = name;
@@ -46,7 +43,4 @@ public class Person {
                 ", title=" + getTitle() +
                 '}';
     }
-
-    //STATIC NESTED CLASSES
-    public enum Title {INSTRUCTOR, CLASSMATE, STAFF, PLAYER}
 }

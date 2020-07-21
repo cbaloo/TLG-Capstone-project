@@ -34,7 +34,7 @@ public class RoomJS extends Room {
     //CONSTRUCTOR
     public RoomJS(){
         super();
-        setName(Name.JAVASCRIPT);
+        setClassName(ClassName.JAVASCRIPT);
         setInstructor(new Instructor("NELLY"));
     }
 
@@ -68,7 +68,7 @@ public class RoomJS extends Room {
     @Override
     public String toString() {
         return "RoomJavaScript{" +
-                "name=" + getName()+", "+
+                "name=" + getClassName()+", "+
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

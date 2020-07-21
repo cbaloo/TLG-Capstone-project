@@ -10,7 +10,7 @@ public class PlayerTest {
     @Test
     public void playerConstructorPositive(){
         Player p1=new Player("GG");
-        assertEquals(Person.Title.PLAYER,p1.getTitle());
+        assertEquals(Title.PLAYER,p1.getTitle());
     }
 
     @Test(expected = IllegalArgumentException.class)
