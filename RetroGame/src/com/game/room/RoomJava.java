@@ -40,7 +40,7 @@ public class RoomJava extends Room {
     public RoomJava() {
         super();
         setClassName(ClassName.JAVA);
-        setInstructor(new Instructor("Jay"));
+        setInstructor(new Instructor("JAY"));
     }
 
     //ACCESSOR METHODS
