@@ -2,7 +2,7 @@ package com.game.person;
 
 public class Staff extends Person {
     //CONSTRUCTOR
-    public Staff(String name){
+    public Staff(String name) {
         super(name);
         setTitle(Title.STAFF);
     }

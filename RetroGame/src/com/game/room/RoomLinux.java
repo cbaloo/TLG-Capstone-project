@@ -13,7 +13,7 @@ public class RoomLinux extends Room {
             "TAKE WILD CARD QUIZ(W)"
     ));
 
-    private Map<String,String> roomQuiz=new HashMap<>(){
+    private Map<String,String> quiz =new HashMap<>(){
         {
             put("WHAT US THE LINUX COMMAND TO CHANGE THE DIRECTORIES?", "CD");
             put("WHAT US THE LINUX COMMAND TO LIST THE CONTENTS OF A DIRECTORY?", "LS");
@@ -46,7 +46,7 @@ public class RoomLinux extends Room {
     @Override
 
     public Map<String, String> getQuiz() {
-        return roomQuiz;
+        return quiz;
     }
 
     @Override

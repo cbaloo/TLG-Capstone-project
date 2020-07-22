@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner; //CB
 
+import static com.game.MessageArt.*;
+
 public class GameEngine {
     private final GameHelper gameHelper = new GameHelper(this);
     private Player player;
@@ -27,8 +29,10 @@ public class GameEngine {
 
     //Method to start the game
     public void start() {
+        //Display Title ASCII art
+        titleMessage();
         //Accept player name from the console
-        player= getPlayer();
+        player = getPlayer();
         //Display text in to set the scene for the player
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
@@ -50,10 +54,12 @@ public class GameEngine {
                     //Display action options available to the player
                     System.out.println("ACTIONS: " + room.getActions());
                     //Direct to the proper room actions interaction
-                    actionInteraction(room, player );
+                    actionInteraction(room, player);
                 }
+                //ASCII Art congrats message
+                congratsMessage();
                 //Once the player has gone through all the classrooms, the player enters OJT
-                System.out.println("CONGRATULATIONS!!! GOOD LUCK WITH OJT.");
+                System.out.println("GOOD LUCK WITH OJT!");
                 //Game exit
                 System.exit(0);
             } else {

@@ -9,12 +9,13 @@ import java.util.Map;
 
 public class RoomBreakout extends Room {
     //INSTANCE VARIABLE
-    private String message = "--------------------------------------------"+
+    private String message = "--------------------------------------------" +
             "\nWELCOME TO THE BREAKOUT ROOM! " +
             "YOU HAVE WASTED YOUR OWN TIME, " +
             "BUT HERE IS A RED MARKER FOR YOUR ENTERTAINMENT!\n"+
             "NO ONE IS IN CHARGE, STUDY UP TO RETAKE THE TEST OR MOVE ON TO THE NEXT CLASS";
-    private List<String> actions=new ArrayList(Arrays.asList(
+
+    private List<String> actions = new ArrayList(Arrays.asList(
             "WASTE TIME",
             "COMPLAIN",
             "RETAKE FAILED TEST(RE)",
@@ -52,7 +53,7 @@ public class RoomBreakout extends Room {
 
     @Override
     public void setActions(List<String> actions) {
-        this.actions=actions;
+        this.actions = actions;
     }
 
     @Override

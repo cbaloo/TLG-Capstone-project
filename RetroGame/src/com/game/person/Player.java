@@ -5,10 +5,10 @@ import java.util.Map;
 
 public class Player extends Person {
     //INSTANCE VARIABLE
-    private Map<String,String> status=new HashMap<>(){
+    private Map<String, String> status = new HashMap<>() {
         {
             put("LOCATION", "LOBBY");
-            put("SCORE","0");
+            put("SCORE", "0");
         }
     };
 
@@ -28,7 +28,7 @@ public class Player extends Person {
         return "Player{" +
                 "name=" + getName() +
                 ", title= " + getTitle() +
-                ", status= "+getStatus()+
+                ", status= " + getStatus() +
                 '}';
     }
 }

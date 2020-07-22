@@ -13,12 +13,12 @@ public class RoomJS extends Room {
             "TAKE WILD CARD QUIZ(W)"
     ));
 
-    private Map<String,String> roomQuiz=new HashMap<>(){
+    private Map<String,String> quiz =new HashMap<>(){
         {
             put("WHICH COMPANY DEVELOPED JAVASCRIPT, NETGEAR OR NETSCAPE?", "NETSCAPE");
             put("JAVASCRIPT CAN BE USED WITH CSS AND '----' TO CREATE INTERACTIVE WEB PAGES.", "HTML");
             put("JAVASCRIPT WAS FIRST KNOWN AS LIVESCRIPT OR ECMASCRIPT?", "LIVESCRIPT");
-            put("IN JAVASCRIPT, SEMI-COLONS ARE REQUIRED", "FALSE");
+            put("IN JAVASCRIPT, SEMI-COLONS ARE REQUIRED (TRUE/FALSE)", "FALSE");
             put("JSON STANDS FOR JAVASCRIPT OBJECT '--------'", "NOTATION");
 
         }
@@ -47,7 +47,7 @@ public class RoomJS extends Room {
     @Override
 
     public Map<String, String> getQuiz() {
-        return roomQuiz;
+        return quiz;
     }
 
     @Override

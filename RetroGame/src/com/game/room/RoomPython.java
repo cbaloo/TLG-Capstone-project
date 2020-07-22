@@ -13,7 +13,7 @@ public class RoomPython extends Room {
             "TAKE WILD CARD QUIZ(W)"
     ));
 
-    private Map<String,String> roomQuiz=new HashMap<>(){
+    private Map<String,String> quiz =new HashMap<>(){
         {
             put("WHITE SPACES ARE THE LEAST OF OUR WORRIES WHILE CODING IN PYTHON? (TRUE/FALSE)", "FALSE");
         }
@@ -39,7 +39,7 @@ public class RoomPython extends Room {
 
     @Override
     public Map<String, String> getQuiz() {
-        return roomQuiz;
+        return quiz;
     }
 
     @Override

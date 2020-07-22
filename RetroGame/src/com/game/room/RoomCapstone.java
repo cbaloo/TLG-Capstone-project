@@ -14,7 +14,7 @@ public class RoomCapstone extends Room {
     ));
 
 
-    private Map<String, String> roomQuiz = new HashMap<>() {
+    private Map<String, String> quiz = new HashMap<>() {
         {
             put("HOW MANY PRINCIPLES DOES AGILE HAVE?", "12");
             put("IN AGILE, THE HIGHEST PRIORITY IS TO SATISFY THE '--------'.", "CUSTOMER");
@@ -47,7 +47,7 @@ public class RoomCapstone extends Room {
     @Override
 
     public Map<String, String> getQuiz() {
-        return roomQuiz;
+        return quiz;
     }
 
     @Override
