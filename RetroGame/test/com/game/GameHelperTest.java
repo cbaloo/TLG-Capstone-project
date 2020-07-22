@@ -28,13 +28,24 @@ public class GameHelperTest {
     }
 
     @Test
-    public void testCheckEmptyActionPositive(){
+    public void testCheckEmptyActionPositive01(){
         Player player=new Player("KG");
         player.getStatus().put("SCORE","4");
         Room room= new RoomJava();
         room.getActions().clear();
         GameHelper gameHelper=new GameHelper(new GameEngine());
         gameHelper.checkEmptyAction(room,"ENTER JAVASCRIPT",player);
+        assertEquals(room.getActions().get(0),"ENTER JAVASCRIPT");
+    }
 
+    @Test
+    public void testCheckEmptyActionPositive02(){
+        Player player=new Player("KG");
+        player.getStatus().put("SCORE","2");
+        Room room= new RoomJava();
+        room.getActions().clear();
+        GameHelper gameHelper=new GameHelper(new GameEngine());
+        gameHelper.checkEmptyAction(room,"ENTER JAVASCRIPT",player);
+        assertEquals(room.getActions().get(0),"ENTER BREAKOUT");
     }
 }

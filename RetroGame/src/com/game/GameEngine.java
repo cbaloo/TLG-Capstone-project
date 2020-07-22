@@ -44,7 +44,7 @@ public class GameEngine {
                     //Display customized roomMessage as you enter the room
                     System.out.println("\n" + room.getMessage());
                     //Display Instructor present in the room
-                    System.out.println("\n" + room.getInstructor().getName().toUpperCase() + " IS IN CHARGE NOW, " + "SO YOU BETTER PAY ATTENTION");
+//                    System.out.println("\n" + room.getInstructor().getName().toUpperCase() + " IS IN CHARGE NOW, " + "SO YOU BETTER PAY ATTENTION");
                     //Display player status which includes their location and score
                     System.out.println("\nSTATUS: " + player.getStatus());
                     //Display action options available to the player

@@ -10,7 +10,7 @@ import java.util.Map;
 public class Lobby extends Room {
     //INSTANT VARIABLE
     private String message="--------------------------------------------"+
-            "\nYOU ARE IN THE LOBBY AND SEE MANY CLASSROOMS.";
+            "\nYOU ARE IN THE LOBBY AND SEE MANY CLASSROOMS.\n"+"JEANNETTE WELCOMES YOU AND LET YOU KNOW THAT THE FIRST CALSS YOU WILL ATTEND IS JAVA";
     //action options in this particular room
     private List<String> actions=new ArrayList(Arrays.asList(
        "ENTER JAVA",

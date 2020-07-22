@@ -9,7 +9,8 @@ public class RoomJava extends Room {
     //INSTANCE VARIABLES
     private String message = "--------------------------------------------"+
             "\nWELCOME TO THE JAVA CLASSROOM. " +
-            "I HOPE YOU BROUGHT YOUR AIR GUITAR WITH YOU!";
+            "I HOPE YOU BROUGHT YOUR AIR GUITAR WITH YOU!\n"+
+            "JAY IS IN CHARGE NOW, SO YOU BETTER PAY ATTENTION.";
     private List<String> actions=new ArrayList(Arrays.asList(
             "TAKE QUIZ(Q)",
             "TAKE WILD CARD QUIZ(W)"

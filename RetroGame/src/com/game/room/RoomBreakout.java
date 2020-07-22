@@ -12,17 +12,20 @@ public class RoomBreakout extends Room {
     private String message = "--------------------------------------------"+
             "\nWELCOME TO THE BREAKOUT ROOM! " +
             "YOU HAVE WASTED YOUR OWN TIME, " +
-            "BUT HERE IS A RED MARKER FOR YOUR ENTERTAINMENT! ";
+            "BUT HERE IS A RED MARKER FOR YOUR ENTERTAINMENT!\n"+
+            "NO ONE IS IN CHARGE, STUDY UP TO RETAKE THE TEST OR MOVE ON TO THE NEXT CLASS";
     private List<String> actions=new ArrayList(Arrays.asList(
             "WASTE TIME",
-            "COMPLAIN"
+            "COMPLAIN",
+            "RETAKE FAILED TEST(RE)",
+            "PROCEED TO NEXT CLASS(P)"
     ));
 
     //CONSTRUCTOR
     public RoomBreakout() {
         super();
         setClassName(ClassName.BREAKOUT);
-        setInstructor(new Instructor("CHAOS"));
+        setInstructor(new Instructor("NO BODY"));
     }
 
     //ACCESSOR METHODS
