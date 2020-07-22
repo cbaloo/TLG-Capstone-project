@@ -46,7 +46,7 @@ public class GameHelper {
     }
 
     //All classroom have similar actions(Quiz, Wildcard quiz) that the player has to go through
-    void classActions(Room room) {
+    void classActions(Room room, Player player) {
         while (true) {
             //Player response after reading the status and action options
             String action = console.readLine("\nTYPE ACTION:");
@@ -57,35 +57,41 @@ public class GameHelper {
                 for (String question : room.getQuiz().keySet()) {
                     String answer = console.readLine(question + ": ");
                     if (answer.toUpperCase().equals(room.getQuiz().get(question))) {
-                        System.out.println("CORRECT!!!\n");
+                        System.out.println("CORRECT!!!");
                         //TODO Player score needs to be updated +1 in this case
+                        updateScore(player);
                     } else {
-                        System.out.println("NOPE, ANSWER: "+room.getQuiz().get(question)+"\n");
+                        //TODO give player one more attempt at answer
+                        System.out.println("NOPE, ANSWER: "+room.getQuiz().get(question));
+                        System.out.println(player.getStatus()+"\n");
                     }
                 }
                 //Once the quiz is done, remove the quiz from the actions list
                 room.getActions().remove("TAKE QUIZ(Q)");
                 //Once the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
-                checkEmptyAction(room, nextClass);
+                checkEmptyAction(room, nextClass,player );
             }
             else if(action.toUpperCase().equals("W")) {
                 //Present player with wild card quiz if they pick that action
                 for (String question : room.getWildcard().keySet()) {
                     String answer = console.readLine(question + ": ");
                     if (answer.toUpperCase().equals(room.getWildcard().get(question))) {
-                        System.out.println("CORRECT!!!\n");
+                        System.out.println("CORRECT!!!");
                         //TODO Player score needs to be updated +1 in this case
+                        updateScore(player);
                     } else {
                         //TODO give player one more attempt at answer
-                        System.out.println("NOPE, ANSWER: "+room.getWildcard().get(question)+"\n");
+                        System.out.println("NOPE, ANSWER: "+room.getWildcard().get(question));
+                        System.out.println(player.getStatus()+"\n");
                     }
                 }
                 //Once the Wildcard quiz is done, remove it from the actions list
                 room.getActions().remove("TAKE WILD CARD QUIZ(W)");
                 //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
-                checkEmptyAction(room, nextClass);
+                checkEmptyAction(room, nextClass,player );
             }
             else if(action.toUpperCase().equals(nextClass)) {
+                player.getStatus().put("SCORE","0");
                 return;
             }
             else {
@@ -93,16 +99,31 @@ public class GameHelper {
             }
         }
     }
-    //Checks if the room action list is empty, if true the next class entry is added to the action list
-    private void checkEmptyAction(Room room, String nextClass) {
-        if (room.getActions().size() == 0) {
+
+    //TODO enter breakout cascade and return to the same room to retake the test or proceed to the next room
+    public void breakoutActions(){
+
+    }
+
+
+    //Checks if the room action list is empty, if true the next class entry option is added to the action list
+    //TODO revert the method to private after test
+    public void checkEmptyAction(Room room, String nextClass, Player player) {
+        double score=Double.parseDouble(player.getStatus().get("SCORE"));
+        double scorePercetage=(score/6.00)*100.00;
+        if (room.getActions().size() == 0 && scorePercetage>60.00) {
             room.getActions().add(nextClass);
-            room.setActions(room.getActions());
+//            room.setActions(room.getActions());
+        }
+        else if (room.getActions().size()==0 && scorePercetage<=60.00){
+            room.getActions().add("ENTER BREAKOUT");
+//            room.setActions(room.getActions());
         }
         System.out.println("\nACTIONS: " + room.getActions());
     }
 
     //TODO Update score of the student
+    //TODO revert the method to private after test
     public void updateScore(Player player){
         //Get current score
         String curScore=player.getStatus().get("SCORE");
@@ -110,6 +131,7 @@ public class GameHelper {
         Integer updatedScore=Integer.parseInt(curScore)+1;
         String newScore=String.valueOf(updatedScore);
         player.getStatus().put("SCORE",newScore);
+        System.out.println(player.getStatus()+"\n");
     }
 
     //ACCESSOR METHODS

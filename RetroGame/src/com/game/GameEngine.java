@@ -50,7 +50,7 @@ public class GameEngine {
                     //Display action options available to the player
                     System.out.println("ACTIONS: " + room.getActions());
                     //Direct to the proper room actions interaction
-                    actionInteraction(room);
+                    actionInteraction(room, player );
                 }
                 //Once the player has gone through all the classrooms, the player enters OJT
                 System.out.println("CONGRATULATIONS!!! GOOD LUCK WITH OJT.");
@@ -102,7 +102,7 @@ public class GameEngine {
 
 
     //Specific Classroom action cascade
-    private void actionInteraction(Room room) {
+    private void actionInteraction(Room room, Player player) {
         switch (room.getClassName()) {
             case LOBBY:
                 gameHelper.lobbyAction(room);
@@ -113,7 +113,7 @@ public class GameEngine {
             case LINUX:
             case PYTHON:
             case CAPSTONE:
-                gameHelper.classActions(room);
+                gameHelper.classActions(room, player);
                 break;
             case BREAKOUT:
                 System.out.println("ACTION INTERACTION BREAKOUT");
