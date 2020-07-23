@@ -13,7 +13,7 @@ public class GameConsole {
 
 //CB ADDING HERE FOR THE MAP
 
-        File file = new File("C:\\Users\\chand\\Documents\\testtlg.txt");
+        File file = new File("C:\\StudentWork\\Capstone\\TLG-Capstone-project\\RetroGame\\src\\com\\game\\testtlg.txt");
         Scanner scanner = new Scanner(file, StandardCharsets.UTF_8.name());
         String content = null;
         try (scanner){
