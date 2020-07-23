@@ -14,8 +14,7 @@ public class GameEngineScannerTest {
         currentDirectory = currentDirectory + "\\src\\com\\game\\";
         System.out.println(currentDirectory);
         Scanner sc = setUpScanner(currentDirectory,"test.txt");
-        System.out.println(sc.nextLine());
-
+        System.out.println(sc.next());
     }
 
     private Scanner setUpScanner(String fileDirectory, String filename) {

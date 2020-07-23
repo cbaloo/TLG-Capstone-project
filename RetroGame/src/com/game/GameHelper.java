@@ -107,8 +107,12 @@ public class GameHelper {
     }
 
     private void giveDuckRace() throws InterruptedException {
+        List <String> classmates=new ArrayList(Arrays.asList("JOSH", "BRAD","HIRO","KG","CODY","GURU","CHANDANA","DHRUTI","BRANDON","DAVID","KUSHAL","BRUCE","KERVIN","TAPAN","DAEUN","NEILL","RJ","TERRELL","MICHAEL"));
         duckMessage();
         System.out.println("TIME FOR A SHORT BREAK!!");
+        TimeUnit.SECONDS.sleep(7);
+        Collections.shuffle(classmates);
+        System.out.println(classmates.get(0)+" WINS THE DUCK RACE!");
         TimeUnit.SECONDS.sleep(5);
     }
 
