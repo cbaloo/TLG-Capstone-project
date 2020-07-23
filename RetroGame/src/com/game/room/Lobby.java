@@ -18,8 +18,7 @@ public class Lobby extends Room {
        "ENTER ALGORITHM",
        "ENTER LINUX",
        "ENTER PYTHON",
-       "ENTER CAPSTONE",
-       "ENTER BREAKOUT"
+       "ENTER CAPSTONE"
     ));
 
     //CONSTRUCTOR

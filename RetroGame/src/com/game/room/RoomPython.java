@@ -16,6 +16,8 @@ public class RoomPython extends Room {
     private Map<String,String> quiz =new HashMap<>(){
         {
             put("WHITE SPACES ARE THE LEAST OF OUR WORRIES WHILE CODING IN PYTHON? (TRUE/FALSE)", "FALSE");
+            put("LIST IS A PREDEFINED DATA TYPE IN PYTHON? (TRUE/FALSE)","TRUE");
+            put("TUPLE IS MUTABLE? (TRUE/FALSE)","FALSE");
         }
     };
     private Map<String,String> wildCardQuiz=new HashMap<>(){

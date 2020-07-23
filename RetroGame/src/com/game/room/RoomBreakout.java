@@ -16,8 +16,8 @@ public class RoomBreakout extends Room {
             "NO ONE IS IN CHARGE, STUDY UP TO RETAKE THE TEST OR MOVE ON TO THE NEXT CLASS";
 
     private List<String> actions = new ArrayList(Arrays.asList(
-            "WASTE TIME",
-            "COMPLAIN",
+//            "WASTE TIME",
+//            "COMPLAIN",
             "RETAKE FAILED TEST(RE)",
             "PROCEED TO NEXT CLASS(P)"
     ));

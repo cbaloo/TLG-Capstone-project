@@ -72,10 +72,15 @@ public class GameHelper {
                 //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
                 checkEmptyAction(room, nextClass,player );
             }
-            else if(action.toUpperCase().equals("ENTER BREAKOUT")){
+            else if(action.toUpperCase().equals("RETAKE CLASS")){
                 player.getStatus().put("SCORE","0");
-                Room breakout =new RoomBreakout();
-                breakoutActions(breakout, player);
+                clearScreen();
+                System.out.println("--------------------------------------------");
+                room.getActions().clear();
+                room.getActions().add("TAKE QUIZ(Q)");
+                room.getActions().add("TAKE WILD CARD QUIZ(W)");
+                System.out.println("\nSTATUS: "+player.getStatus());
+                System.out.println("\nACTIONS: "+room.getActions());
             }
             else if(action.toUpperCase().equals(nextClass)) {
                 player.getStatus().put("SCORE","0");
@@ -87,6 +92,8 @@ public class GameHelper {
         }
     }
 
+
+
     //Goes through asking the wildcard questions
     private void giveWildcardQuiz(Room room, Player player) {
         for (String question : room.getWildcard().keySet()) {
@@ -96,7 +103,6 @@ public class GameHelper {
                 //Player score needs to be updated +1 in this case
                 updateScore(player);
             } else {
-                //TODO give player one more attempt at answer
                 System.out.println("NOPE, ANSWER: "+room.getWildcard().get(question));
                 System.out.println(player.getStatus()+"\n");
             }
@@ -111,52 +117,33 @@ public class GameHelper {
                 //Player score needs to be updated +1 in this case
                 updateScore(player);
             } else {
-                //TODO give player one more attempt at answer
                 System.out.println("NOPE, ANSWER: "+room.getQuiz().get(question));
                 System.out.println(player.getStatus()+"\n");
             }
         }
     }
 
-    //TODO enter breakout cascade and return to the same room to retake the test or proceed to the next room
-    public void breakoutActions(Room room, Player player){
-        //Updating the location of the player with the curRoom
-        player.getStatus().put("LOCATION", room.getClassName().value());
-        //Clear screen every time the player enters a new room
-        clearScreen();
-        //Display customized roomMessage as you enter the room
-        System.out.println("\n" + room.getMessage());
-        //Display Instructor present in the room
-        System.out.println("\n" + room.getInstructor().getName().toUpperCase() + " IS IN CHARGE NOW, " + "SO YOU BETTER PAY ATTENTION");
-        //Display player status which includes their location and score
-        System.out.println("\nSTATUS: " + player.getStatus());
-        //Display action options available to the player
-        System.out.println("ACTIONS: " + room.getActions());
-    }
-
-
     //Checks if the room action list is empty, if true the next class entry option is added to the action list
     //TODO revert the method to private after test
-    public void checkEmptyAction(Room room, String nextClass, Player player) {
+    private void checkEmptyAction(Room room, String nextClass, Player player) {
         double score=Double.parseDouble(player.getStatus().get("SCORE"));
-        double scorePercetage=(score/6.0)*100.0;
+        double scorePercetage=(score/(room.getQuiz().size()+room.getWildcard().size()))*100.0;
         double roundedPercentage=Math.round(scorePercetage*100.0)/100.0;
         if (room.getActions().size() == 0 && scorePercetage>60.0) {
             System.out.println("NICELY DONE, YOU PASSED WITH "+roundedPercentage+"%");
             room.getActions().add(nextClass);
-//            room.setActions(room.getActions());
         }
         else if (room.getActions().size()==0 && scorePercetage<=60.00){
             System.out.println("YOU FAILED WITH "+roundedPercentage+"%");
-            room.getActions().add("ENTER BREAKOUT");
-//            room.setActions(room.getActions());
+            room.getActions().add("RETAKE CLASS");
+            room.getActions().add(nextClass);
         }
         System.out.println("\nACTIONS: " + room.getActions());
     }
 
     //Updates score of the student
     //TODO revert the method to private after test
-    public void updateScore(Player player){
+    private void updateScore(Player player){
         //Get current score
         String curScore=player.getStatus().get("SCORE");
         //Add 1 to curScore which is String number

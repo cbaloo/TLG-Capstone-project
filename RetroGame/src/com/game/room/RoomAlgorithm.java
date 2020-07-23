@@ -17,6 +17,7 @@ public class RoomAlgorithm extends Room {
         {
             put("A SET CAN HAVE DUPLICATES?(TRUE/FALSE)", "FALSE");
             put("LIST/ARRAY ARE ORDERED DATA STRUCTURE(TRUE/FALSE)","TRUE");
+            put("STACK IS ALSO CALLED FIRST IN FIRST OUT(TRUE/FALSE)","FALSE");
         }
     };
     private Map<String,String> wildCardQuiz=new HashMap<>(){
