@@ -12,12 +12,6 @@ public class Client {
         Player player1 = new Player("KG");
         System.out.println(player1);
 
-        Person tlgStaff1 = new Staff("NANCY");
-        System.out.println(tlgStaff1);
-
-        Person josh = new ClassMate("JOSH");
-        System.out.println(josh);
-
         Room java = new RoomJava();
         System.out.println(java);
 

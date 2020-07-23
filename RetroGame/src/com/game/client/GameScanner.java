@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
-public class GameConsole {
+public class GameScanner {
     public static void main(String[] args) throws IOException {
 
 ////CB ADDING HERE FOR THE MAP
@@ -26,14 +26,17 @@ public class GameConsole {
 //        System.out.println(content);
 //      //CB ADDED CHANGE TILL HERE
 
-        Console console = System.console();
-        if (console == null) {
-            System.out.print("NO CONSOLE AVAILABLE");
-            return;
-        }
-
+//        Console console = System.console();
+//        if (console == null) {
+//            System.out.print("NO CONSOLE AVAILABLE");
+//            return;
+//        }
+//
         GameEngine gameEngine = new GameEngine();
         gameEngine.start();
 
+//        Scanner sc= new Scanner(System.in);
+//        String name=sc.next();
+//        System.out.println(name);
     }
 }
