@@ -36,9 +36,6 @@ public class Client {
         Room capstone = new RoomCapstone();
         System.out.println(capstone);
 
-        Room breakout = new RoomBreakout();
-        System.out.println(breakout);
-
         Room lobby = new Lobby();
         System.out.println(lobby);
     }

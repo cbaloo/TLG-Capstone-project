@@ -33,7 +33,6 @@ public class GameEngine {
         //Display text in to set the scene for the player
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
-
         //Game loop starts once the player opts to ENTER
         while (true) {
             if ("ENTER".equals(console.readLine("\nTYPE ACTION:").toUpperCase())) {
