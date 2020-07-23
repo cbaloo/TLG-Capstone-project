@@ -13,9 +13,8 @@ public class RoomJava extends Room {
             "JAY IS IN CHARGE NOW, SO YOU BETTER PAY ATTENTION.";
     private List<String> actions=new ArrayList(Arrays.asList(
             "TAKE QUIZ(Q)",
-            "TAKE WILD CARD QUIZ(W)"
-//            "DUCK RACE(D)",
-//            "VIEW MAP(M)"
+            "TAKE WILD CARD QUIZ(W)",
+            "TAKE BREAK(D)"
     ));
 
     private Map<String,String> quiz =new HashMap<>(){
