@@ -9,14 +9,14 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class GameConsole {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
 //CB ADDING HERE FOR THE MAP
 
         File file = new File("C:\\StudentWork\\Capstone\\TLG-Capstone-project\\RetroGame\\src\\com\\game\\testtlg.txt");
         Scanner scanner = new Scanner(file, StandardCharsets.UTF_8.name());
         String content = null;
-        try (scanner){
+        try (scanner) {
             content = scanner.useDelimiter("\\A").next();
 
             //   } catch(IOException e){
