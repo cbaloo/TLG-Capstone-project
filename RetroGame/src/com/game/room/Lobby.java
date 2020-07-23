@@ -2,15 +2,12 @@ package com.game.room;
 
 import com.game.person.Instructor;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class Lobby extends Room {
     //INSTANT VARIABLE
     private String message="--------------------------------------------"+
-            "\nYOU ARE IN THE LOBBY AND SEE MANY CLASSROOMS.\n"+"JEANNETTE WELCOMES YOU AND LET YOU KNOW THAT THE FIRST CALSS YOU WILL ATTEND IS JAVA";
+            "\nJEANNETTE WELCOMES YOU AND LET YOU KNOW THAT THE FIRST CALSS YOU WILL ATTEND IS JAVA";
     //action options in this particular room
     private List<String> actions=new ArrayList(Arrays.asList(
        "ENTER JAVA",
@@ -18,9 +15,20 @@ public class Lobby extends Room {
        "ENTER ALGORITHM",
        "ENTER LINUX",
        "ENTER PYTHON",
-       "ENTER CAPSTONE",
-       "ENTER BREAKOUT"
+       "ENTER CAPSTONE"
     ));
+    private Map<String,String> quiz =new HashMap<>(){
+        {
+            put("HOW MANY AMAZON LEADERSHIP PRINCIPLES ARE THERE?","14");
+            put("HOW MANY MONTHS IS YOUR TLG LEARNING JOURNEY?","4");
+        }
+    };
+
+    private Map<String,String> wildCardQuiz=new HashMap<>(){
+        {
+            put("WHO 'INSTRUCTS' THE  INSTRUCTORS ON ADOBE CONNECT?", "JEANNETTE");
+        }
+    };
 
     //CONSTRUCTOR
     public Lobby(){
@@ -34,28 +42,22 @@ public class Lobby extends Room {
     public String getMessage() {
         return message;
     }
-
-    //LOBBY DOES NOT HAVE QUIZ FOR NOW
     @Override
     public Map<String, String> getQuiz() {
-        return null;
+        return quiz;
     }
-    //LOBBY DOES NOT HAVE WILDCARD QUIZ FOR NOW
     @Override
     public Map<String, String> getWildcard() {
-        return null;
+        return wildCardQuiz;
     }
-
     @Override
     public List<String> getActions() {
         return actions;
     }
-
     @Override
     public void setActions(List<String> actions) {
 
     }
-
     @Override
     public String toString() {
         return "Lobby{" +

@@ -7,7 +7,6 @@ import java.io.Console;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Scanner; //CB
 
 import static com.game.MessageArt.*;
 
@@ -15,8 +14,6 @@ public class GameEngine {
     private final GameHelper gameHelper = new GameHelper(this);
     private Player player;
     private Console console = System.console();
-    public static Scanner in = new Scanner(System.in); // CB
-    public static  String instructions; //CB
     private List<Room> roomList = new ArrayList(Arrays.asList(
             new Lobby(),
             new RoomJava(),
@@ -36,7 +33,6 @@ public class GameEngine {
         //Display text in to set the scene for the player
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
-
         //Game loop starts once the player opts to ENTER
         while (true) {
             if ("ENTER".equals(console.readLine("\nTYPE ACTION:").toUpperCase())) {
@@ -47,8 +43,6 @@ public class GameEngine {
                     clearScreen();
                     //Display customized roomMessage as you enter the room
                     System.out.println("\n" + room.getMessage());
-                    //Display Instructor present in the room
-//                    System.out.println("\n" + room.getInstructor().getName().toUpperCase() + " IS IN CHARGE NOW, " + "SO YOU BETTER PAY ATTENTION");
                     //Display player status which includes their location and score
                     System.out.println("\nSTATUS: " + player.getStatus());
                     //Display action options available to the player
@@ -121,9 +115,6 @@ public class GameEngine {
             case CAPSTONE:
                 gameHelper.classActions(room, player);
                 break;
-            case BREAKOUT:
-                System.out.println("ACTION INTERACTION BREAKOUT");
-                break;
         }
     }
 
@@ -131,5 +122,8 @@ public class GameEngine {
     private void displayMap() {
 
     }
-
+    //ACCESSOR METHODS
+    public List<Room> getRoomList() {
+        return roomList;
+    }
 }
