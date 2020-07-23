@@ -24,15 +24,28 @@ public class RoomJS extends Room {
         }
     };
 
-    private Map<String, String> wildCardQuiz=new HashMap<>(){
+    private Map<String, String> wildCardQuiz = new HashMap<>() {
         {
-        put("HOW MANY INSTRUCTORS DID WE HAVE FOR OUR JAVASCRIPT COURSE?(1/2)","2");
-        put("CLASSMATE WHO RELOCATES TO DIFFERENT ROOMS/AREA OF HIS/HER HOME FOR CLASS?","DAEUN");
+            put("HOW MANY INSTRUCTORS DID WE HAVE FOR OUR JAVASCRIPT COURSE?(1/2)", "2");
+            put("CLASSMATE WHO RELOCATES TO DIFFERENT ROOMS/AREA OF HIS/HER HOME FOR CLASS?", "DAEUN");
+        }
+    };
+
+    private Map<String, String> iceBreaker = new HashMap<>() {
+        {
+            //put("IF YOU COULD GO ANYWHERE IN THE WORLD, WHERE WOULD YOU GO?", "");
+            put("IF IT WAS POSSIBLE, WHAT SUPER POWER WOULD YOU HAVE?", "");
+            //put("WHERE DID YOU GROW UP?","");
+            //put("WHAT IS YOUR SSN????", "");
+            //put("WHAT WAS YOUR FIRST CAR?", "");
+            //put("ARE YOU A MORNING PERSON?", "");
+            //put("WOULD YOU RATHER GO FOR A HIKE OR FOR A SWIM?", "");
+            //put("WOULD YOU RATHER BE A PROFESSIONAL ATHLETE OR A PROFESSIONAL TASTE TESTER?","");
         }
     };
 
     //CONSTRUCTOR
-    public RoomJS(){
+    public RoomJS() {
         super();
         setClassName(ClassName.JAVASCRIPT);
         setInstructor(new Instructor("NELLY"));
@@ -56,13 +69,18 @@ public class RoomJS extends Room {
     }
 
     @Override
+    public Map<String, String> getIceBreaker() {
+        return iceBreaker;
+    }
+
+    @Override
     public List<String> getActions() {
         return actions;
     }
 
     @Override
     public void setActions(List<String> actions) {
-        this.actions=actions;
+        this.actions = actions;
     }
 
     @Override

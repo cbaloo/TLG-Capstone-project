@@ -23,11 +23,23 @@ public class RoomCapstone extends Room {
             put("WORKING SOFTWARE IS THE PRIMARY MEASURE OF '--------'?", "PROGRESS");
         }
     };
-    private Map<String,String> wildCardQuiz=new HashMap<>(){
+    private Map<String, String> wildCardQuiz = new HashMap<>() {
         {
             put("RENNIE MAKES INFRASTRUCTURE AS SERVICE(IAAS) PIZZA EVERY SUNDAY? (TRUE/FALSE)", "FALSE");
-            put("CLASSMATE WHO HAS THE MOST SCREENS","BRUCE");
+            put("CLASSMATE WHO HAS THE MOST SCREENS", "BRUCE");
 
+        }
+    };
+    private Map<String, String> iceBreaker = new HashMap<>() {
+        {
+            //put("IF YOU COULD GO ANYWHERE IN THE WORLD, WHERE WOULD YOU GO?", "");
+            //put("IF IT WAS POSSIBLE, WHAT SUPER POWER WOULD YOU HAVE?","");
+            //put("WHERE DID YOU GROW UP?","");
+            //put("WHAT IS YOUR SSN????", "");
+            //put("WHAT WAS YOUR FIRST CAR?", "");
+            put("ARE YOU A MORNING PERSON?", "");
+            //put("WOULD YOU RATHER GO FOR A HIKE OR FOR A SWIM?", "");
+            //put("WOULD YOU RATHER BE A PROFESSIONAL ATHLETE OR A PROFESSIONAL TASTE TESTER?","");
         }
     };
 
@@ -37,6 +49,7 @@ public class RoomCapstone extends Room {
         setClassName(ClassName.CAPSTONE);
         setInstructor(new Instructor("RENNIE"));
     }
+
 
     //ACCESSOR METHODS
     @Override
@@ -56,6 +69,11 @@ public class RoomCapstone extends Room {
     }
 
     @Override
+    public Map<String, String> getIceBreaker() {
+        return iceBreaker;
+    }
+
+    @Override
     public List<String> getActions() {
         return actions;
     }
@@ -63,7 +81,7 @@ public class RoomCapstone extends Room {
 
     @Override
     public void setActions(List<String> actions) {
-        this.actions=actions;
+        this.actions = actions;
     }
 
     @Override

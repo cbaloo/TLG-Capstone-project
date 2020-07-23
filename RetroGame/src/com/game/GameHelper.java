@@ -5,8 +5,10 @@ import com.game.room.Room;
 
 import java.io.Console;
 import java.util.*;
+import java.util.concurrent.TimeUnit;
 
 import static com.game.GameEngine.clearScreen;
+import static com.game.MessageArt.duckMessage;
 
 public class GameHelper {
     //INSTANCE VARIABLE
@@ -30,7 +32,10 @@ public class GameHelper {
     }
 
     //Specific Lobby action cascade
-    void lobbyAction(Room room) {
+    void lobbyAction(Room room, Player player) {
+        System.out.println("\nSTATUS: " + player.getStatus());
+        //Display action options available to the player
+        System.out.println("ACTIONS: " + room.getActions());
         while (true) {
             //Player response after reading the status and action options
             String action = console.readLine("\nTYPE ACTION:");
@@ -48,49 +53,64 @@ public class GameHelper {
     }
 
     //All classroom have similar actions(Quiz, Wildcard quiz) that the player has to go through
-    void classActions(Room room, Player player) {
+    void classActions(Room room, Player player) throws InterruptedException {
+        System.out.println("\nFIRST, LETS DO AN ICEBREAKER!!\n");
+        giveIceBreaker(room);
+        System.out.println("\nSTATUS: " + player.getStatus());
+        //Display action options available to the player
+        System.out.println("ACTIONS: " + room.getActions());
         while (true) {
             //Player response after reading the status and action options
             String action = console.readLine("\nTYPE ACTION:");
             //Get the next classroom name
-            String nextClass=getRoomSequence().get(room.getClassName().value());
+            String nextClass = getRoomSequence().get(room.getClassName().value());
             //Present player with the java quiz once they pick quiz action
             if (action.toUpperCase().equals("Q")) {
                 //Go through the quiz questions
                 giveQuiz(room, player);
                 //Once the quiz is done, remove the quiz from the actions list
                 room.getActions().remove("TAKE QUIZ(Q)");
+                if (room.getClassName().value().equals("JAVA")) {
+                    giveDuckRace();
+                }
+
                 //Once the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
-                checkEmptyAction(room, nextClass,player );
+                checkEmptyAction(room, nextClass, player);
             }
-            else if(action.toUpperCase().equals("W")) {
+            else if (action.toUpperCase().equals("W")) {
                 //Present player with wild card quiz if they pick that action
                 giveWildcardQuiz(room, player);
                 //Once the Wildcard quiz is done, remove it from the actions list
                 room.getActions().remove("TAKE WILD CARD QUIZ(W)");
                 //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
-                checkEmptyAction(room, nextClass,player );
-            }
-            else if(action.toUpperCase().equals("RETAKE CLASS")){
-                player.getStatus().put("SCORE","0");
+                checkEmptyAction(room, nextClass, player);
+            } else if (action.toUpperCase().equals("I")) {
+                giveIceBreaker(room);
+                room.getActions().remove("ICEBREAKER(I)");
+                checkEmptyAction(room, nextClass, player);
+            } else if (action.toUpperCase().equals("RETAKE CLASS")) {
+                player.getStatus().put("SCORE", "0");
                 clearScreen();
                 System.out.println("--------------------------------------------");
                 room.getActions().clear();
                 room.getActions().add("TAKE QUIZ(Q)");
                 room.getActions().add("TAKE WILD CARD QUIZ(W)");
-                System.out.println("\nSTATUS: "+player.getStatus());
-                System.out.println("\nACTIONS: "+room.getActions());
-            }
-            else if(action.toUpperCase().equals(nextClass)) {
-                player.getStatus().put("SCORE","0");
+                System.out.println("\nSTATUS: " + player.getStatus());
+                System.out.println("\nACTIONS: " + room.getActions());
+            } else if (action.toUpperCase().equals(nextClass)) {
+                player.getStatus().put("SCORE", "0");
                 return;
-            }
-            else {
+            } else {
                 System.out.println("INVALID ENTRY!");
             }
         }
     }
 
+    private void giveDuckRace() throws InterruptedException {
+        duckMessage();
+        System.out.println("TIME FOR A SHORT BREAK!!");
+        TimeUnit.SECONDS.sleep(5);
+    }
 
 
     //Goes through asking the wildcard questions
@@ -116,24 +136,34 @@ public class GameHelper {
                 //Player score needs to be updated +1 in this case
                 updateScore(player);
             } else {
-                System.out.println("NOPE, ANSWER: "+room.getQuiz().get(question));
-                System.out.println(player.getStatus()+"\n");
+                System.out.println("NOPE, ANSWER: " + room.getQuiz().get(question));
+                System.out.println(player.getStatus() + "\n");
             }
         }
     }
 
+    private void giveIceBreaker(Room room) {
+        for (String question : room.getIceBreaker().keySet()) {
+            String answer = console.readLine(room.getInstructor().getName() + ": " + question + ": ");
+        }
+    }
+
+    private void giveDuckRace(MessageArt duckMessage) {
+
+    }
+
+
     //Checks if the room action list is empty, if true the next class entry option is added to the action list
     //TODO revert the method to private after test
     private void checkEmptyAction(Room room, String nextClass, Player player) {
-        double score=Double.parseDouble(player.getStatus().get("SCORE"));
-        double scorePercetage=(score/(room.getQuiz().size()+room.getWildcard().size()))*100.0;
-        double roundedPercentage=Math.round(scorePercetage*100.0)/100.0;
-        if (room.getActions().size() == 0 && scorePercetage>60.0) {
-            System.out.println("NICELY DONE, YOU PASSED WITH "+roundedPercentage+"%");
+        double score = Double.parseDouble(player.getStatus().get("SCORE"));
+        double scorePercentage = (score / (room.getQuiz().size() + room.getWildcard().size())) * 100.0;
+        double roundedPercentage = Math.round(scorePercentage * 100.0) / 100.0;
+        if (room.getActions().size() == 0 && scorePercentage > 60.0) {
+            System.out.println("NICELY DONE, YOU PASSED WITH " + roundedPercentage + "%");
             room.getActions().add(nextClass);
-        }
-        else if (room.getActions().size()==0 && scorePercetage<=60.00){
-            System.out.println("YOU FAILED WITH "+roundedPercentage+"%");
+        } else if (room.getActions().size() == 0 && scorePercentage <= 60.00) {
+            System.out.println("YOU FAILED WITH " + roundedPercentage + "%");
             room.getActions().add("RETAKE CLASS");
             room.getActions().add(nextClass);
         }

@@ -25,7 +25,7 @@ public class GameEngine {
     ));
 
     //Method to start the game
-    public void start() {
+    public void start() throws InterruptedException {
         //Display Title ASCII art
         titleMessage();
         //Accept player name from the console
@@ -44,9 +44,9 @@ public class GameEngine {
                     //Display customized roomMessage as you enter the room
                     System.out.println("\n" + room.getMessage());
                     //Display player status which includes their location and score
-                    System.out.println("\nSTATUS: " + player.getStatus());
-                    //Display action options available to the player
-                    System.out.println("ACTIONS: " + room.getActions());
+//                    System.out.println("\nSTATUS: " + player.getStatus());
+//                    //Display action options available to the player
+//                    System.out.println("ACTIONS: " + room.getActions());
                     //Direct to the proper room actions interaction
                     actionInteraction(room, player);
                 }
@@ -102,10 +102,10 @@ public class GameEngine {
 
 
     //Specific Classroom action cascade
-    private void actionInteraction(Room room, Player player) {
+    private void actionInteraction(Room room, Player player) throws InterruptedException {
         switch (room.getClassName()) {
             case LOBBY:
-                gameHelper.lobbyAction(room);
+                gameHelper.lobbyAction(room, player);
                 break;
             case JAVA:
             case JAVASCRIPT:

@@ -9,7 +9,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.Scanner;
 
 public class GameConsole {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
 
 ////CB ADDING HERE FOR THE MAP
 //
@@ -25,6 +25,7 @@ public class GameConsole {
 //        // System.out.println(content);
 //        System.out.println(content);
 //      //CB ADDED CHANGE TILL HERE
+
 
         Console console = System.console();
         if (console == null) {
