@@ -1,5 +1,6 @@
 package com.game.room;
 
+import com.game.MessageArt;
 import com.game.person.Instructor;
 
 import java.util.*;
@@ -79,11 +80,15 @@ public class RoomAlgorithm extends Room {
         this.actions = actions;
     }
 
+    @Override
+    public void printMap() {
+        MessageArt.mapAlgo();
+    }
 
     @Override
     public String toString() {
         return "RoomAlgorithm{" +
-                "name=" + getClassName()+", "+
+                "name=" + getClassName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

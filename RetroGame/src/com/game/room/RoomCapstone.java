@@ -1,5 +1,6 @@
 package com.game.room;
 
+import com.game.MessageArt;
 import com.game.person.Instructor;
 
 import java.util.*;
@@ -85,9 +86,14 @@ public class RoomCapstone extends Room {
     }
 
     @Override
+    public void printMap() {
+        MessageArt.mapCapstone();
+    }
+
+    @Override
     public String toString() {
         return "RoomCapstone{" +
-                "name=" + getClassName()+", "+
+                "name=" + getClassName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

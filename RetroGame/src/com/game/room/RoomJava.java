@@ -1,5 +1,6 @@
 package com.game.room;
 
+import com.game.MessageArt;
 import com.game.person.Instructor;
 
 import java.util.*;
@@ -84,6 +85,11 @@ public class RoomJava extends Room {
     @Override
     public Map<String, String> getIceBreaker() {
         return iceBreaker;
+    }
+
+    @Override
+    public void printMap() {
+        MessageArt.mapJava();
     }
 
     @Override

@@ -23,6 +23,8 @@ public abstract class Room {
 
     public abstract void setActions(List<String> actions);
 
+    public abstract void printMap();
+
     //ACCESSOR METHODS
     public ClassName getClassName() {
         return className;

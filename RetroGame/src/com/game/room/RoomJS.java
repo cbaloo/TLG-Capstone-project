@@ -1,5 +1,6 @@
 package com.game.room;
 
+import com.game.MessageArt;
 import com.game.person.Instructor;
 
 import java.util.*;
@@ -84,9 +85,14 @@ public class RoomJS extends Room {
     }
 
     @Override
+    public void printMap() {
+        MessageArt.mapJS();
+    }
+
+    @Override
     public String toString() {
         return "RoomJavaScript{" +
-                "name=" + getClassName()+", "+
+                "name=" + getClassName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }
