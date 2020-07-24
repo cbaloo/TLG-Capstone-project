@@ -1,5 +1,6 @@
 package com.game.room;
 
+import com.game.MessageArt;
 import com.game.person.Instructor;
 
 import java.util.*;
@@ -48,7 +49,7 @@ public class RoomJS extends Room {
     public RoomJS() {
         super();
         setClassName(ClassName.JAVASCRIPT);
-        setInstructor(new Instructor("NELLY"));
+        setInstructor(new Instructor("PETER"));
     }
 
     //ACCESSOR METHODS
@@ -81,6 +82,11 @@ public class RoomJS extends Room {
     @Override
     public void setActions(List<String> actions) {
         this.actions = actions;
+    }
+
+    @Override
+    public void printMap() {
+        MessageArt.mapJS();
     }
 
     @Override

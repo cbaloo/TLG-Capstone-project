@@ -33,6 +33,7 @@ public class GameHelper {
 
     //Specific Lobby action cascade
     void lobbyAction(Room room, Player player) {
+        room.printMap();
         System.out.println("\nSTATUS: " + player.getStatus());
         //Display action options available to the player
         System.out.println("ACTIONS: " + room.getActions());
@@ -54,6 +55,7 @@ public class GameHelper {
 
     //All classroom have similar actions(Quiz, Wildcard quiz) that the player has to go through
     void classActions(Room room, Player player) throws InterruptedException {
+        room.printMap();
         System.out.println("\nFIRST, LETS DO AN ICEBREAKER!!\n");
         giveIceBreaker(room);
         System.out.println("\nSTATUS: " + player.getStatus());
@@ -71,9 +73,17 @@ public class GameHelper {
                 //Once the quiz is done, remove the quiz from the actions list
                 room.getActions().remove("TAKE QUIZ(Q)");
                 if (room.getClassName().value().equals("JAVA")) {
-                    giveDuckRace();
+                    try{
+                        giveDuckRace();
+                    }
+                    catch(InterruptedException e){
+                        System.out.println(e.getMessage());
+                    }
                 }
-
+                else if(room.getClassName().value().equals("JAVASCRIPT")){
+                    room.getInstructor().setName("NELLY");
+                    System.out.println("\nYOUR INSTRUCTOR IS "+ room.getInstructor().getName()+" NOW.");
+                }
                 //Once the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
                 checkEmptyAction(room, nextClass, player);
             }
@@ -108,12 +118,12 @@ public class GameHelper {
 
     private void giveDuckRace() throws InterruptedException {
         List <String> classmates=new ArrayList(Arrays.asList("JOSH", "BRAD","HIRO","KG","CODY","GURU","CHANDANA","DHRUTI","BRANDON","DAVID","KUSHAL","BRUCE","KERVIN","TAPAN","DAEUN","NEILL","RJ","TERRELL","MICHAEL"));
+        System.out.println("TIME FOR A SHORT BREAK!!\n");
         duckMessage();
-        System.out.println("TIME FOR A SHORT BREAK!!");
         TimeUnit.SECONDS.sleep(7);
         Collections.shuffle(classmates);
         System.out.println(classmates.get(0)+" WINS THE DUCK RACE!");
-        TimeUnit.SECONDS.sleep(5);
+        TimeUnit.SECONDS.sleep(2);
     }
 
 

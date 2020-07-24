@@ -1,61 +1,58 @@
 package com.game.client;
 
+import com.game.MessageArt;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
-
-import static java.awt.Color.green;
-import java.io.File;
-
-import static java.awt.Color.WHITE;
 import static java.awt.Color.green;
 
-
-public class Frame {
+public class GameJFrame {
 
     JFrame window; //new
     Container con;//new
-    JPanel titleNameOnPanel, startButtonPanel, screenTextPanel, choiceButtonPanel;
+    JPanel titleNameOnPanel, startButtonPanel, mainTextPanel ,screenTextPanel, choiceButtonPanel;
     JLabel titleNameOnLabel;
     Font titleFont = new Font("Algerian", Font.BOLD, 60);
     Font buttonFont = new Font("Abadi", Font.PLAIN, 25);
+    Font normalFont = new Font("Times New Roman",Font.PLAIN, 20);
     JButton startButton, choiceButton1, choiceButton2, choiceButton3, choiceButton4;
-    JTextArea screenTextArea;
+    JTextArea screenTextArea, mainTextArea;
 
     MainScreenHandler mHandler = new MainScreenHandler();
     ChoiceButtonHandler choiceButtonHandler = new ChoiceButtonHandler();
 
 
     public static void main(String[] args) {
-        new Frame();
+        new GameJFrame();
     }
-    public Frame(){
+    public GameJFrame(){
 
         window = new JFrame();
-        window.setSize(1200,600);
+        window.setSize(800,600);
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        window.getContentPane().setBackground(Color.CYAN);
+        window.getContentPane().setBackground(Color.black);
         window.setLayout(null);
         window.setVisible(true);
+
         con = window.getContentPane();
 
         titleNameOnPanel = new JPanel();
-        titleNameOnPanel.setBounds(300, 80, 1000, 100);
-        titleNameOnPanel.setBackground(Color.CYAN);
-
+        titleNameOnPanel.setBounds(100, 100, 600, 100);
+        titleNameOnPanel.setBackground(Color.black);
         titleNameOnLabel = new JLabel("TLG AMAZING MAZE");
-        titleNameOnLabel.setForeground(Color.GRAY);
+        titleNameOnLabel.setForeground(Color.white);
         titleNameOnLabel.setFont(titleFont);
 
 
         startButtonPanel = new JPanel();
-        startButtonPanel.setBounds(700,500, 200, 330);
-        startButtonPanel.setBackground(Color.CYAN);
+        startButtonPanel.setBounds(300,400, 200, 100);
+        startButtonPanel.setBackground(Color.black);
+
         startButton = new JButton("START");
-        startButton.setBackground(Color.GREEN);
-        startButton.setForeground(Color.gray);
+        startButton.setBackground(Color.black);
+        startButton.setForeground(Color.white);
         startButton.setFont(buttonFont);
         startButton.addActionListener(mHandler);
         startButton.setFocusPainted(false);
@@ -64,6 +61,24 @@ public class Frame {
         startButtonPanel.add(startButton);
         con.add(titleNameOnPanel);
         con.add(startButtonPanel);
+    }
+
+    public  void getNameScreen(){
+        titleNameOnPanel.setVisible(false);
+        startButtonPanel.setVisible(false);
+
+        mainTextPanel=new JPanel();
+        mainTextPanel.setBounds(100,100,600,250);
+        mainTextPanel.setBackground(Color.blue);
+        con.add(mainTextPanel);
+
+        mainTextArea= new JTextArea("Check check ");
+        mainTextArea.setBounds(100,100,600,250);
+        mainTextArea.setBackground(Color.black);
+        mainTextArea.setForeground(Color.white);
+        mainTextArea.setFont(normalFont);
+
+        mainTextPanel.add(mainTextArea);
     }
 
     public void gameScreen(){
@@ -76,7 +91,7 @@ public class Frame {
         screenTextPanel.setBackground(Color.CYAN);
         con.add(screenTextPanel);
 
-        screenTextArea = new JTextArea("Welcome aboard with our amazing team at TLG!! \nEnjoy this fun ride to Amazon OJT!! \n\n Fasten Your Seatbelt!!!");
+        screenTextArea = new JTextArea(welcomeMsg);
         screenTextArea.setBounds(400,300, 700, 100);
         screenTextArea.setBackground(Color.CYAN);
         screenTextArea.setForeground(Color.RED);
@@ -128,6 +143,30 @@ public class Frame {
 
     }
 
+    private void displayWelcomeMsg(String name) {
+        System.out.println("--------------------------------------------" +
+                "\n\nHEY " + name.toUpperCase() + "! " +
+                "\n\nWELCOME TO THE TLG LEARNING FACILITY IN BELLEVUE, WA!" +
+                "\nCONGRATULATIONS!!! YOU ARE A BRAND SPANKING NEW SDE APPRENTICE. " +
+                "\nBE READY FOR AN EXCITING RIDE TO AMAZON. " +
+                "\n\nWARNING!!! BEFORE ENTERING BUCKLE UP WITH LOADS OF ENTHUSIASM. " +
+                "\nTO GET TO OJT YOU HAVE TO GO THROUGH THE GATEKEEPERS: TLG INSTRUCTORS AND STAFF." +
+                "\n\nGOOD LUCK AND GODSPEED." +
+                "\n\n--------------------------------------------"+
+                "\n\nACTIONS:[ENTER,]");
+    }
+
+    String welcomeMsg="--------------------------------------------" +
+            "\n\nHEY! " +
+            "\n\nWELCOME TO THE TLG LEARNING FACILITY IN BELLEVUE, WA!" +
+            "\nCONGRATULATIONS!!! YOU ARE A BRAND SPANKING NEW SDE APPRENTICE. " +
+            "\nBE READY FOR AN EXCITING RIDE TO AMAZON. " +
+            "\n\nWARNING!!! BEFORE ENTERING BUCKLE UP WITH LOADS OF ENTHUSIASM. " +
+            "\nTO GET TO OJT YOU HAVE TO GO THROUGH THE GATEKEEPERS: TLG INSTRUCTORS AND STAFF." +
+            "\n\nGOOD LUCK AND GODSPEED." +
+            "\n\n--------------------------------------------"+
+            "\n\nACTIONS:[ENTER,]";
+
     public void gameInstructions(){
         System.out.println("Instructions:\n" +
                 "Once you are in the game you can't move backwards.\n" +
@@ -140,6 +179,7 @@ public class Frame {
                 "Be agile with Rennie!! Mind you he is the product owner!!\n" +
                 "Last but not the least: \"BE YOURSELF!!!\"\n");
     }
+
 
     public class MainScreenHandler implements ActionListener {
 
@@ -163,6 +203,7 @@ public class Frame {
             if(typeChoice.equals("c1")){
 
                 gameInstructions();
+//                displayWelcomeMsg("Kushal");
 
 
             }
@@ -170,3 +211,6 @@ public class Frame {
         }
     }
 }
+
+
+

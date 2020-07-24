@@ -12,7 +12,7 @@ public class GameHelperScanner {
     //INSTANCE VARIABLE
     private final GameEngineScanner gameEngineScanner;
     //    private Console console=System.console();
-    private Scanner sc=new Scanner(System.in);
+//    private Scanner sc=new Scanner(System.in);
     private Map<String,String> roomSequence=new HashMap<>() {
         {
             put("LOBBY","ENTER JAVA");
@@ -31,13 +31,14 @@ public class GameHelperScanner {
     }
 
     //Specific Lobby action cascade
-    void lobbyAction(Room room) {
+    void lobbyAction(Room room, Player player, Scanner scanner) {
         while (true) {
             //Player response after reading the status and action options
 //            String action = console.readLine("\nTYPE ACTION:");
             System.out.println("\nTYPE ACTION");
-            String action = sc.nextLine();
+            String action = scanner.nextLine();
             //Only entrance to RommJava is allowed at this point, all the other rooms are closed
+//            if (action.toUpperCase().equals("ENTER JAVA")) {
             if (action.toUpperCase().equals("ENTER JAVA")) {
                 return;
             } else if (action.isEmpty()) {
@@ -51,18 +52,18 @@ public class GameHelperScanner {
     }
 
     //All classroom have similar actions(Quiz, Wildcard quiz) that the player has to go through
-    void classActions(Room room, Player player) {
+    void classActions(Room room, Player player, Scanner scanner) {
         while (true) {
             //Player response after reading the status and action options
 //            String action = console.readLine("\nTYPE ACTION:");
             System.out.println("\nTYPE ACTION");
-            String action = sc.nextLine();
+            String action = scanner.nextLine();
             //Get the next classroom name
             String nextClass=getRoomSequence().get(room.getClassName().value());
             //Present player with the java quiz once they pick quiz action
             if (action.toUpperCase().equals("Q")) {
                 //Go through the quiz questions
-                giveQuiz(room, player);
+                giveQuiz(room, player, scanner);
                 //Once the quiz is done, remove the quiz from the actions list
                 room.getActions().remove("TAKE QUIZ(Q)");
                 //Once the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
@@ -70,7 +71,7 @@ public class GameHelperScanner {
             }
             else if(action.toUpperCase().equals("W")) {
                 //Present player with wild card quiz if they pick that action
-                giveWildcardQuiz(room, player);
+                giveWildcardQuiz(room, player, scanner);
                 //Once the Wildcard quiz is done, remove it from the actions list
                 room.getActions().remove("TAKE WILD CARD QUIZ(W)");
                 //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
@@ -99,11 +100,11 @@ public class GameHelperScanner {
 
 
     //Goes through asking the wildcard questions
-    private void giveWildcardQuiz(Room room, Player player) {
+    private void giveWildcardQuiz(Room room, Player player, Scanner scanner) {
         for (String question : room.getWildcard().keySet()) {
 //            String answer = console.readLine(question + ": ");
             System.out.println(question+": ");
-            String answer=sc.nextLine();
+            String answer=scanner.nextLine();
             if (answer.toUpperCase().equals(room.getWildcard().get(question))) {
                 System.out.println("CORRECT!!!");
                 //Player score needs to be updated +1 in this case
@@ -115,11 +116,11 @@ public class GameHelperScanner {
         }
     }
     //Goes through asking quiz questions
-    private void giveQuiz(Room room, Player player) {
+    private void giveQuiz(Room room, Player player, Scanner scanner) {
         for (String question : room.getQuiz().keySet()) {
 //            String answer = console.readLine(question + ": ");
             System.out.println(question+": ");
-            String answer=sc.nextLine();
+            String answer=scanner.nextLine();
             if (answer.toUpperCase().equals(room.getQuiz().get(question))) {
                 System.out.println("CORRECT!!!");
                 //Player score needs to be updated +1 in this case

@@ -43,10 +43,6 @@ public class GameEngine {
                     clearScreen();
                     //Display customized roomMessage as you enter the room
                     System.out.println("\n" + room.getMessage());
-                    //Display player status which includes their location and score
-//                    System.out.println("\nSTATUS: " + player.getStatus());
-//                    //Display action options available to the player
-//                    System.out.println("ACTIONS: " + room.getActions());
                     //Direct to the proper room actions interaction
                     actionInteraction(room, player);
                 }
@@ -87,8 +83,9 @@ public class GameEngine {
                 "\n\nWARNING!!! BEFORE ENTERING BUCKLE UP WITH LOADS OF ENTHUSIASM. " +
                 "\nTO GET TO OJT YOU HAVE TO GO THROUGH THE GATEKEEPERS: TLG INSTRUCTORS AND STAFF." +
                 "\n\nGOOD LUCK AND GODSPEED." +
-                "\n\n--------------------------------------------" +
-                "\n\nACTIONS:[ENTER,]");
+                "\n\n--------------------------------------------");
+        MessageArt.mapClean();
+        System.out.println("\n\nACTIONS:[ENTER,]");
     }
 
     //Clears screen in the console
@@ -96,7 +93,7 @@ public class GameEngine {
         try {
             new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println(e.getMessage());
         }
     }
 

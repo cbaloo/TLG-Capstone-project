@@ -15,7 +15,7 @@ public class GameEngineScanner {
     private final GameHelperScanner gameHelperScanner = new GameHelperScanner(this);
     private Player player;
     //    private Console console = System.console();
-    private Scanner sc=new Scanner(System.in);
+//    private Scanner sc=new Scanner(System.in);
     private List<Room> roomList = new ArrayList(Arrays.asList(
             new Lobby(),
             new RoomJava(),
@@ -27,18 +27,18 @@ public class GameEngineScanner {
     ));
 
     //Method to start the game
-    public void start() {
+    public void start(Scanner scanner) {
         //Display Title ASCII art
         titleMessage();
         //Accept player name from the console
-        player = getPlayer();
+        player = getPlayer(scanner);
         //Display text in to set the scene for the player
         displayWelcomeMsg(player.getName());
         //TODO Display the map of floor of TLG displayMap() Chandana
         //Game loop starts once the player opts to ENTER
         while (true) {
             System.out.println("\nTYPE ACTION:");
-            String action=sc.nextLine();
+            String action=scanner.nextLine();
 //            if ("ENTER".equals(console.readLine("\nTYPE ACTION:").toUpperCase())) {
             if ("ENTER".equals(action.toUpperCase())) {
                 for (Room room : roomList) {
@@ -53,7 +53,7 @@ public class GameEngineScanner {
                     //Display action options available to the player
                     System.out.println("ACTIONS: " + room.getActions());
                     //Direct to the proper room actions interaction
-                    actionInteraction(room, player);
+                    actionInteraction(room, player, scanner);
                 }
                 //ASCII Art congrats message
                 congratsMessage();
@@ -68,12 +68,12 @@ public class GameEngineScanner {
     }
 
     //Get player name from the console and then return a Player
-    private Player getPlayer() {
+    private Player getPlayer(Scanner scanner) {
         String playerName;
         Player curPlayer;
         while (true) {
             System.out.println("\nWHAT IS YOUR NAME?: ");
-            String answer=sc.nextLine();
+            String answer=scanner.nextLine();
             playerName = answer;
 
 //            playerName = console.readLine("\nWHAT IS YOUR NAME?: ");
@@ -111,10 +111,10 @@ public class GameEngineScanner {
 
 
     //Specific Classroom action cascade
-    private void actionInteraction(Room room, Player player) {
+    private void actionInteraction(Room room, Player player, Scanner scanner) {
         switch (room.getClassName()) {
             case LOBBY:
-                gameHelperScanner.lobbyAction(room);
+                gameHelperScanner.lobbyAction(room, player, scanner);
                 break;
             case JAVA:
             case JAVASCRIPT:
@@ -122,7 +122,7 @@ public class GameEngineScanner {
             case LINUX:
             case PYTHON:
             case CAPSTONE:
-                gameHelperScanner.classActions(room, player);
+                gameHelperScanner.classActions(room, player, scanner);
                 break;
         }
     }
