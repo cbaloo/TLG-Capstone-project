@@ -34,7 +34,7 @@ import static java.awt.Color.green;
             window = new JFrame();
             window.setSize(800,600);
             window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-            window.getContentPane().setBackground(Color.black);
+            window.getContentPane().setBackground(Color.CYAN);
             window.setLayout(null);
             window.setVisible(true);
             con = window.getContentPane();
@@ -132,7 +132,7 @@ import static java.awt.Color.green;
                     "You need to pass each class to reach to your final destination!!\n" +
                     "Be ready for some guitar lessons from Jay!!\n" +
                     "Have a laugh with Nelly!!\n" +
-                    "Get ready for fun with Tom and his hijack stories!!\n" +
+                    "Get ready for some fun with Tom and his hijack stories!!\n" +
                     "Explore Linux/ AWS with JOHN!!\n" +
                     "Be a part of 'Python Gang' with Zack...I mean Zach!!\n" +
                     "Be agile with Rennie!! Mind you he is the product owner!!\n" +
