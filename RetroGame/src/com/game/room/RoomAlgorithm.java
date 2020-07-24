@@ -85,11 +85,10 @@ public class RoomAlgorithm extends Room {
         MessageArt.mapAlgo();
     }
 
-
     @Override
     public String toString() {
         return "RoomAlgorithm{" +
-                "name=" + getClassName()+", "+
+                "name=" + getClassName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

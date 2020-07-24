@@ -7,14 +7,14 @@ import java.util.*;
 
 public class RoomPython extends Room {
     //INSTANCE VARIABLES
-    private String message = "--------------------------------------------"+
+    private String message = "--------------------------------------------" +
             "\nWELCOME TO THE PYTHON CLASSROOM!";
-    private List<String> actions=new ArrayList(Arrays.asList(
+    private List<String> actions = new ArrayList(Arrays.asList(
             "TAKE QUIZ(Q)",
             "TAKE WILD CARD QUIZ(W)"
     ));
 
-    private Map<String,String> quiz =new HashMap<>(){
+    private Map<String, String> quiz = new HashMap<>() {
         {
             put("WHITE SPACES ARE THE LEAST OF OUR WORRIES WHILE CODING IN PYTHON? (TRUE/FALSE)", "FALSE");
             put("LIST IS A PREDEFINED DATA TYPE IN PYTHON? (TRUE/FALSE)", "TRUE");
@@ -86,7 +86,7 @@ public class RoomPython extends Room {
     @Override
     public String toString() {
         return "RoomPython{" +
-                "name=" + getClassName()+", "+
+                "name=" + getClassName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

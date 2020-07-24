@@ -90,7 +90,7 @@ public class Lobby extends Room {
     @Override
     public String toString() {
         return "Lobby{" +
-                "name=" + getClassName() +", "+
-                getInstructor()+"} ";
+                "name=" + getClassName() + ", " +
+                getInstructor() + "} ";
     }
 }

@@ -27,7 +27,6 @@ public class Frame {
     MainScreenHandler mHandler = new MainScreenHandler();
     ChoiceButtonHandler choiceButtonHandler = new ChoiceButtonHandler();
 
-
     public static void main(String[] args) {
         new Frame();
     }
@@ -127,6 +126,7 @@ public class Frame {
         choiceButtonPanel.add(choiceButton4);
 
     }
+
 
     public void gameInstructions(){
         System.out.println("Instructions:\n" +

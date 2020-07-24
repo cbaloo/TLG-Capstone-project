@@ -73,11 +73,6 @@ public class RoomJava extends Room {
     }
 
     @Override
-    public void printMap() {
-        MessageArt.mapJava();
-    }
-
-    @Override
     public Map<String, String> getQuiz() {
         return quiz;
     }
@@ -90,6 +85,11 @@ public class RoomJava extends Room {
     @Override
     public Map<String, String> getIceBreaker() {
         return iceBreaker;
+    }
+
+    @Override
+    public void printMap() {
+        MessageArt.mapJava();
     }
 
     @Override

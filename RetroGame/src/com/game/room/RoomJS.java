@@ -92,7 +92,7 @@ public class RoomJS extends Room {
     @Override
     public String toString() {
         return "RoomJavaScript{" +
-                "name=" + getClassName()+", "+
+                "name=" + getClassName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }

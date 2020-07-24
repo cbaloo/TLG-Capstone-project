@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import static com.game.GameEngine.clearScreen;
 import static com.game.MessageArt.duckMessage;
+import static com.game.MessageArt.duckMessageTwo;
 
 public class GameHelper {
     //INSTANCE VARIABLE
@@ -40,7 +41,7 @@ public class GameHelper {
         while (true) {
             //Player response after reading the status and action options
             String action = console.readLine("\nTYPE ACTION:");
-            //Only entrance to RommJava is allowed at this point, all the other rooms are closed
+            //Only entrance to RoomJava is allowed at this point, all the other rooms are closed
             if (action.toUpperCase().equals("ENTER JAVA")) {
                 return;
             } else if (action.isEmpty()) {
@@ -117,13 +118,18 @@ public class GameHelper {
     }
 
     private void giveDuckRace() throws InterruptedException {
-        List <String> classmates=new ArrayList(Arrays.asList("JOSH", "BRAD","HIRO","KG","CODY","GURU","CHANDANA","DHRUTI","BRANDON","DAVID","KUSHAL","BRUCE","KERVIN","TAPAN","DAEUN","NEILL","RJ","TERRELL","MICHAEL"));
-        System.out.println("TIME FOR A SHORT BREAK!!\n");
+        List<String> classmates = new ArrayList(Arrays.asList(
+                "JOSH", "BRAD", "HIRO", "KG", "CODY", "GURU", "CHANDANA", "DHRUTI", "BRANDON", "DAVID",
+                "KUSHAL", "BRUCE", "KERVIN", "TAPAN", "DAEUN", "NEILL", "RJ", "TERRELL", "MICHAEL"));
+        System.out.println("TIME FOR A SHORT BREAK!!");
+        TimeUnit.SECONDS.sleep(1);
         duckMessage();
-        TimeUnit.SECONDS.sleep(7);
+        TimeUnit.SECONDS.sleep(1);
+        duckMessageTwo();
+        TimeUnit.SECONDS.sleep(5);
         Collections.shuffle(classmates);
-        System.out.println(classmates.get(0)+" WINS THE DUCK RACE!");
-        TimeUnit.SECONDS.sleep(2);
+        System.out.println(classmates.get(0) + " WINS THE DUCK RACE!");
+        TimeUnit.SECONDS.sleep(3);
     }
 
 
@@ -161,11 +167,6 @@ public class GameHelper {
             String answer = console.readLine(room.getInstructor().getName() + ": " + question + ": ");
         }
     }
-
-    private void giveDuckRace(MessageArt duckMessage) {
-
-    }
-
 
     //Checks if the room action list is empty, if true the next class entry option is added to the action list
     //TODO revert the method to private after test

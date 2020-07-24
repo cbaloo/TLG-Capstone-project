@@ -93,7 +93,7 @@ public class RoomCapstone extends Room {
     @Override
     public String toString() {
         return "RoomCapstone{" +
-                "name=" + getClassName()+", "+
+                "name=" + getClassName() + ", " +
                 getInstructor() + "\n" +
                 getMessage() + " } ";
     }
