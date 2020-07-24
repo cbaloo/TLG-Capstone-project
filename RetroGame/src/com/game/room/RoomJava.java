@@ -14,7 +14,8 @@ public class RoomJava extends Room {
     private List<String> actions=new ArrayList(Arrays.asList(
             "TAKE QUIZ(Q)",
             "TAKE WILD CARD QUIZ(W)"
-//            "TAKE BREAK(D)"
+//            "TAKE BREAK(B)"
+
     ));
 
     private Map<String,String> quiz =new HashMap<>(){

@@ -11,20 +11,21 @@ import java.util.Scanner;
 public class GameConsole {
     public static void main(String[] args) throws IOException, InterruptedException {
 
-//CB ADDING HERE FOR THE MAP
+////CB ADDING HERE FOR THE MAP
+//
+//        File file = new File("C:\\StudentWork\\Capstone\\TLG-Capstone-project\\RetroGame\\src\\com\\game\\testtlg.txt");
+//        Scanner scanner = new Scanner(file, StandardCharsets.UTF_8.name());
+//        String content = null;
+//        try (scanner){
+//            content = scanner.useDelimiter("\\A").next();
+//
+//            //   } catch(IOException e){
+//            //       e.printStackTrace();
+//        }
+//        // System.out.println(content);
+//        System.out.println(content);
+//      //CB ADDED CHANGE TILL HERE
 
-        File file = new File("C:\\StudentWork\\Capstone\\TLG-Capstone-project\\RetroGame\\src\\com\\game\\testtlg.txt");
-        Scanner scanner = new Scanner(file, StandardCharsets.UTF_8.name());
-        String content = null;
-        try (scanner) {
-            content = scanner.useDelimiter("\\A").next();
-
-            //   } catch(IOException e){
-            //       e.printStackTrace();
-        }
-        // System.out.println(content);
-        System.out.println(content);
-      //CB ADDED CHANGE TILL HERE
 
         Console console = System.console();
         if (console == null) {
@@ -34,5 +35,6 @@ public class GameConsole {
 
         GameEngine gameEngine = new GameEngine();
         gameEngine.start();
+
     }
 }
