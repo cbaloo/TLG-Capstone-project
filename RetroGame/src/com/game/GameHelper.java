@@ -1,6 +1,7 @@
 package com.game;
 
 import com.game.person.Player;
+import com.game.question.IceBreaker;
 import com.game.room.Room;
 
 import java.io.Console;
@@ -158,9 +159,7 @@ public class GameHelper {
     }
 
     private void giveIceBreaker(Room room) {
-        for (String question : room.getIceBreaker().keySet()) {
-            String answer = console.readLine(room.getInstructor().getName() + ": " + question + ": ");
-        }
+        String answer = console.readLine(room.getInstructor().getName() + ": " + IceBreaker.getIceBreaker() + ":");
     }
 
     //Checks if the room action list is empty, if true the next class entry option is added to the action list

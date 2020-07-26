@@ -17,11 +17,9 @@ public abstract class Room {
 
     public abstract Map<String, String> getWildcard();
 
-    public abstract Map<String, String> getIceBreaker();
+    public abstract String getIceBreaker();
 
     public abstract List<String> getActions();
-
-    public abstract void setActions(List<String> actions);
 
     public abstract void printMap();
 

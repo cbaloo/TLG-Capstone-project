@@ -2,6 +2,9 @@ package com.game.room;
 
 import com.game.MessageArt;
 import com.game.person.Instructor;
+import com.game.question.IceBreaker;
+import com.game.question.Quiz;
+import com.game.question.WildCard;
 
 import java.util.*;
 
@@ -19,38 +22,6 @@ public class RoomJava extends Room {
 
     ));
 
-    private Map<String,String> quiz =new HashMap<>(){
-        {
-//            put("WHAT DOES OOP STAND FOR?", "OBJECT ORIENTED PROGRAMMING");
-            put("WHAT DOES JVM STAND FOR?","JAVA VIRTUAL MACHINE");
-            put("JAVA USES THE 'PUBLIC', 'PROTECTED,' AND '-------' ACCESS KEYWORDS.","PRIVATE");
-            put("IF YOU DECLARE NO CONSTRUCTORS, A '-------' CONSTRUCTOR IS AUTOMATICALLY ASSIGNED.","DEFAULT");
-//            put("WHAT DOES THE '!=' OPERATOR STAND FOR?","NOT EQUAL");
-//            put("WHAT IDE DID WE PRIMARILY USE DURING OUR JAVA COURSE?","INTELLIJ");
-        }
-    };
-
-    private Map<String, String> wildCardQuiz = new HashMap<>() {
-        {
-            put("DID JAY WIN FIRST PLACE IN HIS AIR GUITAR COMPETITION? (TRUE/FALSE)", "FALSE");
-            put("CLASSMATE WHO WOWS ALL WITH HIS/HER PROJECT?", "DHRUTI");
-            put("CLASSMATE WHO HAVE SPENT THE MOST AMOUNT OF TIME UNDERWATER?", "JOSH");
-        }
-    };
-
-    private Map<String, String> iceBreaker = new HashMap<>() {
-        {
-            //put("IF YOU COULD GO ANYWHERE IN THE WORLD, WHERE WOULD YOU GO?", "");
-            //put("IF IT WAS POSSIBLE, WHAT SUPER POWER WOULD YOU HAVE?","");
-            //put("WHERE DID YOU GROW UP?","");
-            //put("WHAT IS YOUR SSN????", "");
-            //put("WHAT WAS YOUR FIRST CAR?", "");
-            //put("ARE YOU A MORNING PERSON?", "");
-            //put("WOULD YOU RATHER GO FOR A HIKE OR FOR A SWIM?", "");
-            put("WOULD YOU RATHER BE A PROFESSIONAL ATHLETE OR A PROFESSIONAL TASTE TESTER?", "");
-        }
-    };
-
     //CONSTRUCTOR
     public RoomJava() {
         super();
@@ -67,24 +38,20 @@ public class RoomJava extends Room {
     public List<String> getActions() {
         return actions;
     }
-    @Override
-    public void setActions(List<String> actions) {
-        this.actions = actions;
-    }
 
     @Override
     public Map<String, String> getQuiz() {
-        return quiz;
+        return Quiz.getQuizJava();
     }
 
     @Override
     public Map<String, String> getWildcard() {
-        return wildCardQuiz;
+        return WildCard.getWildCardJava();
     }
 
     @Override
-    public Map<String, String> getIceBreaker() {
-        return iceBreaker;
+    public String getIceBreaker() {
+        return IceBreaker.getIceBreaker();
     }
 
     @Override
