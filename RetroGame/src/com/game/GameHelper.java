@@ -17,13 +17,13 @@ public class GameHelper {
     private Console console=System.console();
     private Map<String,String> roomSequence=new HashMap<>() {
         {
-            put("LOBBY","ENTER JAVA");
-            put("JAVA","ENTER JAVASCRIPT");
-            put("JAVASCRIPT","ENTER ALGORITHM");
-            put("ALGORITHM","ENTER LINUX");
-            put("LINUX","ENTER PYTHON");
-            put("PYTHON","ENTER CAPSTONE");
-            put("CAPSTONE","ENTER AMAZON");
+            put("LOBBY","ENTER JAVA(J)");
+            put("JAVA","ENTER JAVASCRIPT(JS)");
+            put("JAVASCRIPT","ENTER ALGORITHM(A)");
+            put("ALGORITHM","ENTER LINUX(L)");
+            put("LINUX","ENTER PYTHON(P)");
+            put("PYTHON","ENTER CAPSTONE(C)");
+            put("CAPSTONE","ENTER AMAZON(AMZ)");
         }
     };
 
@@ -42,12 +42,11 @@ public class GameHelper {
             //Player response after reading the status and action options
             String action = console.readLine("\nTYPE ACTION:");
             //Only entrance to RoomJava is allowed at this point, all the other rooms are closed
-            if (action.toUpperCase().equals("ENTER JAVA")) {
+            if (action.toUpperCase().equals("J")) {
                 return;
             } else if (action.isEmpty()) {
                 System.out.println("INVALID ENTRY!");
-            } else if (room.getActions().contains(action.toUpperCase())) {
-                System.out.println("TOUGH LUCK LITTLE GRASSHOPPER, YOU ARE NOT WORTHY OF ENTERING THIS ROOM YET!");
+
             } else {
                 System.out.println("HINT: JAVA!");
             }
@@ -55,7 +54,7 @@ public class GameHelper {
     }
 
     //All classroom have similar actions(Quiz, Wildcard quiz) that the player has to go through
-    void classActions(Room room, Player player) throws InterruptedException {
+    void classActions(Room room, Player player) {
         room.printMap();
         System.out.println("\nFIRST, LETS DO AN ICEBREAKER!!\n");
         giveIceBreaker(room);
@@ -95,11 +94,7 @@ public class GameHelper {
                 room.getActions().remove("TAKE WILD CARD QUIZ(W)");
                 //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
                 checkEmptyAction(room, nextClass, player);
-            } else if (action.toUpperCase().equals("I")) {
-                giveIceBreaker(room);
-                room.getActions().remove("ICEBREAKER(I)");
-                checkEmptyAction(room, nextClass, player);
-            } else if (action.toUpperCase().equals("RETAKE CLASS")) {
+            } else if (action.toUpperCase().equals("RE")) {
                 player.getStatus().put("SCORE", "0");
                 clearScreen();
                 System.out.println("--------------------------------------------");
@@ -108,7 +103,7 @@ public class GameHelper {
                 room.getActions().add("TAKE WILD CARD QUIZ(W)");
                 System.out.println("\nSTATUS: " + player.getStatus());
                 System.out.println("\nACTIONS: " + room.getActions());
-            } else if (action.toUpperCase().equals(nextClass)) {
+            } else if (action.toUpperCase().equals(getActionLetters(nextClass))) {
                 player.getStatus().put("SCORE", "0");
                 return;
             } else {
@@ -179,7 +174,7 @@ public class GameHelper {
             room.getActions().add(nextClass);
         } else if (room.getActions().size() == 0 && scorePercentage <= 60.00) {
             System.out.println("YOU FAILED WITH " + roundedPercentage + "%");
-            room.getActions().add("RETAKE CLASS");
+            room.getActions().add("RETAKE CLASS(RE)");
             room.getActions().add(nextClass);
         }
         System.out.println("\nACTIONS: " + room.getActions());
@@ -195,6 +190,10 @@ public class GameHelper {
         String newScore=String.valueOf(updatedScore);
         player.getStatus().put("SCORE",newScore);
         System.out.println(player.getStatus()+"\n");
+    }
+    //Get the substring between () of actions
+    private String getActionLetters(String action){
+        return action.substring(action.indexOf("(")+1,action.indexOf(")"));
     }
 
     //ACCESSOR METHODS

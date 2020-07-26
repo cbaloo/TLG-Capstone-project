@@ -35,7 +35,7 @@ public class GameEngine {
         //TODO Display the map of floor of TLG displayMap() Chandana
         //Game loop starts once the player opts to ENTER
         while (true) {
-            if ("ENTER".equals(console.readLine("\nTYPE ACTION:").toUpperCase())) {
+            if ("E".equals(console.readLine("\nTYPE ACTION:").toUpperCase())) {
                 for (Room room : roomList) {
                     //Updating the location of the player with the curRoom
                     player.getStatus().put("LOCATION", room.getClassName().value());
@@ -85,7 +85,7 @@ public class GameEngine {
                 "\n\nGOOD LUCK AND GODSPEED." +
                 "\n\n--------------------------------------------");
         MessageArt.mapClean();
-        System.out.println("\n\nACTIONS:[ENTER,]");
+        System.out.println("\n\nACTIONS:[ENTER(E)]");
     }
 
     //Clears screen in the console

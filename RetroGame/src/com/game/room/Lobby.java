@@ -11,12 +11,7 @@ public class Lobby extends Room {
             "\nJEANNETTE WELCOMES YOU AND LET YOU KNOW THAT THE FIRST CALSS YOU WILL ATTEND IS JAVA";
     //action options in this particular room
     private List<String> actions=new ArrayList(Arrays.asList(
-       "ENTER JAVA",
-       "ENTER JAVASCRIPT",
-       "ENTER ALGORITHM",
-       "ENTER LINUX",
-       "ENTER PYTHON",
-       "ENTER CAPSTONE"
+       "ENTER JAVA(J)"
     ));
     private Map<String,String> quiz =new HashMap<>(){
         {
