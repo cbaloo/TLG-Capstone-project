@@ -20,7 +20,7 @@ public class WildCard {
     private static Map<String, String> wildCardJS = new HashMap<>() {
         {
             put("HOW MANY INSTRUCTORS DID WE HAVE FOR OUR JAVASCRIPT COURSE?(1/2)", "2");
-            put("CLASSMATE WHO RELOCATES TO DIFFERENT ROOMS/AREA OF HIS/HER HOME FOR CLASS?", "DAEUN");
+            put("WE HAVE SEEN ALMOST ALL THE ROOMS OF THIS CLASSMATES' APARTMENT?", "DAEUN");
         }
     };
     private static Map<String, String> wildCardAlgorithm = new HashMap<>() {
