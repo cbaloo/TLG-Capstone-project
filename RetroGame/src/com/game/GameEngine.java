@@ -1,5 +1,6 @@
 package com.game;
 
+import com.game.accesory.MessageArt;
 import com.game.person.Player;
 import com.game.room.*;
 
@@ -8,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static com.game.MessageArt.*;
+import static com.game.accesory.MessageArt.*;
 
 public class GameEngine {
     private final GameHelper gameHelper = new GameHelper(this);

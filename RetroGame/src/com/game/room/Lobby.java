@@ -1,19 +1,12 @@
 package com.game.room;
 
-import com.game.MessageArt;
+import com.game.accesory.MessageArt;
 import com.game.person.Instructor;
-import com.game.question.*;
+import com.game.accesory.*;
 
 import java.util.*;
 
 public class Lobby extends Room {
-    //INSTANT VARIABLE
-    private String message="--------------------------------------------"+
-            "\nJEANNETTE WELCOMES YOU AND LET YOU KNOW THAT THE FIRST CALSS YOU WILL ATTEND IS JAVA";
-    //action options in this particular room
-    private List<String> actions=new ArrayList(Arrays.asList(
-       "ENTER JAVA(J)"
-    ));
 
     //CONSTRUCTOR
     public Lobby() {
@@ -25,7 +18,7 @@ public class Lobby extends Room {
     //ACCESSOR METHODS
     @Override
     public String getMessage() {
-        return message;
+        return Message.getMessageLobby();
     }
 
     @Override
@@ -45,7 +38,7 @@ public class Lobby extends Room {
 
     @Override
     public List<String> getActions() {
-        return actions;
+        return Actions.getActionsLobby();
     }
 
     @Override

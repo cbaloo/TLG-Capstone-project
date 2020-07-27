@@ -1,22 +1,12 @@
 package com.game.room;
 
-import com.game.MessageArt;
+import com.game.accesory.MessageArt;
+import com.game.accesory.*;
 import com.game.person.Instructor;
-import com.game.question.IceBreaker;
-import com.game.question.Quiz;
-import com.game.question.WildCard;
 
 import java.util.*;
 
 public class RoomJS extends Room {
-    //INSTANCE VARIABLES
-    private String message = "--------------------------------------------"+
-            "\nWELCOME TO JAVASCRIPT! ARE YOU CONFUSED YET??";
-    private List<String> actions=new ArrayList(Arrays.asList(
-            "TAKE QUIZ(Q)",
-            "TAKE WILD CARD QUIZ(W)"
-    ));
-
     //CONSTRUCTOR
     public RoomJS() {
         super();
@@ -27,7 +17,7 @@ public class RoomJS extends Room {
     //ACCESSOR METHODS
     @Override
     public String getMessage() {
-        return message;
+        return Message.getMessageJS();
     }
 
     @Override
@@ -48,7 +38,7 @@ public class RoomJS extends Room {
 
     @Override
     public List<String> getActions() {
-        return actions;
+        return Actions.getActionsJS();
     }
 
 

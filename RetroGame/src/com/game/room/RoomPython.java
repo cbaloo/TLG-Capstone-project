@@ -1,23 +1,12 @@
 package com.game.room;
 
-import com.game.MessageArt;
+import com.game.accesory.MessageArt;
+import com.game.accesory.*;
 import com.game.person.Instructor;
-import com.game.question.IceBreaker;
-import com.game.question.Quiz;
-import com.game.question.WildCard;
 
 import java.util.*;
 
 public class RoomPython extends Room {
-    //INSTANCE VARIABLES
-    private String message = "--------------------------------------------" +
-            "\nWELCOME TO THE PYTHON CLASSROOM!";
-    private List<String> actions = new ArrayList(Arrays.asList(
-            "TAKE QUIZ(Q)",
-            "TAKE WILD CARD QUIZ(W)"
-    ));
-
-
     //CONSTRUCTOR
     public RoomPython() {
         super();
@@ -28,7 +17,7 @@ public class RoomPython extends Room {
     //ACCESSOR METHOD
     @Override
     public String getMessage() {
-        return message;
+        return Message.getMessagePython();
     }
 
     @Override
@@ -48,7 +37,7 @@ public class RoomPython extends Room {
 
     @Override
     public List<String> getActions() {
-        return actions;
+        return Actions.getActionsPython();
     }
 
     @Override

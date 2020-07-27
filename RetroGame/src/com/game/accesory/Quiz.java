@@ -1,4 +1,4 @@
-package com.game.question;
+package com.game.accesory;
 
 import java.util.HashMap;
 import java.util.Map;

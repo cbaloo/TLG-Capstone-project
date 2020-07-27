@@ -1,7 +1,7 @@
 package com.game;
 
 import com.game.person.Player;
-import com.game.question.IceBreaker;
+import com.game.accesory.IceBreaker;
 import com.game.room.Room;
 
 import java.io.Console;
@@ -9,8 +9,8 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import static com.game.GameEngine.clearScreen;
-import static com.game.MessageArt.duckMessage;
-import static com.game.MessageArt.duckMessageTwo;
+import static com.game.accesory.MessageArt.duckMessage;
+import static com.game.accesory.MessageArt.duckMessageTwo;
 
 public class GameHelper {
     //INSTANCE VARIABLE
