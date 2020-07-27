@@ -5,6 +5,7 @@ import com.game.accesory.IceBreaker;
 import com.game.room.Room;
 
 import java.io.Console;
+import java.security.KeyStore;
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
@@ -62,17 +63,24 @@ public class GameHelper {
         System.out.println("\nSTATUS: " + player.getStatus());
         //Display action options available to the player
         System.out.println("ACTIONS: " + room.getActions());
+        //Flag to ensure one entry to quiz and wildcard options
+        Map<String,Boolean> quizFlag=new HashMap<>(){
+            {
+                put("Q",Boolean.TRUE);
+                put("W",Boolean.TRUE);}
+        };
         while (true) {
             //Player response after reading the status and action options
             String action = console.readLine("\nTYPE ACTION:");
             //Get the next classroom name
             String nextClass = getRoomSequence().get(room.getClassName().value());
             //Present player with the java quiz once they pick quiz action
-            if (action.toUpperCase().equals("Q")) {
+            if (action.toUpperCase().equals("Q")&&quizFlag.get("Q")) {
                 //Go through the quiz questions
                 giveQuiz(room, player);
                 //Once the quiz is done, remove the quiz from the actions list
                 room.getActions().remove("TAKE QUIZ(Q)");
+                quizFlag.put("Q", Boolean.FALSE);
                 if (room.getClassName().value().equals("JAVA")) {
                     try{
                         giveDuckRace();
@@ -88,11 +96,12 @@ public class GameHelper {
                 //Once the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
                 checkEmptyAction(room, nextClass, player);
             }
-            else if (action.toUpperCase().equals("W")) {
+            else if (action.toUpperCase().equals("W")&& quizFlag.get("W")) {
                 //Present player with wild card quiz if they pick that action
                 giveWildcardQuiz(room, player);
                 //Once the Wildcard quiz is done, remove it from the actions list
                 room.getActions().remove("TAKE WILD CARD QUIZ(W)");
+                quizFlag.put("W",Boolean.FALSE);
                 //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
                 checkEmptyAction(room, nextClass, player);
             } else if (action.toUpperCase().equals("RE")) {

@@ -2,25 +2,56 @@ Kushal
 enter
 enter java
 q
-
-
-
+java virtual machine
+default
+private
 w
-
-
-
+false
+dhruti
+josh
 enter javascript
 q
 
+netscape
+false
+html
+notation
+w
+daeun
+2
+enter algorithm
+q
 
+
+
+w
+
+
+
+enter linux
+q
+
+
+
+w
+
+
+enter python
+
+
+
+w
+
+
+enter capstone
 
 
 
 
 w
 
-enter algorithm
-q
+
+enter amazon
 
 
 
