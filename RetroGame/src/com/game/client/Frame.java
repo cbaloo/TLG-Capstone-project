@@ -19,14 +19,17 @@ public class Frame {
     JFrame window; //new
     Container con;//new
     JPanel titleNameOnPanel, startButtonPanel, screenTextPanel, choiceButtonPanel, screen1ENamePanel, playerClassPanel, playerScoreLocTimePanel, javaScreenPanel, javaButtonPanel;
-    JLabel titleNameOnLabel, screen1ENameLabel, javaClassLabel, jsClassLabel, dsClassLabel, liClassLabel, pyClassLabel, capClassLabel, scoreLabel, locationLabel, timeLabel;
+    JLabel titleNameOnLabel, screen1ENameLabel, javaClassLabel, jsClassLabel, dsClassLabel, liClassLabel, pyClassLabel, capClassLabel, scoreLabel, locationLabel, timeLabel, scoreValueLabel, locationValueLabel;
+
     Font titleFont = new Font("Algerian", Font.BOLD, 60);
     Font buttonFont = new Font("Abadi", Font.BOLD, 25);
     JButton startButton, choiceButton1, choiceButton2, choiceButton3, choiceButton4, javaButton;
     JTextArea screenTextArea;
-    //CB added for enter name on screen 1.
+
     JTextField screen1EnterNameTF;
 
+    int currentScore; //
+    String currentLocation;
 
     Scanner userInput = new Scanner(System.in);
 
@@ -74,7 +77,7 @@ public class Frame {
         startButtonPanel.add(startButton);
         con.add(titleNameOnPanel);
         con.add(startButtonPanel);
-        // CB adding text field on sc 1. ie add TF to TFP and then add TFP to window via con.add
+
         screen1ENamePanel = new JPanel();
         screen1ENamePanel.setBounds(700, 300, 300, 50);
         screen1ENamePanel.setBackground(Color.gray);
@@ -87,7 +90,13 @@ public class Frame {
         screen1EnterNameTF.setEnabled(true);
         screen1EnterNameTF.requestFocusInWindow();
         screen1ENamePanel.add(screen1EnterNameTF);
-        // sc1SubmitButton.addActionListener(tfHandler);
+
+
+        enterNameOnScreen1();
+    }
+
+    public void enterNameOnScreen1(){
+
 
 
     }
@@ -98,7 +107,7 @@ public class Frame {
         startButtonPanel.setVisible(false);
         screen1ENamePanel.setVisible(false);
 
-        //DigitalWatch digitalWatch = new DigitalWatch();
+
         screenTextPanel = new JPanel();
         screenTextPanel.setBounds(450, 150, 700, 200);
         screenTextPanel.setBackground(Color.blue);
@@ -124,7 +133,7 @@ public class Frame {
         javaButton.setForeground(green);
         javaButton.setFont(buttonFont);
         javaButton.setFocusPainted(false);
-        // javaButton.addActionListener(javaButtonHandler);
+
         javaButton.setActionCommand("j1");
         javaButtonPanel.add(javaButton);
 
@@ -152,7 +161,7 @@ public class Frame {
         choiceButton2.setActionCommand("c2");
         choiceButtonPanel.add(choiceButton2);
 
-        choiceButton3 = new JButton("Play");
+        choiceButton3 = new JButton("Timer");
         choiceButton3.setBackground(Color.gray);
         choiceButton3.setForeground(Color.red);
         choiceButton3.setFont(buttonFont);
@@ -172,7 +181,7 @@ public class Frame {
 
         playerClassPanel = new JPanel();
         playerClassPanel.setBounds(550, 700, 1000, 80);
-        playerClassPanel.setBackground(Color.darkGray);
+        playerClassPanel.setBackground(Color.blue);
         playerClassPanel.setLayout(new GridLayout(1, 3));
         con.add(playerClassPanel);
 
@@ -208,8 +217,8 @@ public class Frame {
 
         playerScoreLocTimePanel = new JPanel();
         playerScoreLocTimePanel.setBounds(700, 40, 700, 80);
-        playerScoreLocTimePanel.setBackground(Color.GRAY);
-        playerScoreLocTimePanel.setLayout(new GridLayout(1, 3));
+        playerScoreLocTimePanel.setBackground(Color.blue);
+        playerScoreLocTimePanel.setLayout(new GridLayout(1, 4));
         con.add(playerScoreLocTimePanel);
 
         scoreLabel = new JLabel("Score:");
@@ -217,96 +226,35 @@ public class Frame {
         scoreLabel.setForeground(green);
         playerScoreLocTimePanel.add(scoreLabel);
 
+        scoreValueLabel = new JLabel();
+        scoreValueLabel.setFont(buttonFont);
+        scoreValueLabel.setForeground(green);
+        playerScoreLocTimePanel.add(scoreValueLabel);
+
         locationLabel = new JLabel("Location:");
         locationLabel.setFont(buttonFont);
         locationLabel.setForeground(green);
         playerScoreLocTimePanel.add(locationLabel);
 
-        timeLabel = new JLabel("Time:");
-        timeLabel.setFont(buttonFont);
-        timeLabel.setForeground(green);
-        playerScoreLocTimePanel.add(timeLabel);
+        locationValueLabel = new JLabel();
+        locationValueLabel.setFont(buttonFont);
+        locationValueLabel.setForeground(green);
+        playerScoreLocTimePanel.add(locationValueLabel);
 
+        currentScoreLocation();
+
+    }
+
+    public void currentScoreLocation() {
+
+        currentScore = 0;
+        currentLocation = "Lobby";
+        scoreValueLabel.setText("" + currentScore);
+        locationValueLabel.setText(currentLocation);
 
     }
 
-/*
-    public void javaClassScreen() {
 
-        titleNameOnPanel.setVisible(false);
-        startButtonPanel.setVisible(false);
-        screen1ENamePanel.setVisible(false);
-
-        //DigitalWatch digitalWatch = new DigitalWatch();
-        screenTextPanel = new JPanel();
-        screenTextPanel.setBounds(450, 150, 700, 200);
-        screenTextPanel.setBackground(Color.blue);
-        con.add(screenTextPanel);
-
-        screenTextArea = new JTextArea("Welcome to Java class with your instructor JAY!! \nEnjoy this fun ride to Amazon OJT!! ");
-        screenTextArea.setBounds(400, 300, 700, 100);
-        screenTextArea.setBackground(Color.blue);
-        screenTextArea.setForeground(Color.BLACK);
-        screenTextArea.setFont(buttonFont);
-        screenTextArea.setLineWrap(true);
-        screenTextPanel.add(screenTextArea);
-
-        choiceButtonPanel = new JPanel();
-        choiceButtonPanel.setBounds(800, 350, 400, 200);
-        choiceButtonPanel.setBackground(green);
-        choiceButtonPanel.setLayout(new GridLayout(4, 1));
-        con.add(choiceButtonPanel);
-
-        choiceButton1 = new JButton("Instructions");
-        choiceButton1.setBackground(Color.gray);
-        choiceButton1.setForeground(Color.red);
-        choiceButton1.setFont(buttonFont);
-        choiceButton1.setFocusPainted(false);
-        choiceButton1.addActionListener(choiceButtonHandler);
-        choiceButton1.setActionCommand("c1");
-        choiceButtonPanel.add(choiceButton1);
-
-        choiceButton2 = new JButton("GameMap");
-        choiceButton2.setBackground(Color.darkGray);
-        choiceButton2.setForeground(Color.red);
-        choiceButton2.setFont(buttonFont);
-        choiceButton2.setFocusPainted(false);
-        choiceButton2.addActionListener(choiceButtonHandler);
-        choiceButton2.setActionCommand("c2");
-        choiceButtonPanel.add(choiceButton2);
-
-        choiceButton3 = new JButton("Play");
-        choiceButton3.setBackground(Color.gray);
-        choiceButton3.setForeground(Color.red);
-        choiceButton3.setFont(buttonFont);
-        choiceButton3.setFocusPainted(false);
-        choiceButton3.addActionListener(choiceButtonHandler);
-        choiceButton3.setActionCommand("c3");
-        choiceButtonPanel.add(choiceButton3);
-
-        choiceButton4 = new JButton("Quit");
-        choiceButton4.setBackground(Color.darkGray);
-        choiceButton4.setForeground(Color.red);
-        choiceButton4.setFont(buttonFont);
-        choiceButton4.setFocusPainted(false);
-        choiceButton4.addActionListener(choiceButtonHandler);
-        choiceButton4.setActionCommand("c4");
-        choiceButtonPanel.add(choiceButton4);
-
-        playerClassPanel = new JPanel();
-        playerClassPanel.setBounds(600, 40, 300, 80);
-        playerClassPanel.setBackground(Color.darkGray);
-        playerClassPanel.setLayout(new GridLayout(1, 3));
-        con.add(playerClassPanel);
-
-        playerScoreLocTimePanel = new JPanel();
-        playerScoreLocTimePanel.setBounds(1000, 40, 300, 80);
-        playerScoreLocTimePanel.setBackground(Color.GRAY);
-        playerScoreLocTimePanel.setLayout(new GridLayout(1, 3));
-        con.add(playerScoreLocTimePanel);
-
-    }
-*/
 
     public void gameInstructions() {
         System.out.println("Instructions:\n" +
@@ -336,28 +284,6 @@ public class Frame {
         System.out.println(content);
     }
 
-
-/*
-   public class TextFieldHandler implements ActionListener {
-
-        String txtField = screen1EnterNameTF.getText();
-
-        @Override
-        public void actionPerformed(ActionEvent event) {
-
-            tfLabel.setVisible(true);
-            tfLabel.setText(screen1EnterNameTF.getText());
-
-        }
-
-*/           /* String s = event.getActionCommand();
-            if (s.equals("submit")) {
-                // set the text of the label to the text of the field
-                tfLabel.setText(screen1EnterNameTF.getText());
-
-                // set the text of field to blank
-                screen1EnterNameTF.setText("  ");
-*/
 
 
     public class MainScreenHandler implements ActionListener {
@@ -398,27 +324,9 @@ public class Frame {
 
         }
 
-      /*  public static JavaButtonHandler implements ActionListener {
 
-
-            @Override
-            public void actionPerformed(ActionEvent event) {
-
-                String javaChoice = event.getActionCommand();
-
-                if (javaChoice.equals("j1")) {
-
-                    System.out.println("You are in Java Class");
-
-
-                }
-
-       */
     }
 
 
 
 }
-
-
-
