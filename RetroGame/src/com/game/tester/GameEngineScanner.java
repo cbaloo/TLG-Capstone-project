@@ -8,7 +8,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Scanner;
 
-import static com.game.MessageArt.*;
+import static com.game.accesory.MessageArt.*;
 
 public class GameEngineScanner {
     private final GameHelperScanner gameHelperScanner = new GameHelperScanner(this);

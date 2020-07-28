@@ -1,4 +1,4 @@
-package com.game.question;
+package com.game.accesory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -26,7 +26,7 @@ public class Quiz {
             put("WHICH COMPANY DEVELOPED JAVASCRIPT, NETGEAR OR NETSCAPE?", "NETSCAPE");
             put("JAVASCRIPT CAN BE USED WITH CSS AND '----' TO CREATE INTERACTIVE WEB PAGES.", "HTML");
             put("JAVASCRIPT WAS FIRST KNOWN AS LIVESCRIPT OR ECMASCRIPT?", "LIVESCRIPT");
-            put("IN JAVASCRIPT, SEMI-COLONS ARE REQUIRED (TRUE/FALSE)", "FALSE");
+//            put("IN JAVASCRIPT, SEMI-COLONS ARE REQUIRED (TRUE/FALSE)", "FALSE");
             put("JSON STANDS FOR JAVASCRIPT OBJECT '--------'", "NOTATION");
 
         }
@@ -55,10 +55,10 @@ public class Quiz {
     };
     private static Map<String, String> quizCapstone = new HashMap<>() {
         {
-            put("HOW MANY PRINCIPLES DOES AGILE HAVE?", "12");
+//            put("HOW MANY PRINCIPLES DOES AGILE HAVE?", "12");
             put("IN AGILE, THE HIGHEST PRIORITY IS TO SATISFY THE '--------'.", "CUSTOMER");
             put("A USER STORY IS A TOOL USED IN '-----' SOFTWARE DEVELOPMENT", "AGILE");
-            put("WHEN USING AGILE, SPRINTS TYPICALLY LAST BETWEEN 1 AND 4 '-----'.", "WEEKS");
+//            put("WHEN USING AGILE, SPRINTS TYPICALLY LAST BETWEEN 1 AND 4 '-----'.", "WEEKS");
             put("WORKING SOFTWARE IS THE PRIMARY MEASURE OF '--------'?", "PROGRESS");
         }
     };

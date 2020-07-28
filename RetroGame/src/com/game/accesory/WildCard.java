@@ -1,4 +1,4 @@
-package com.game.question;
+package com.game.accesory;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +21,7 @@ public class WildCard {
         {
             put("HOW MANY INSTRUCTORS DID WE HAVE FOR OUR JAVASCRIPT COURSE?(1/2)", "2");
             put("WE HAVE SEEN ALMOST ALL THE ROOMS OF THIS CLASSMATES' APARTMENT?", "DAEUN");
+            put("CLASSMATE WHO DOES NOT NEED AN ALARM CLOCK","NEILL");
         }
     };
     private static Map<String, String> wildCardAlgorithm = new HashMap<>() {
@@ -34,18 +35,21 @@ public class WildCard {
         {
             put("WAS PHOTOGRAPHY ONE OF JOHN'S OTHER PASSION?(TRUE/FALSE)", "TRUE");
             put("CLASSMATE WHO LOVES GARDENING AND HAS RECENTLY GOTTEN INTO BIRD WATCHING?", "MICHAEL");
+            put("CLASSMATE WHOSE SUPER POWER IS SLEEPING","CODY");
         }
     };
     private static Map<String, String> wildCardPython = new HashMap<>() {
         {
             put("WE WERE IS SOME KIND OF GANG WHILE WE WERE GOING THROUGH THE PYTHON COURSE?(TRUE/FALSE)", "TRUE");
             put("CLASSMATE WHO LIVES CLOSEST TO MOUNT RAINIER", "BRAD");
+            put("CLASSMATE WHO IS AN EDM GURU","BRANDON");
         }
     };
     private static Map<String, String> wildCardCapstone = new HashMap<>() {
         {
             put("RENNIE MAKES INFRASTRUCTURE AS SERVICE(IAAS) PIZZA EVERY SUNDAY? (TRUE/FALSE)", "FALSE");
-            put("CLASSMATE WHO HAS THE MOST SCREENS", "BRUCE");
+            put("CLASSMATE WHO IS THE ACTUAL BATMAN", "BRUCE");
+            put("CLASSMATE WHO IS PROBABLY CIA","RJ");
 
         }
     };
