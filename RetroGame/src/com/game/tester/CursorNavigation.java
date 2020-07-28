@@ -12,9 +12,14 @@ public class CursorNavigation {
         }
         while (true){
             console.readLine("Question: ");
-            System.out.println();
-            printInPlace("somewhere");
-            gotoxy(2,10);
+//            System.out.println();
+//            printInPlace("somewhere");
+
+            char escCode = 0x1B;
+            int x=6;
+            System.out.println(String.format("%c[%d"+"n",escCode,x));
+            System.out.println(escCode+"[6n");
+            System.out.println("*********");
         }
 
     }
@@ -23,10 +28,7 @@ public class CursorNavigation {
     public static void printInPlace(String string){
         char escCode = 0x1B;
         int row = 25; int column = 100;
-        System.out.print(String.format("%c[%d;%df"+string,escCode,row,column));
+        System.out.println(String.format("%c[%d;%df"+string,escCode,row,column));
     }
-    static void gotoxy(int line /* 1 based */,
-                       int row  /* 1 based */) {
-        System.out.print("\033[" + line + ";" + row + "H");
-    }
+
 }

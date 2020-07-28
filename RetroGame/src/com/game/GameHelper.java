@@ -172,7 +172,7 @@ public class GameHelper {
                 updateScore(player);
             } else {
                 System.out.println("NOPE, ANSWER: "+room.getWildcard().get(question));
-                System.out.println(ANSI_BLUE+player.getStatus().toString()+ANSI_RESET);
+                printAtXY(ANSI_BLUE+player.getStatus().toString()+ANSI_RESET);
             }
         }
     }
@@ -181,7 +181,10 @@ public class GameHelper {
     private void printAtXY(String string){
         char escCode = 0x1B;
         int row = 25; int column = 100;
-        System.out.print(String.format("%c[%d;%df"+string,escCode,row,column));
+        String curXY=String.format("%c[%dn",escCode,6);
+        System.out.println(curXY);
+        System.out.println(String.format("%c[%d;%df"+string,escCode,row,column));
+        System.out.print(String.format("%c[%d;%df",escCode,50,1));
     }
     //Goes through asking quiz questions
     private void giveQuiz(Room room, Player player) {
