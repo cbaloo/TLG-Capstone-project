@@ -3,6 +3,7 @@ package com.game;
 import com.game.person.Player;
 import com.game.accesory.IceBreaker;
 import com.game.room.Room;
+import org.w3c.dom.ls.LSOutput;
 
 import java.io.Console;
 import java.security.KeyStore;
@@ -14,6 +15,15 @@ import static com.game.accesory.MessageArt.duckMessage;
 import static com.game.accesory.MessageArt.duckMessageTwo;
 
 public class GameHelper {
+    public static final String ANSI_RESET = "\u001B[0m";
+    public static final String ANSI_BLACK = "\u001B[30m";
+    public static final String ANSI_RED = "\u001B[31m";
+    public static final String ANSI_GREEN = "\u001B[32m";
+    public static final String ANSI_YELLOW = "\u001B[33m";
+    public static final String ANSI_BLUE = "\u001B[34m";
+    public static final String ANSI_PURPLE = "\u001B[35m";
+    public static final String ANSI_CYAN = "\u001B[36m";
+    public static final String ANSI_WHITE = "\u001B[37m";
     //INSTANCE VARIABLE
     private final GameEngine gameEngine;
     private Console console=System.console();
@@ -37,9 +47,9 @@ public class GameHelper {
     //Specific Lobby action cascade
     void lobbyAction(Room room, Player player) {
         room.printMap();
-        System.out.println("\nSTATUS: " + player.getStatus());
+//        System.out.println("\nSTATUS: " + player.getStatus());
         //Display action options available to the player
-        System.out.println("ACTIONS: " + room.getActions());
+        System.out.println("\nACTIONS: " + room.getActions());
         while (true) {
             //Player response after reading the status and action options
             String action = console.readLine("\nTYPE ACTION:");
@@ -60,9 +70,9 @@ public class GameHelper {
         room.printMap();
         System.out.println("\nFIRST, LETS DO AN ICEBREAKER!!\n");
         giveIceBreaker(room);
-        System.out.println("\nSTATUS: " + player.getStatus());
+//        System.out.println("\nSTATUS: " + player.getStatus());
         //Display action options available to the player
-        System.out.println("ACTIONS: " + room.getActions());
+        System.out.println("\nACTIONS: " + room.getActions());
         //Flag to ensure one entry to quiz and wildcard options
         Map<String,Boolean> quizFlag=new HashMap<>(){
             {
@@ -106,6 +116,8 @@ public class GameHelper {
                 checkEmptyAction(room, nextClass, player);
             } else if (action.toUpperCase().equals("RE")) {
                 player.getStatus().put("SCORE", "0");
+                quizFlag.put("Q",Boolean.TRUE);
+                quizFlag.put("W",Boolean.TRUE);
                 clearScreen();
                 System.out.println("--------------------------------------------");
                 room.getActions().clear();
@@ -137,57 +149,6 @@ public class GameHelper {
         TimeUnit.SECONDS.sleep(3);
     }
 
-
-    //Goes through asking the wildcard questions
-    private void giveWildcardQuiz(Room room, Player player) {
-        for (String question : room.getWildcard().keySet()) {
-            String answer = console.readLine(question + ": ");
-            if (answer.toUpperCase().equals(room.getWildcard().get(question))) {
-                System.out.println("CORRECT!!!");
-                //Player score needs to be updated +1 in this case
-                updateScore(player);
-            } else {
-                System.out.println("NOPE, ANSWER: "+room.getWildcard().get(question));
-                System.out.println(player.getStatus()+"\n");
-            }
-        }
-    }
-    //Goes through asking quiz questions
-    private void giveQuiz(Room room, Player player) {
-        for (String question : room.getQuiz().keySet()) {
-            String answer = console.readLine(question + ": ");
-            if (answer.toUpperCase().equals(room.getQuiz().get(question))) {
-                System.out.println("CORRECT!!!");
-                //Player score needs to be updated +1 in this case
-                updateScore(player);
-            } else {
-                System.out.println("NOPE, ANSWER: " + room.getQuiz().get(question));
-                System.out.println(player.getStatus() + "\n");
-            }
-        }
-    }
-
-    private void giveIceBreaker(Room room) {
-        String answer = console.readLine(room.getInstructor().getName() + ": " + IceBreaker.getIceBreaker() + ":");
-    }
-
-    //Checks if the room action list is empty, if true the next class entry option is added to the action list
-    //TODO revert the method to private after test
-    private void checkEmptyAction(Room room, String nextClass, Player player) {
-        double score = Double.parseDouble(player.getStatus().get("SCORE"));
-        double scorePercentage = (score / (room.getQuiz().size() + room.getWildcard().size())) * 100.0;
-        double roundedPercentage = Math.round(scorePercentage * 100.0) / 100.0;
-        if (room.getActions().size() == 0 && scorePercentage > 60.0) {
-            System.out.println("NICELY DONE, YOU PASSED WITH " + roundedPercentage + "%");
-            room.getActions().add(nextClass);
-        } else if (room.getActions().size() == 0 && scorePercentage <= 60.00) {
-            System.out.println("YOU FAILED WITH " + roundedPercentage + "%");
-            room.getActions().add("RETAKE CLASS(RE)");
-            room.getActions().add(nextClass);
-        }
-        System.out.println("\nACTIONS: " + room.getActions());
-    }
-
     //Updates score of the student
     //TODO revert the method to private after test
     private void updateScore(Player player){
@@ -197,8 +158,68 @@ public class GameHelper {
         Integer updatedScore=Integer.parseInt(curScore)+1;
         String newScore=String.valueOf(updatedScore);
         player.getStatus().put("SCORE",newScore);
-        System.out.println(player.getStatus()+"\n");
+        System.out.println(ANSI_BLUE+player.getStatus().toString()+"\n"+ANSI_RESET);
     }
+
+    //Goes through asking the wildcard questions
+    private void giveWildcardQuiz(Room room, Player player) {
+        for (String question : room.getWildcard().keySet()) {
+            System.out.println();
+            String answer = console.readLine(question + ": ");
+            if (answer.toUpperCase().equals(room.getWildcard().get(question))) {
+                System.out.println("CORRECT!!!");
+                //Player score needs to be updated +1 in this case
+                updateScore(player);
+            } else {
+                System.out.println("NOPE, ANSWER: "+room.getWildcard().get(question));
+                System.out.println(ANSI_BLUE+player.getStatus().toString()+ANSI_RESET);
+            }
+        }
+    }
+
+    //print in place
+    private void printAtXY(String string){
+        char escCode = 0x1B;
+        int row = 25; int column = 100;
+        System.out.print(String.format("%c[%d;%df"+string,escCode,row,column));
+    }
+    //Goes through asking quiz questions
+    private void giveQuiz(Room room, Player player) {
+        for (String question : room.getQuiz().keySet()) {
+            System.out.println();
+            String answer = console.readLine(question + ": ");
+            if (answer.toUpperCase().equals(room.getQuiz().get(question))) {
+                System.out.println("CORRECT!!!");
+                //Player score needs to be updated +1 in this case
+                updateScore(player);
+            } else {
+                System.out.println("NOPE, ANSWER: " + room.getQuiz().get(question));
+                System.out.println(ANSI_BLUE+player.getStatus().toString()+"\n"+ANSI_RESET);
+            }
+        }
+    }
+
+    private void giveIceBreaker(Room room) {
+        console.readLine(room.getInstructor().getName() + ": " + IceBreaker.getIceBreaker() + ":");
+    }
+
+    //Checks if the room action list is empty, if true the next class entry option is added to the action list
+    //TODO revert the method to private after test
+    private void checkEmptyAction(Room room, String nextClass, Player player) {
+        double score = Double.parseDouble(player.getStatus().get("SCORE"));
+        double scorePercentage = (score / (room.getQuiz().size() + room.getWildcard().size())) * 100.0;
+        double roundedPercentage = Math.round(scorePercentage * 100.0) / 100.0;
+        if (room.getActions().size() == 0 && scorePercentage > 60.0) {
+            System.out.println(ANSI_GREEN+"NICELY DONE, YOU PASSED WITH " + roundedPercentage + "%"+ANSI_RESET);
+            room.getActions().add(nextClass);
+        } else if (room.getActions().size() == 0 && scorePercentage <= 60.00) {
+            System.out.println(ANSI_RED+"YOU FAILED WITH " + roundedPercentage + "%"+ANSI_RESET);
+            room.getActions().add("RETAKE CLASS(RE)");
+            room.getActions().add(nextClass);
+        }
+        System.out.println("\nACTIONS: " + room.getActions());
+    }
+
     //Get the substring between () of actions
     private String getActionLetters(String action){
         return action.substring(action.indexOf("(")+1,action.indexOf(")"));
