@@ -51,8 +51,9 @@ import java.util.Date;
             catch (Exception e) { }
         }
 
-        public void printTime(){
+        public DigitalWatch printTime(){
             b.setText(timeString);
+            return null;
         }
 
     /*    public static void main(String[] args) {

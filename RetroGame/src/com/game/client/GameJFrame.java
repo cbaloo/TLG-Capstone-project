@@ -1,6 +1,7 @@
 package com.game.client;
 
 import com.game.person.Player;
+import com.game.question.Quiz;
 import com.game.room.*;
 
 import javax.swing.*;
@@ -12,11 +13,10 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.util.*;
 import java.util.List;
-import java.util.Scanner;
 
+import static com.game.question.Quiz.getQuizJava;
 import static java.awt.Color.*;
 
 
@@ -35,8 +35,13 @@ public class GameJFrame {
     JTextField screen1EnterNameTF;
 
     int currentScore; //
-    String currentLocation;
-    String name;
+    String name, currentLocation, position, option;
+    // String name;
+
+    //quiz
+    String q1 = "WHAT DOES JVM STAND FOR?\n" + "(a)Java Virtual Machine\n(b)Java Virtual Motion\n(c)Java Virtual Monkey\n";
+    String q2 = "JAVA USES THE 'PUBLIC', 'PROTECTED,' AND '-------' ACCESS KEYWORDS.\n" + "(a)Parent\n(b)Penalty\n(c)Private\n";
+    Question[] questions = {new Question(q1, "a"), new Question(q2, "b")};
     Player player;
     private List<Room> roomList = new ArrayList(Arrays.asList(
             new Lobby(),
@@ -99,7 +104,7 @@ public class GameJFrame {
         screen1ENamePanel.setLayout(new GridLayout(1, 1));
         con.add(screen1ENamePanel);
 
-        screen1EnterNameTF = new JTextField("Jack",26);
+        screen1EnterNameTF = new JTextField("Enter Name", 26);
         screen1EnterNameTF.setBounds(600, 300, 300, 50);
         screen1EnterNameTF.setEditable(true);
         screen1EnterNameTF.setEnabled(true);
@@ -108,12 +113,11 @@ public class GameJFrame {
 
     }
 
-    public void enterNameOnScreen1(){
-        name=screen1EnterNameTF.getText();
-        try{
-            player=new Player(name);//TODO: Validation required
-        }
-        catch(IllegalArgumentException e){
+    public void enterNameOnScreen1() {
+        name = screen1EnterNameTF.getText();
+        try {
+            player = new Player(name);//TODO: Validation required
+        } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
     }
@@ -130,7 +134,7 @@ public class GameJFrame {
         screenTextPanel.setBackground(Color.blue);
         con.add(screenTextPanel);
 
-        screenTextArea = new JTextArea("Hey "+name+". Welcome aboard with our amazing team at TLG!! \nEnjoy this fun ride to Amazon OJT!! \n\n Fasten Your Seatbelt!!!");
+        screenTextArea = new JTextArea("Hey " + name + ". Welcome aboard! You are in LOBBY with our amazing team at TLG. \n\nTo begin this game you need to enter Java Class!\n\nEnjoy the fun ride!\n\n Fasten your SEATBELT!!!!");
         screenTextArea.setBounds(400, 300, 700, 100);
         screenTextArea.setBackground(Color.blue);
         screenTextArea.setForeground(Color.BLACK);
@@ -144,7 +148,7 @@ public class GameJFrame {
         javaButtonPanel.setLayout(new GridLayout(1, 1));
         con.add(javaButtonPanel);
 
-        javaButton = new JButton("Enter Java");
+        javaButton = new JButton("Quit");
 
         javaButton.setBackground(Color.red);
         javaButton.setForeground(green);
@@ -187,7 +191,7 @@ public class GameJFrame {
         choiceButton3.setActionCommand("c3");
         choiceButtonPanel.add(choiceButton3);
 
-        choiceButton4 = new JButton("Quit");
+        choiceButton4 = new JButton("Stop");
         choiceButton4.setBackground(Color.darkGray);
         choiceButton4.setForeground(Color.red);
         choiceButton4.setFont(buttonFont);
@@ -264,10 +268,58 @@ public class GameJFrame {
 
     public void currentScoreLocation() {
         currentScore = Integer.parseInt(player.getStatus().get("SCORE"));
-        currentLocation =player.getStatus().get("LOCATION");
+        currentLocation = player.getStatus().get("LOCATION");
         scoreValueLabel.setText("" + currentScore);
         locationValueLabel.setText(currentLocation);
 
+        lobby();
+
+    }
+
+    public void lobby() {
+        position = "LOBBY";
+
+        //  screenTextArea.setText("You are in Lobby. \n You need to enter Java class to begin.");
+        choiceButton4.setText("Enter Java Class");
+
+
+    }
+
+    public void javaClass() {
+
+        position = "JAVA";
+        screenTextArea.setText("You are in Java class with your instructor Jay. To move to next class you need to pass java class. \n\n What do you want to choose?");
+        choiceButton1.setText("Quiz");
+        choiceButton2.setText("WildCard");
+        choiceButton3.setText("Timer");
+        choiceButton4.setText("Result");
+
+
+    }
+
+   public void quiz() {
+
+           position = "QUIZ";
+           screenTextArea.setText("You need to pass the quiz to move to JavaScript class");
+           choiceButton1.setText("Break Room");
+           choiceButton2.setText("Enter JavaScript Class");
+
+    }
+
+    public static void takeQuiz(Question[] questions) {
+
+        int score = 0;
+        Scanner playerInput = new Scanner(System.in);
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println(questions[i].prompt);
+            String answer = playerInput.nextLine();
+            if (answer.equals(questions[i].answer)) {
+                score++;
+            }
+
+        }
+
+        System.out.println("You scored " + "/" + questions.length);
     }
 
 
@@ -301,7 +353,6 @@ public class GameJFrame {
     }
 
 
-
     public class MainScreenHandler implements ActionListener {
 
 
@@ -323,28 +374,41 @@ public class GameJFrame {
 
             String typeChoice = event.getActionCommand();
 
-            if (typeChoice.equals("c1")) {
 
-                gameInstructions();
+            switch (position) {
 
+                case "LOBBY":
+                    switch (typeChoice) {
+                        case "c4":
+                            javaClass();
+                            break;
+                        case "c1":
+                            break;
+                        //gameInstructions();
+                        case "c2":
+                            break;
+                        case "c3":
+                            break;
+                    }
+                    break;
 
-            } else if (typeChoice.equals("c2")) {
-
-                try {
-                    displayMap();
-                } catch (FileNotFoundException e) {
-                    e.printStackTrace();
-                }
-
-            } else if (typeChoice.equals("c3"))
-                new DigitalWatch();
-
-
+                case "JAVA":
+                    switch (typeChoice) {
+                        case "c1" : quiz();
+                             break;
+                        case "c2":
+                            break;
+                    }
+            }
         }
-
-
     }
-
-
-
 }
+
+
+
+
+
+
+
+
+
