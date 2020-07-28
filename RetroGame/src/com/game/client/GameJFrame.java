@@ -36,6 +36,7 @@ public class GameJFrame {
 
     int currentScore; //
     String name, currentLocation, position, option;
+
     // String name;
 
     //quiz
@@ -299,12 +300,18 @@ public class GameJFrame {
 
    public void quiz() {
 
-           position = "QUIZ";
-           screenTextArea.setText("You need to pass the quiz to move to JavaScript class");
+                  position = "QUIZ";
+
+           //screenTextArea.setText(java.getQuiz().get(0));
            choiceButton1.setText("Break Room");
            choiceButton2.setText("Enter JavaScript Class");
 
-    }
+
+       }
+
+
+
+
 
     public static void takeQuiz(Question[] questions) {
 

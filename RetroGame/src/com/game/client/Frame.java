@@ -1,6 +1,8 @@
 package com.game.client;
 
+//import com.game.accesory.Quiz;
 import com.game.person.Player;
+//import com.game.question.Quiz;
 import com.game.question.Quiz;
 import com.game.room.*;
 import org.w3c.dom.ls.LSOutput;
@@ -20,7 +22,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.List;
 
-import static com.game.question.Quiz.getQuizJava;
+//import static com.game.question.Quiz.getQuizJava;
 import static java.awt.Color.*;
 
 
@@ -45,6 +47,8 @@ public class Frame {
     Quiz quiz; //connecting
     int currentScore; //
     String currentLocation, position;
+    Room java = new RoomJava();
+
 
     //quiz
     String q1 = "WHAT DOES JVM STAND FOR?\n" + "(a)Java Virtual Machine\n(b)Java Virtual Motion\n(c)Java Virtual Monkey\n";
@@ -344,12 +348,17 @@ public class Frame {
 
         public void quiz() {
             position = "QUIZ";
-            screenTextArea.setText("You need to pass the quiz to move to JavaScript class");
+            for (String question: java.getQuiz().keySet()){
+              //  System.out.println(question);
+                screenTextArea.setText(question);
+            }
+           // screenTextArea.setText(java.getQuiz().get(0));
         choiceButton1.setText("Break Room");
         choiceButton2.setText("Enter JavaScript Class");
 
 
         }
+
 
 
     public void gameInstructions() {
@@ -455,7 +464,7 @@ public class Frame {
                     break;
                 case "JAVA":
                     switch (typeChoice) {
-                        case "c1": getQuizJava();
+                        case "c1": quiz();
                              break;
                         case "c2":
                             break;
