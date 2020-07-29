@@ -1,7 +1,5 @@
 package com.game.client;
 
-import com.game.question.Quiz;
-
 public class Question {
 
     String prompt;

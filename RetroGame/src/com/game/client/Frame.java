@@ -3,7 +3,7 @@ package com.game.client;
 //import com.game.accesory.Quiz;
 import com.game.person.Player;
 //import com.game.question.Quiz;
-import com.game.question.Quiz;
+//import com.game.question.Quiz;
 import com.game.room.*;
 import org.w3c.dom.ls.LSOutput;
 
@@ -30,24 +30,26 @@ public class Frame {
 
     JFrame window; //new
     Container con;//new
-    JPanel titleNameOnPanel, startButtonPanel, screenTextPanel, choiceButtonPanel, screen1ENamePanel, playerClassPanel, playerScoreLocTimePanel, javaScreen3Panel, javaButtonPanel, javaScreen3ButtonPanel, javaScree3TextPanel;
+    JPanel titleNameOnPanel, startButtonPanel, screenTextPanel, choiceButtonPanel, screen1ENamePanel, playerClassPanel, playerScoreLocTimePanel, javaScreen3Panel, javaButtonPanel, javaScreen3ButtonPanel, javaScree3TextPanel, quizTextFieldPanel, quizAnswerSubmitButtonPanel;
     JLabel titleNameOnLabel, screen1ENameLabel, javaClassLabel, jsClassLabel, dsClassLabel, liClassLabel, pyClassLabel, capClassLabel, scoreLabel, locationLabel, timeLabel, scoreValueLabel, locationValueLabel, currentTimeLabel, currentTimeValueLabel, javaScreen3Label;
 
 
     Font titleFont = new Font("Algerian", Font.BOLD, 60);
     Font buttonFont = new Font("Abadi", Font.BOLD, 25);
-    JButton startButton, choiceButton1, choiceButton2, choiceButton3, choiceButton4, javaButton, javaSc3QuizButton, javaSc3WCButton;
+    JButton startButton, choiceButton1, choiceButton2, choiceButton3, choiceButton4, javaButton, javaSc3QuizButton, javaSc3WCButton, quizAnswerSubmitButton;
+
     JTextArea screenTextArea, javaScreen3TextArea;
 
-    JTextField screen1EnterNameTF;
+    JTextField screen1EnterNameTF, quizAnswerTextField;
   //  JTextArea[] arrayArea = new JTextArea[];
 
-    String name, option; // connecting to
+    String name, option, answer; // connecting to
     Player player; //connecting
-    Quiz quiz; //connecting
+   // Quiz quiz; //connecting
     int currentScore; //
     String currentLocation, position;
     Room java = new RoomJava();
+    DigitalWatch timer = new DigitalWatch();//ccc29
 
 
     //quiz
@@ -78,8 +80,8 @@ public class Frame {
 
     public static void main(String[] args) {
         new Frame();
-        new GameJFrame();
-        new Quiz();
+      //  new GameJFrame();
+     //   new Quiz();
         // new DigitalWatch();
     }
 
@@ -126,13 +128,14 @@ public class Frame {
 
         screen1EnterNameTF = new JTextField("Enter Name", 26);
         screen1EnterNameTF.setBounds(600, 300, 300, 50);
-        screen1EnterNameTF.setEditable(false);
+        screen1EnterNameTF.setEditable(true);//ooo
         screen1EnterNameTF.setEnabled(true);
         screen1EnterNameTF.requestFocusInWindow();
         screen1ENamePanel.add(screen1EnterNameTF);
 
 
         enterNameOnScreen1();
+        //lobby();
     }
 
     public void enterNameOnScreen1() {
@@ -143,6 +146,7 @@ public class Frame {
         } catch (IllegalArgumentException e) {
             System.out.println(e.getMessage());
         }
+      //  lobby();//yyy
     }
 
 
@@ -154,19 +158,51 @@ public class Frame {
 
 
         screenTextPanel = new JPanel();
-        screenTextPanel.setBounds(450, 150, 700, 200);
+        screenTextPanel.setBounds(200, 150, 800, 200);
         screenTextPanel.setBackground(Color.blue);
         con.add(screenTextPanel);
 
-        screenTextArea = new JTextArea("Welcome aboard!\nYou are in LOBBY with our amazing team at TLG. \nTo begin this game you need to enter Java Class!\n\nEnjoy this fun ride to Amazon OJT!! \n\n Fasten Your Seatbelt!!!");
-        screenTextArea.setBounds(400, 300, 700, 100);
+        screenTextArea = new JTextArea("Welcome aboard "+name+"!\nYou are in LOBBY with our amazing team at TLG. \nTo begin this game you need to enter Java Class!\n\nEnjoy this fun ride to Amazon OJT!! \n\n Fasten Your Seatbelt!!!");
+        screenTextArea.setBounds(200, 150, 800, 200);//ccc29
         screenTextArea.setBackground(Color.blue);
         screenTextArea.setForeground(Color.BLACK);
         screenTextArea.setFont(buttonFont);
         screenTextArea.setLineWrap(true);
         screenTextPanel.add(screenTextArea);
        // screenTextPanel.add(arrayArea[2]);
+///0729
 
+     /*  quizAnswerSubmitButtonPanel = new JPanel();
+        quizAnswerSubmitButtonPanel.setBounds(350, 700, 200, 330);
+        quizAnswerSubmitButtonPanel.setBackground(Color.blue);
+
+        quizAnswerSubmitButton = new JButton("Answer");
+        quizAnswerSubmitButton.setBackground(Color.GREEN);
+        quizAnswerSubmitButton.setForeground(Color.BLACK);
+        quizAnswerSubmitButton.setFont(buttonFont);
+        quizAnswerSubmitButton.addActionListener(mHandler);
+        quizAnswerSubmitButton.setFocusPainted(false);
+
+       // titleNameOnPanel.add(titleNameOnLabel);
+        quizAnswerSubmitButtonPanel.add(quizAnswerSubmitButton);
+       // con.add(titleNameOnPanel);
+        con.add(quizAnswerSubmitButtonPanel);
+
+        quizTextFieldPanel = new JPanel();
+        quizTextFieldPanel.setBounds(700, 300, 300, 50);
+        quizTextFieldPanel.setBackground(Color.gray);
+        quizTextFieldPanel.setLayout(new GridLayout(1, 1));
+        con.add(quizTextFieldPanel);
+
+        quizAnswerTextField = new JTextField("Enter Answer", 26);
+        quizAnswerTextField.setBounds(600, 300, 300, 50);
+        quizAnswerTextField.setEditable(true);//ooo
+        quizAnswerTextField.setEnabled(true);
+        quizAnswerTextField.requestFocusInWindow();
+        quizTextFieldPanel.add(quizAnswerTextField);
+
+*/
+///0729
         javaButtonPanel = new JPanel();
         javaButtonPanel.setBounds(950, 600, 200, 50);
         javaButtonPanel.setBackground(yellow);
@@ -174,7 +210,7 @@ public class Frame {
         con.add(javaButtonPanel);
 
         javaButton = new JButton("Quit");
-        javaButton.setBackground(Color.red);
+        javaButton.setBackground(darkGray);
         javaButton.setForeground(green);
         javaButton.setFont(buttonFont);
         // javaButton.addActionListener(javaSc3Handler);
@@ -289,6 +325,7 @@ public class Frame {
 
 
         currentScoreLocation();
+        lobby();//ppp////2nd screen
         //  currentTime();
 
     }
@@ -299,7 +336,7 @@ public class Frame {
         currentLocation = player.getStatus().get("LOCATION");
         scoreValueLabel.setText("" + currentScore);
         locationValueLabel.setText(currentLocation);
-        lobby();
+      // lobby(); //ppp
 
         // currentTimeValueLabel.set();
 
@@ -311,21 +348,27 @@ public class Frame {
         position = "LOBBY";
 
         // screenTextArea.setText("You are in Lobby. \n You need to enter Java class to begin.");
+       // player.getStatus().put("LOCATION", "JAVA");
+
         choiceButton4.setText("Enter Java Class");
 
 
     }
 
     public void javaClass() {
-
+        player.getStatus().put("LOCATION", "JAVA");
         position = "JAVA";
-        screenTextArea.setText("You are in Java class with your instructor Jay. To move to next class you need to pass java class. \n\n What do you want to choose?");
+        screenTextArea.setText("You are in Java class with your instructor Jay.\n To move to next class you need to pass java class. \n\n What do you want to choose?");
         choiceButton1.setText("Quiz");
         choiceButton2.setText("WildCard");
         choiceButton3.setText("Timer");
         choiceButton4.setText("Result");
 
+        ////29
+       ///29
 
+        player.getStatus().put("LOCATION", "JAVA"); //OOOO
+       currentScoreLocation(); ///ooo
     }
 
   /*  public static void takeQuiz(Question [] questions) {
@@ -348,28 +391,57 @@ public class Frame {
 
         public void quiz() {
             position = "QUIZ";
-            for (String question: java.getQuiz().keySet()){
+        // for (String question: java.getQuiz().keySet()){
               //  System.out.println(question);
-                screenTextArea.setText(question);
-            }
-           // screenTextArea.setText(java.getQuiz().get(0));
-        choiceButton1.setText("Break Room");
-        choiceButton2.setText("Enter JavaScript Class");
+            // screenTextArea.setText(ion); }
 
+           // screenTextArea.setText(java.getQuiz().get(0));
+        /*  screenTextArea.setText("Quiz : WHAT DOES JVM STAND FOR?"); // 00
+          if (answer.toUpperCase().equals("JAVA VIRTUAL MACHINE")) {
+
+              player.getStatus().put("SCORE", "1");
+              currentScoreLocation();
+              screenTextArea.setText("CORRECT");
+          } */
+
+            screenTextArea.setText("Question: WHAT DOES JVM STAND FOR?");
+              choiceButton1.setText("Break Room");
+
+        choiceButton2.setText("Enter JavaScript Class");
+        choiceButton4.setText("Answer");
 
         }
+        public void answerA(){
 
+            position = "ANSWERA";
+            screenTextArea.setText("Choose your answer from the first three options!");
+            choiceButton1.setText("Java Virtual Machine");
+            choiceButton2.setText("Java Virtual Movie");
+            choiceButton3.setText("Java Virtual Move");
+            choiceButton4.setText("Enter JavaScript class");
+        }
+       public void answer1(){
+
+           position = "ANSWER1";
+           player.getStatus().put("SCORE", "1");
+           currentScoreLocation();
+           screenTextArea.setText("CORRECT!!\nCongratulations!! You advance to next class\n\nEnter JavaScript class to continue.");
+
+       }
+       public void wrongAnswer(){
+            position = "WRONGANSWER";
+           screenTextArea.setText("INCORRECT!!\n\nTRY AGAIN!!");
+       }
 
 
     public void gameInstructions() {
-        System.out.println("Instructions:\n" +
-                "Once you are in the game you can't move backwards.\n" +
+          //  position = "GAMEINSTRUCTIONS";
+       // System.out.println
+
+         screenTextArea.setText("Instructions: Once you are in the game you can't move backwards.\n" +
                 "You need to pass each class to reach to your final destination!!\n" +
                 "Be ready for some guitar lessons from Jay!!\n" +
-                "Have a laugh with Nelly!!\n" +
                 "Get ready for fun with Tom and his hijack stories!!\n" +
-                "Explore Linux/ AWS with JOHN!!\n" +
-                "Be a part of 'Python Gang' with Zack...I mean Zach!!\n" +
                 "Be agile with Rennie!! Mind you he is the product owner!!\n" +
                 "Last but not the least: \"BE YOURSELF!!!\"\n");
     }
@@ -388,7 +460,8 @@ public class Frame {
             //       e.printStackTrace();
         }
         // System.out.println(content);
-        System.out.println(content);
+         System.out.println(content);
+        //screenTextArea.setText("" + content);
     }
 
 
@@ -450,13 +523,18 @@ public class Frame {
                         case "c4":
                             javaClass();
                             break;
-                        case "c1":
+                        case "c1": gameInstructions();
                             break;
 
                         //gameInstructions();
                         case "c2":
+                          //  try {
+                             //   displayMap();
+                          //  } catch (FileNotFoundException e) {
+                          //      e.printStackTrace();
+                        //    }
                             break;
-                        case "c3":
+                        case "c3": new DigitalWatch();//ccc29
                             break;
                         //  default:
                         //   throw new IllegalStateException("Unexpected value: " + typeChoice);
@@ -468,8 +546,21 @@ public class Frame {
                              break;
                         case "c2":
                             break;
+                       // case "c3":
 
                     }
+                    break;//current from here
+                case "QUIZ":
+                    switch (typeChoice){
+                        case "c4": answerA(); break;
+                        case "c1":  break;
+                    }
+                    break;
+                case "ANSWERA":
+                case "c1": answer1(); break;
+              //  case  "c2":  break;
+           //     case  "c3" : break;
+                 //current till here
             }
 
 

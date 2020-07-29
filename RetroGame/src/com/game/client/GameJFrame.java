@@ -35,7 +35,7 @@ public class GameJFrame {
     JTextField screen1EnterNameTF;
 
     int currentScore; //
-    String currentLocation;
+    String currentLocation, position;
     String name;
     Player player;
     private List<Room> roomList = new ArrayList(Arrays.asList(
@@ -272,6 +272,36 @@ public class GameJFrame {
 
 
 
+    public void lobby() {
+        position = "LOBBY";
+
+        // screenTextArea.setText("You are in Lobby. \n You need to enter Java class to begin.");
+        choiceButton4.setText("Enter Java Class");
+
+
+    }
+
+    public void javaClass() {
+
+        position = "JAVA";
+        screenTextArea.setText("You are in Java class with your instructor Jay. To move to next class you need to pass java class. \n\n What do you want to choose?");
+        choiceButton1.setText("Quiz");
+        choiceButton2.setText("WildCard");
+        choiceButton3.setText("Timer");
+        choiceButton4.setText("Result");
+
+
+    }
+    public void quiz() {
+        position = "QUIZ";
+        screenTextArea.setText("You need to pass the quiz to move to JavaScript class");
+        choiceButton1.setText("Break Room");
+        choiceButton2.setText("Enter JavaScript Class");
+
+
+    }
+
+
     public void gameInstructions() {
         System.out.println("Instructions:\n" +
                 "Once you are in the game you can't move backwards.\n" +
@@ -323,7 +353,7 @@ public class GameJFrame {
 
             String typeChoice = event.getActionCommand();
 
-            if (typeChoice.equals("c1")) {
+        /*    if (typeChoice.equals("c1")) {
 
                 gameInstructions();
 
@@ -340,8 +370,38 @@ public class GameJFrame {
                 new DigitalWatch();
 
 
-        }
+        } */
+               switch (position) {
 
+                case "LOBBY":
+                    switch (typeChoice) {
+                        case "c4":
+                            javaClass();
+                            break;
+                        case "c1":
+                            break;
+
+                        //gameInstructions();
+                        case "c2":
+                            break;
+                        case "c3":
+                            break;
+                        //  default:
+                        //   throw new IllegalStateException("Unexpected value: " + typeChoice);
+                    }
+                    break;
+                case "JAVA":
+                    switch (typeChoice) {
+                        case "c1": quiz();
+                             break;
+                        case "c2":
+                            break;
+
+                    }
+            }
+
+
+        }
 
     }
 
