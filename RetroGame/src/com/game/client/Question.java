@@ -2,7 +2,6 @@
 
 package com.game.client;
 
-
 public class Question {
 
     String prompt;
