@@ -1,32 +1,25 @@
+
 package com.game;
 
 import com.game.person.Player;
 import com.game.accesory.IceBreaker;
 import com.game.room.Room;
-import org.w3c.dom.ls.LSOutput;
+//import com.game.tester.ConsoleAlt;
 
 import java.io.Console;
-import java.security.KeyStore;
+
 import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import static com.game.GameEngine.clearScreen;
-import static com.game.accesory.MessageArt.duckMessage;
-import static com.game.accesory.MessageArt.duckMessageTwo;
+import static com.game.accesory.MessageArt.*;
 
 public class GameHelper {
-    public static final String ANSI_RESET = "\u001B[0m";
-    public static final String ANSI_BLACK = "\u001B[30m";
-    public static final String ANSI_RED = "\u001B[31m";
-    public static final String ANSI_GREEN = "\u001B[32m";
-    public static final String ANSI_YELLOW = "\u001B[33m";
-    public static final String ANSI_BLUE = "\u001B[34m";
-    public static final String ANSI_PURPLE = "\u001B[35m";
-    public static final String ANSI_CYAN = "\u001B[36m";
-    public static final String ANSI_WHITE = "\u001B[37m";
+
     //INSTANCE VARIABLE
     private final GameEngine gameEngine;
     private Console console=System.console();
+    //    private ConsoleAlt c= new ConsoleAlt();
     private Map<String,String> roomSequence=new HashMap<>() {
         {
             put("LOBBY","ENTER JAVA(J)");
@@ -39,6 +32,8 @@ public class GameHelper {
         }
     };
 
+    ///////////////////////////////sadsadsafasfdsfsas
+
     //CONSTRUCTOR
     public GameHelper(GameEngine gameEngine) {
         this.gameEngine = gameEngine;
@@ -47,11 +42,12 @@ public class GameHelper {
     //Specific Lobby action cascade
     void lobbyAction(Room room, Player player) {
         room.printMap();
-//        System.out.println("\nSTATUS: " + player.getStatus());
+        System.out.println("\nSTATUS: " + ANSI_BLUE+player.getStatus().toString()+ANSI_RESET);
         //Display action options available to the player
-        System.out.println("\nACTIONS: " + room.getActions());
+        printAtXY(ANSI_PURPLE+"\nACTIONS: " + room.getActions()+ANSI_RESET,24,0);
         while (true) {
             //Player response after reading the status and action options
+            printAtXY("",26,0);
             String action = console.readLine("\nTYPE ACTION:");
             //Only entrance to RoomJava is allowed at this point, all the other rooms are closed
             if (action.toUpperCase().equals("J")) {
@@ -70,9 +66,10 @@ public class GameHelper {
         room.printMap();
         System.out.println("\nFIRST, LETS DO AN ICEBREAKER!!\n");
         giveIceBreaker(room);
-//        System.out.println("\nSTATUS: " + player.getStatus());
+        System.out.println("\nSTATUS: " +  ANSI_BLUE+player.getStatus().toString()+ANSI_RESET);
         //Display action options available to the player
-        System.out.println("\nACTIONS: " + room.getActions());
+//        System.out.println();
+        printAtXY(ANSI_PURPLE+"\nACTIONS: " + room.getActions()+ANSI_RESET,24,0);
         //Flag to ensure one entry to quiz and wildcard options
         Map<String,Boolean> quizFlag=new HashMap<>(){
             {
@@ -81,6 +78,7 @@ public class GameHelper {
         };
         while (true) {
             //Player response after reading the status and action options
+            printAtXY("",26,0);
             String action = console.readLine("\nTYPE ACTION:");
             //Get the next classroom name
             String nextClass = getRoomSequence().get(room.getClassName().value());
@@ -91,18 +89,7 @@ public class GameHelper {
                 //Once the quiz is done, remove the quiz from the actions list
                 room.getActions().remove("TAKE QUIZ(Q)");
                 quizFlag.put("Q", Boolean.FALSE);
-                if (room.getClassName().value().equals("JAVA")) {
-                    try{
-                        giveDuckRace();
-                    }
-                    catch(InterruptedException e){
-                        System.out.println(e.getMessage());
-                    }
-                }
-                else if(room.getClassName().value().equals("JAVASCRIPT")){
-                    room.getInstructor().setName("NELLY");
-                    System.out.println("\nYOUR INSTRUCTOR IS "+ room.getInstructor().getName()+" NOW.");
-                }
+                roomSpecifics(room, player);
                 //Once the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
                 checkEmptyAction(room, nextClass, player);
             }
@@ -119,12 +106,13 @@ public class GameHelper {
                 quizFlag.put("Q",Boolean.TRUE);
                 quizFlag.put("W",Boolean.TRUE);
                 clearScreen();
-                System.out.println("--------------------------------------------");
+//                System.out.println("--------------------------------------------");
                 room.getActions().clear();
                 room.getActions().add("TAKE QUIZ(Q)");
                 room.getActions().add("TAKE WILD CARD QUIZ(W)");
-                System.out.println("\nSTATUS: " + player.getStatus());
-                System.out.println("\nACTIONS: " + room.getActions());
+                System.out.println("\nSTATUS: " +  ANSI_BLUE+player.getStatus().toString()+ANSI_RESET);
+//                System.out.println();
+                printAtXY(ANSI_PURPLE+"\nACTIONS: " + room.getActions()+ANSI_RESET,24,0);
             } else if (action.toUpperCase().equals(getActionLetters(nextClass))) {
                 player.getStatus().put("SCORE", "0");
                 return;
@@ -134,7 +122,26 @@ public class GameHelper {
         }
     }
 
+    //Room-Specific actions
+    private void roomSpecifics(Room room, Player player) {
+        if (room.getClassName().value().equals("JAVA")) {
+            try{
+                giveDuckRace();
+                clearScreen();
+                System.out.println("\nSTATUS: " +  ANSI_BLUE+player.getStatus().toString()+ANSI_RESET);
+            }
+            catch(InterruptedException e){
+                System.out.println(e.getMessage());
+            }
+        }
+        else if(room.getClassName().value().equals("JAVASCRIPT")){
+            room.getInstructor().setName("NELLY");
+            System.out.println("\nYOUR INSTRUCTOR IS "+ room.getInstructor().getName()+" NOW.");
+        }
+    }
+
     private void giveDuckRace() throws InterruptedException {
+        printAtXY("",40,0);
         List<String> classmates = new ArrayList(Arrays.asList(
                 "JOSH", "BRAD", "HIRO", "KG", "CODY", "GURU", "CHANDANA", "DHRUTI", "BRANDON", "DAVID",
                 "KUSHAL", "BRUCE", "KERVIN", "TAPAN", "DAEUN", "NEILL", "RJ", "TERRELL", "MICHAEL"));
@@ -158,46 +165,49 @@ public class GameHelper {
         Integer updatedScore=Integer.parseInt(curScore)+1;
         String newScore=String.valueOf(updatedScore);
         player.getStatus().put("SCORE",newScore);
-        System.out.println(ANSI_BLUE+player.getStatus().toString()+"\n"+ANSI_RESET);
+        //        System.out.println(ANSI_BLUE+player.getStatus().toString()+"\n"+ANSI_RESET);
+        printAtXY(ANSI_BLUE+player.getStatus().toString()+ANSI_RESET,28,100);
+
     }
 
     //Goes through asking the wildcard questions
     private void giveWildcardQuiz(Room room, Player player) {
         for (String question : room.getWildcard().keySet()) {
-            System.out.println();
+            printAtXY("",30,0);
             String answer = console.readLine(question + ": ");
             if (answer.toUpperCase().equals(room.getWildcard().get(question))) {
-                System.out.println("CORRECT!!!");
+                printAtXY("CORRECT!!!",35,100);
                 //Player score needs to be updated +1 in this case
                 updateScore(player);
             } else {
-                System.out.println("NOPE, ANSWER: "+room.getWildcard().get(question));
-                printAtXY(ANSI_BLUE+player.getStatus().toString()+ANSI_RESET);
+                printAtXY("NOPE, ANSWER: "+room.getWildcard().get(question),35,100);
+                //                System.out.println(ANSI_BLUE+player.getStatus().toString()+ANSI_RESET);
+                printAtXY(ANSI_BLUE+player.getStatus().toString()+ANSI_RESET,28,100);
+
             }
         }
     }
 
     //print in place
-    private void printAtXY(String string){
+    private void printAtXY(String string,int row, int column){
         char escCode = 0x1B;
-        int row = 25; int column = 100;
-        String curXY=String.format("%c[%dn",escCode,6);
-        System.out.println(curXY);
-        System.out.println(String.format("%c[%d;%df"+string,escCode,row,column));
-        System.out.print(String.format("%c[%d;%df",escCode,50,1));
+        System.out.print(String.format("%c[%d;%df"+"                                                                                            ",escCode,row,column));
+        System.out.print(String.format("%c[%d;%df"+string,escCode,row,column));
     }
+
     //Goes through asking quiz questions
     private void giveQuiz(Room room, Player player) {
         for (String question : room.getQuiz().keySet()) {
-            System.out.println();
+            printAtXY("",30,0);
             String answer = console.readLine(question + ": ");
             if (answer.toUpperCase().equals(room.getQuiz().get(question))) {
-                System.out.println("CORRECT!!!");
+                printAtXY("CORRECT!!!",35,100);
                 //Player score needs to be updated +1 in this case
                 updateScore(player);
             } else {
-                System.out.println("NOPE, ANSWER: " + room.getQuiz().get(question));
-                System.out.println(ANSI_BLUE+player.getStatus().toString()+"\n"+ANSI_RESET);
+                printAtXY("NOPE, ANSWER: " + room.getQuiz().get(question),35,100);
+                //                System.out.print(ANSI_BLUE+player.getStatus().toString()+"\n"+ANSI_RESET);
+                printAtXY(ANSI_BLUE+player.getStatus().toString()+ANSI_RESET,28,100);
             }
         }
     }
@@ -213,14 +223,15 @@ public class GameHelper {
         double scorePercentage = (score / (room.getQuiz().size() + room.getWildcard().size())) * 100.0;
         double roundedPercentage = Math.round(scorePercentage * 100.0) / 100.0;
         if (room.getActions().size() == 0 && scorePercentage > 60.0) {
-            System.out.println(ANSI_GREEN+"NICELY DONE, YOU PASSED WITH " + roundedPercentage + "%"+ANSI_RESET);
+            printAtXY(ANSI_GREEN+"NICELY DONE, YOU PASSED WITH " + roundedPercentage +" percent"+ANSI_RESET,40,0);
             room.getActions().add(nextClass);
         } else if (room.getActions().size() == 0 && scorePercentage <= 60.00) {
-            System.out.println(ANSI_RED+"YOU FAILED WITH " + roundedPercentage + "%"+ANSI_RESET);
+            printAtXY(ANSI_RED+"YOU FAILED WITH " + roundedPercentage + " percent"+ANSI_RESET,40,0);
             room.getActions().add("RETAKE CLASS(RE)");
             room.getActions().add(nextClass);
         }
-        System.out.println("\nACTIONS: " + room.getActions());
+//        System.out.println();
+        printAtXY(ANSI_PURPLE+"\nACTIONS: " + room.getActions()+ANSI_RESET,24,0);
     }
 
     //Get the substring between () of actions

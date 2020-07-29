@@ -264,3 +264,409 @@
                     getMessage() + " } ";
         }
     }
+
+
+        char escCode = 0x1B;
+        int row = 20; int column = 20;
+        System.out.print(String.format("%c[%d;%df",escCode,row,column));
+
+        System.out.println("#########");
+        /*Syntax for Users Input to Name, Gender, Age, Religion ...*/
+        Scanner input = new Scanner(System.in);
+
+        System.out.print((char)27+ "[40m"); // Change Background into BLACK...
+        System.out.print((char)27+ "[1m");   // Change Text Attribute into BRIGHT...
+        System.out.print((char)27+ "[32m"); // Change Text into GREEN...
+        System.out.print((char)27+ "[2J");    // CLEAR the SCREEN...
+
+      /* Informations or Questions to be Ask to the Users...
+      1.) PERSONAL INFORMATION */
+        System.out.println("*******************************************************************************");
+        System.out.println((char)27+ "[31m" + "*+++>                        PERSONAL INFORMATION                         <+++*");
+        System.out.println((char)27+ "[32m" + "*******************************************************************************");
+        System.out.print(" Name               : ");
+        System.out.print("\n Course             : ");
+        System.out.print("\n Age                : ");
+        System.out.print("\n Religion           : ");
+        // 2.) FAMILY BACKGROUND
+        System.out.println("\n*******************************************************************************");
+        System.out.println((char)27+ "[31m" + "*+++>                          FAMILY BACKGROUND                          <+++*");
+        System.out.println((char)27+ "[32m" + "*******************************************************************************");
+        System.out.print(" Mothers Name       : ");
+        System.out.print("\n Fathers Name       : ");
+        System.out.print("\n Mothers Occupation : ");
+        System.out.print("\n Fathers Occupation : ");
+        // 3.) EDUCATIONAL BCKGROUND
+        System.out.println("\n*******************************************************************************");
+        System.out.println((char)27+ "[31m" + "*+++>                       EDUCATIONAL BACKGROUND                        <+++*");
+        System.out.println((char)27+ "[32m" + "*******************************************************************************");
+        System.out.print(" Elementary         : ");
+        System.out.print("\n Address            : ");
+        System.out.print("\n High School        : ");
+        System.out.print("\n Address            : ");
+        System.out.print("\n College            : ");
+        System.out.print("\n Address            : ");
+        // 4.) CONTACT DETAILS
+        System.out.println("\n*******************************************************************************");
+        System.out.println((char)27+ "[31m" + "*+++>                           CONTACT DETAILS                           <+++*");
+        System.out.println((char)27+ "[32m" + "*******************************************************************************");
+        System.out.print(" Residential Address: ");
+        System.out.print("\n E-mail Address     : ");
+        System.out.print("\n Mobile Number      : ");
+        System.out.println("\n*******************************************************************************");
+
+        System.out.print((char)27+ "[37m");     // Set Text Color into WHITE...
+        // Ask input from the User for the Following:
+        System.out.print((char)27+ "[4;23f");     // a.) Name - Nme
+        String Nme = input.nextLine();
+        System.out.print((char)27+ "[5;23f");     // b.) Course - Crse
+        String Crse = input.nextLine();
+        System.out.print((char)27+ "[6;23f");     // c.) Age - Ag
+        double Ag = input.nextDouble();
+        input.nextLine();
+        System.out.print((char)27+ "[7;23f");    // d.) Religion - Rlgn
+        String Rlgn = input.nextLine();
+        System.out.print((char)27+ "[11;23f");   // e.) Mothers Name - MN
+        String MN = input.nextLine();
+        System.out.print((char)27+ "[12;23f");   // f.) Fathers Name - FN
+        String FN = input.nextLine();
+        System.out.print((char)27+ "[13;23f");   // g.) Mothers Occupation - MO
+        String MO = input.nextLine();
+        System.out.print((char)27+ "[14;23f");   // h.) Fathers Occupation - FO
+        String FO = input.nextLine();
+        System.out.print((char)27+ "[18;23f");   // i.) Elementary - E
+        String E = input.nextLine();
+        System.out.print((char)27+ "[19;23f");    // j.) Address - Add
+        String Add = input.nextLine();
+        System.out.print((char)27+ "[20;23f");   // k.) High School - HS
+        String HS = input.nextLine();
+        System.out.print((char)27+ "[21;23f");   // l.) Address - Add1
+        String Add1 = input.nextLine();
+        System.out.print((char)27+ "[22;23f");   // m.) College - C
+        String C = input.nextLine();
+        System.out.print((char)27+ "[23;23f");   // n.) Address - Add2
+        String Add2 = input.nextLine();
+        System.out.print((char)27+ "[27;23f");   // o.) Residential Address - RA
+        String RA = input.nextLine();
+        System.out.print((char)27+ "[28;23f");   // p.) E-mail Address - EA
+        String EA = input.nextLine();
+        System.out.print((char)27+ "[29;23f");   // q.) Mobile Number - MNum
+        long MNum = input.nextLong();
+        input.nextLine();
+
+        // Display The OverAll OUTPUT of the DATA Inputted...
+        System.out.print((char)27+ "[33;5f");
+        System.out.println("Press ENTER To Display the OUTPUT!");
+        System.out.print((char)27+ "[33;40f");
+        String Continue = input.nextLine();
+        System.out.print((char)27+ "[40m");   // Change Background into BLACK...
+        System.out.print((char)27+ "[1m");     // Change Text Attribute into BRIGHT...
+        System.out.print((char)27+ "[32m");   // Change Text into GREEN...
+        System.out.print((char)27+ "[2J");      // CLEAR the SCREEN...
+
+        System.out.println("*******************************************************************************");
+        System.out.println((char)27+ "[31m" + "*+++>                        PERSONAL INFORMATION                         <+++*");
+        System.out.println((char)27+ "[32m" + "*******************************************************************************");
+        System.out.print(" Name               : ");
+        System.out.print("\n Course             : ");
+        System.out.print("\n Age                : ");
+        System.out.print("\n Religion           : ");
+        // 2.) FAMILY BACKGROUND
+        System.out.println("\n*******************************************************************************");
+        System.out.println((char)27+ "[31m" + "*+++>                          FAMILY BACKGROUND                          <+++*");
+        System.out.println((char)27+ "[32m" + "*******************************************************************************");
+        System.out.print(" Mothers Name       : ");
+        System.out.print("\n Fathers Name       : ");
+        System.out.print("\n Mothers Occupation : ");
+        System.out.print("\n Fathers Occupation : ");
+        // 3.) EDUCATIONAL BCKGROUND
+        System.out.println("\n*******************************************************************************");
+        System.out.println((char)27+ "[31m" + "*+++>                       EDUCATIONAL BACKGROUND                        <+++*");
+        System.out.println((char)27+ "[32m" + "*******************************************************************************");
+        System.out.print(" Elementary         : ");
+        System.out.print("\n Address            : ");
+        System.out.print("\n High School        : ");
+        System.out.print("\n Address            : ");
+        System.out.print("\n College            : ");
+        System.out.print("\n Address            : ");
+        // 4.) CONTACT DETAILS
+        System.out.println("\n*******************************************************************************");
+        System.out.println((char)27+ "[31m" + "*+++>                           CONTACT DETAILS                           <+++*");
+        System.out.println((char)27+ "[32m" + "*******************************************************************************");
+        System.out.print(" Residential Address: ");
+        System.out.print("\n E-mail Address     : ");
+        System.out.print("\n Mobile Number      : ");
+        // Assign the Location of every OUTPUT...
+        System.out.print((char)27+ "[37m");
+        System.out.print((char)27+ "[4;23f");
+        System.out.print(Nme);
+        System.out.print((char)27+ "[5;23f");
+        System.out.print(Crse);
+        System.out.print((char)27+ "[6;23f");
+        System.out.print(Ag);
+        System.out.print((char)27+ "[7;23f");
+        System.out.print(Rlgn);
+        System.out.print((char)27+ "[11;23f");
+        System.out.print(MN);
+        System.out.print((char)27+ "[12;23f");
+        System.out.print(FN);
+        System.out.print((char)27+ "[13;23f");
+        System.out.print(MO);
+        System.out.print((char)27+ "[14;23f");
+        System.out.print(FO);
+        System.out.print((char)27+ "[18;23f");
+        System.out.print(E);
+        System.out.print((char)27+ "[19;23f");
+        System.out.print(Add);
+        System.out.print((char)27+ "[20;23f");
+        System.out.print(HS);
+        System.out.print((char)27+ "[21;23f");
+        System.out.print(Add1);
+        System.out.print((char)27+ "[22;23f");
+        System.out.print(C);
+        System.out.print((char)27+ "[23;23f");
+        System.out.print(Add2);
+        System.out.print((char)27+ "[27;23f");
+        System.out.print(RA);
+        System.out.print((char)27+ "[28;23f");
+        System.out.print(EA);
+        System.out.print((char)27+ "[29;23f");
+        System.out.print("+63" + MNum);
+        System.out.println((char)27+ "[32m");
+        System.out.println("*******************************************************************************\n\n\n");
+
+----------------------------------------------------------------------
+package com.game;
+
+import com.game.person.Player;
+import com.game.accesory.IceBreaker;
+import com.game.room.Room;
+//import com.game.tester.ConsoleAlt;
+
+import java.io.Console;
+
+import java.util.*;
+import java.util.concurrent.TimeUnit;
+
+import static com.game.GameEngine.clearScreen;
+import static com.game.accesory.MessageArt.*;
+
+public class GameHelper {
+
+    //INSTANCE VARIABLE
+    private final GameEngine gameEngine;
+    private Console console=System.console();
+//    private ConsoleAlt c= new ConsoleAlt();
+    private Map<String,String> roomSequence=new HashMap<>() {
+        {
+            put("LOBBY","ENTER JAVA(J)");
+            put("JAVA","ENTER JAVASCRIPT(JS)");
+            put("JAVASCRIPT","ENTER ALGORITHM(A)");
+            put("ALGORITHM","ENTER LINUX(L)");
+            put("LINUX","ENTER PYTHON(P)");
+            put("PYTHON","ENTER CAPSTONE(C)");
+            put("CAPSTONE","ENTER AMAZON(AMZ)");
+        }
+    };
+
+    //CONSTRUCTOR
+    public GameHelper(GameEngine gameEngine) {
+        this.gameEngine = gameEngine;
+    }
+
+    //Specific Lobby action cascade
+    void lobbyAction(Room room, Player player) {
+        room.printMap();
+//        System.out.println("\nSTATUS: " + player.getStatus());
+        //Display action options available to the player
+        System.out.println(ANSI_PURPLE+"\nACTIONS: " + room.getActions()+ANSI_RESET);
+        while (true) {
+            //Player response after reading the status and action options
+            String action = console.readLine("\nTYPE ACTION:");
+            //Only entrance to RoomJava is allowed at this point, all the other rooms are closed
+            if (action.toUpperCase().equals("J")) {
+                return;
+            } else if (action.isEmpty()) {
+                System.out.println("INVALID ENTRY!");
+
+            } else {
+                System.out.println("HINT: JAVA!");
+            }
+        }
+    }
+
+    //All classroom have similar actions(Quiz, Wildcard quiz) that the player has to go through
+    void classActions(Room room, Player player) {
+        room.printMap();
+        System.out.println("\nFIRST, LETS DO AN ICEBREAKER!!\n");
+        giveIceBreaker(room);
+//        System.out.println("\nSTATUS: " + player.getStatus());
+        //Display action options available to the player
+        System.out.println(ANSI_PURPLE+"\nACTIONS: " + room.getActions()+ANSI_RESET);
+        //Flag to ensure one entry to quiz and wildcard options
+        Map<String,Boolean> quizFlag=new HashMap<>(){
+            {
+                put("Q",Boolean.TRUE);
+                put("W",Boolean.TRUE);}
+        };
+        while (true) {
+            //Player response after reading the status and action options
+            String action = console.readLine("\nTYPE ACTION:");
+            //Get the next classroom name
+            String nextClass = getRoomSequence().get(room.getClassName().value());
+            //Present player with the java quiz once they pick quiz action
+            if (action.toUpperCase().equals("Q")&&quizFlag.get("Q")) {
+                //Go through the quiz questions
+                giveQuiz(room, player);
+                //Once the quiz is done, remove the quiz from the actions list
+                room.getActions().remove("TAKE QUIZ(Q)");
+                quizFlag.put("Q", Boolean.FALSE);
+                if (room.getClassName().value().equals("JAVA")) {
+                    try{
+                        giveDuckRace();
+                    }
+                    catch(InterruptedException e){
+                        System.out.println(e.getMessage());
+                    }
+                }
+                else if(room.getClassName().value().equals("JAVASCRIPT")){
+                    room.getInstructor().setName("NELLY");
+                    System.out.println("\nYOUR INSTRUCTOR IS "+ room.getInstructor().getName()+" NOW.");
+                }
+                //Once the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
+                checkEmptyAction(room, nextClass, player);
+            }
+            else if (action.toUpperCase().equals("W")&& quizFlag.get("W")) {
+                //Present player with wild card quiz if they pick that action
+                giveWildcardQuiz(room, player);
+                //Once the Wildcard quiz is done, remove it from the actions list
+                room.getActions().remove("TAKE WILD CARD QUIZ(W)");
+                quizFlag.put("W",Boolean.FALSE);
+                //If the action list is empty after both quiz is taken, the next class room is opened and an "ENTER .....Classroom" option is added to the action list
+                checkEmptyAction(room, nextClass, player);
+            } else if (action.toUpperCase().equals("RE")) {
+                player.getStatus().put("SCORE", "0");
+                quizFlag.put("Q",Boolean.TRUE);
+                quizFlag.put("W",Boolean.TRUE);
+                clearScreen();
+                System.out.println("--------------------------------------------");
+                room.getActions().clear();
+                room.getActions().add("TAKE QUIZ(Q)");
+                room.getActions().add("TAKE WILD CARD QUIZ(W)");
+                System.out.println("\nSTATUS: " + player.getStatus());
+                System.out.println(ANSI_PURPLE+"\nACTIONS: " + room.getActions()+ANSI_RESET);
+            } else if (action.toUpperCase().equals(getActionLetters(nextClass))) {
+                player.getStatus().put("SCORE", "0");
+                return;
+            } else {
+                System.out.println("INVALID ENTRY!");
+            }
+        }
+    }
+
+    private void giveDuckRace() throws InterruptedException {
+        List<String> classmates = new ArrayList(Arrays.asList(
+                "JOSH", "BRAD", "HIRO", "KG", "CODY", "GURU", "CHANDANA", "DHRUTI", "BRANDON", "DAVID",
+                "KUSHAL", "BRUCE", "KERVIN", "TAPAN", "DAEUN", "NEILL", "RJ", "TERRELL", "MICHAEL"));
+        System.out.println("TIME FOR A SHORT BREAK!!");
+        TimeUnit.SECONDS.sleep(1);
+        duckMessage();
+        TimeUnit.SECONDS.sleep(1);
+        duckMessageTwo();
+        TimeUnit.SECONDS.sleep(5);
+        Collections.shuffle(classmates);
+        System.out.println(classmates.get(0) + " WINS THE DUCK RACE!");
+        TimeUnit.SECONDS.sleep(3);
+    }
+
+    //Updates score of the student
+    //TODO revert the method to private after test
+    private void updateScore(Player player){
+        //Get current score
+        String curScore=player.getStatus().get("SCORE");
+        //Add 1 to curScore which is String number
+        Integer updatedScore=Integer.parseInt(curScore)+1;
+        String newScore=String.valueOf(updatedScore);
+        player.getStatus().put("SCORE",newScore);
+        System.out.println(ANSI_BLUE+player.getStatus().toString()+"\n"+ANSI_RESET);
+    }
+
+    //Goes through asking the wildcard questions
+    private void giveWildcardQuiz(Room room, Player player) {
+        for (String question : room.getWildcard().keySet()) {
+            System.out.println();
+            String answer = console.readLine(question + ": ");
+            if (answer.toUpperCase().equals(room.getWildcard().get(question))) {
+                System.out.println("CORRECT!!!");
+                //Player score needs to be updated +1 in this case
+                updateScore(player);
+            } else {
+                System.out.println("NOPE, ANSWER: "+room.getWildcard().get(question));
+                System.out.println(ANSI_BLUE+player.getStatus().toString()+ANSI_RESET);
+            }
+        }
+    }
+
+//    //print in place
+//    private void printAtXY(String string){
+//        char escCode = 0x1B;
+//        int row = 25; int column = 100;
+//        String curXY=String.format("%c[%dn",escCode,6);
+////        System.out.println("**************");
+////        System.out.println(curXY);
+////        System.out.println("_______________");
+//        System.out.print("Check   "+curXY+string);
+////        System.out.println(String.format("%c[%d;%df"+string,escCode,row,column));
+////        System.out.print(String.format("%c[%d;%df",escCode,25,1));
+//    }
+    //Goes through asking quiz questions
+    private void giveQuiz(Room room, Player player) {
+        for (String question : room.getQuiz().keySet()) {
+            System.out.println();
+            String answer = console.readLine(question + ": ");
+            if (answer.toUpperCase().equals(room.getQuiz().get(question))) {
+                System.out.println("CORRECT!!!");
+                //Player score needs to be updated +1 in this case
+                updateScore(player);
+            } else {
+                System.out.println("NOPE, ANSWER: " + room.getQuiz().get(question));
+                System.out.print(ANSI_BLUE+player.getStatus().toString()+"\n"+ANSI_RESET);
+            }
+        }
+    }
+
+    private void giveIceBreaker(Room room) {
+        console.readLine(room.getInstructor().getName() + ": " + IceBreaker.getIceBreaker() + ":");
+    }
+
+    //Checks if the room action list is empty, if true the next class entry option is added to the action list
+    //TODO revert the method to private after test
+    private void checkEmptyAction(Room room, String nextClass, Player player) {
+        double score = Double.parseDouble(player.getStatus().get("SCORE"));
+        double scorePercentage = (score / (room.getQuiz().size() + room.getWildcard().size())) * 100.0;
+        double roundedPercentage = Math.round(scorePercentage * 100.0) / 100.0;
+        if (room.getActions().size() == 0 && scorePercentage > 60.0) {
+            System.out.println(ANSI_GREEN+"NICELY DONE, YOU PASSED WITH " + roundedPercentage + "%"+ANSI_RESET);
+            room.getActions().add(nextClass);
+        } else if (room.getActions().size() == 0 && scorePercentage <= 60.00) {
+            System.out.println(ANSI_RED+"YOU FAILED WITH " + roundedPercentage + "%"+ANSI_RESET);
+            room.getActions().add("RETAKE CLASS(RE)");
+            room.getActions().add(nextClass);
+        }
+        System.out.println(ANSI_PURPLE+"\nACTIONS: " + room.getActions()+ANSI_RESET);
+    }
+
+    //Get the substring between () of actions
+    private String getActionLetters(String action){
+        return action.substring(action.indexOf("(")+1,action.indexOf(")"));
+    }
+
+    //ACCESSOR METHODS
+    public Map<String, String> getRoomSequence() {
+        return roomSequence;
+    }
+
+}
+-----------------------------------------------------------------------
+
+

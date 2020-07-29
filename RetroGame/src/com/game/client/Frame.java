@@ -1,9 +1,7 @@
 package com.game.client;
 
-//import com.game.accesory.Quiz;
+import com.game.accesory.Quiz;
 import com.game.person.Player;
-//import com.game.question.Quiz;
-import com.game.question.Quiz;
 import com.game.room.*;
 import org.w3c.dom.ls.LSOutput;
 
@@ -319,7 +317,11 @@ public class Frame {
     public void javaClass() {
 
         position = "JAVA";
+//        for(String question:java.getQuiz().keySet()){
+//            screenTextArea.setText(question);
+//        }
         screenTextArea.setText("You are in Java class with your instructor Jay. To move to next class you need to pass java class. \n\n What do you want to choose?");
+//        screenTextArea.setText(java.getQuiz().keySet().toString());
         choiceButton1.setText("Quiz");
         choiceButton2.setText("WildCard");
         choiceButton3.setText("Timer");
@@ -401,9 +403,7 @@ public class Frame {
             enterNameOnScreen1();
             gameScreen();
             currentScoreLocation();
-
-            // gameScreen();
-            // javaScreen3();
+//            javaClass();
 
         }
     }

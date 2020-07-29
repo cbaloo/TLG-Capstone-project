@@ -3,10 +3,9 @@ package com.game.client;
 import com.game.GameEngine;
 
 import java.io.Console;
-import java.io.File;
+//import com.game.tester.ConsoleAlt;
+
 import java.io.IOException;
-import java.nio.charset.StandardCharsets;
-import java.util.Scanner;
 
 public class GameConsole {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -28,6 +27,7 @@ public class GameConsole {
 
 
         Console console = System.console();
+//        ConsoleAlt c=new ConsoleAlt();
         if (console == null) {
             System.out.print("NO CONSOLE AVAILABLE");
             return;

@@ -20,15 +20,15 @@ public class WildCard {
     private static Map<String, String> wildCardJS = new HashMap<>() {
         {
             put("HOW MANY INSTRUCTORS DID WE HAVE FOR OUR JAVASCRIPT COURSE?(1/2)", "2");
-            put("WE HAVE SEEN ALMOST ALL THE ROOMS OF THIS CLASSMATES' APARTMENT?", "DAEUN");
             put("CLASSMATE WHO DOES NOT NEED AN ALARM CLOCK","NEILL");
+            put("CLASSMATE WHO LOVES DOING LAUNDRY?", "HIRO");
         }
     };
     private static Map<String, String> wildCardAlgorithm = new HashMap<>() {
         {
             put("TOM IS A MAN OF MAN OF MANY TALENTS? (TRUE/FALSE)", "TRUE");
             put("STEVE CAN DO NO WRONG?? (TRUE/FALSE)", "TRUE");
-            put("CLASSMATE WHO LOVES DOING LAUNDRY?", "HIRO");
+            put("WE HAVE SEEN ALMOST ALL THE ROOMS OF THIS CLASSMATES' APARTMENT?", "DAEUN");
         }
     };
     private static Map<String, String> wildCardLinux = new HashMap<>() {

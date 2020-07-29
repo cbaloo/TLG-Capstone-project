@@ -3,6 +3,7 @@ package com.game;
 import com.game.accesory.MessageArt;
 import com.game.person.Player;
 import com.game.room.*;
+//import com.game.tester.ConsoleAlt;
 
 import java.io.Console;
 import java.util.ArrayList;
@@ -15,6 +16,7 @@ public class GameEngine {
     private final GameHelper gameHelper = new GameHelper(this);
     private Player player;
     private Console console = System.console();
+//    private ConsoleAlt c= new ConsoleAlt();
     private List<Room> roomList = new ArrayList(Arrays.asList(
             new Lobby(),
             new RoomJava(),
@@ -33,7 +35,6 @@ public class GameEngine {
         player = getPlayer();
         //Display text in to set the scene for the player
         displayWelcomeMsg(player.getName());
-        //TODO Display the map of floor of TLG displayMap() Chandana
         //Game loop starts once the player opts to ENTER
         while (true) {
             if ("E".equals(console.readLine("\nTYPE ACTION:").toUpperCase())) {
@@ -86,7 +87,7 @@ public class GameEngine {
                 "\n\nGOOD LUCK AND GODSPEED." +
                 "\n\n--------------------------------------------");
         MessageArt.mapClean();
-        System.out.println("\n\nACTIONS:[ENTER(E)]");
+        System.out.println("\nACTIONS:[ENTER(E)]");
     }
 
     //Clears screen in the console
@@ -116,10 +117,6 @@ public class GameEngine {
         }
     }
 
-    //Display map function
-    private void displayMap() {
-
-    }
     //ACCESSOR METHODS
     public List<Room> getRoomList() {
         return roomList;
